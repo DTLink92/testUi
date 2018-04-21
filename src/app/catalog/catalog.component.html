@@ -1,3 +1,14 @@
-<p>
-  catalog works!
-</p>
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <mat-list fxFlex> <!-- fxFlex indica que sera tratado como una pieza de contenido-->
+    <mat-list-item *ngFor="let item of items">
+      <img mat-list-avatar src={{item.image}} alt={{item.name}}>
+      <h1 mat-line> {{item.name}} </h1>
+      <p mat-line>
+        <span> {{item.description}} </span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+</div>
