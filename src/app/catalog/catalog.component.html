@@ -25,4 +25,23 @@
 
   </div>
 
+  <div fxFlex *ngIf="selectedItem">
+    <mat-card>
+      <mat-card-title-group>
+        <mat-card-title>
+          <h3>{{selectedItem.name | uppercase}}</h3>
+        </mat-card-title>
+      </mat-card-title-group>
+      <img matCardImage src={{selectedItem.image}} alt={{selectedItem.name}}>
+      <mat-card-content>
+        <p>{{selectedItem.description}}</p>
+      </mat-card-content>
+      <mat-card-actions align="start">
+        <button mat-button (click)="onAction($event)">LIKE</button>
+        <button mat-button (click)="onAction($event)">SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+
 </div>
