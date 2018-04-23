@@ -6,7 +6,7 @@ const ITEM = {
   category: 'safety',
   label: 'ultra safe',
   price: '4.99',
-  description: 'Un casco de seguridad útil para proteger en ámbitos como la construcción, fabricas y otros'
+  description: 'Un casco de seguridad útil para proteger en ámbitos como la construcción, fabricas y otros',
   comments: [
     {
       rating: 5,
