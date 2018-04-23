@@ -1,0 +1,33 @@
+<div class="container"
+     fxLayout="row"
+     fxLayout.sm="column"
+     fxLayout.xs="column"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div fxFlex="40">
+
+    <div fxFlex *ngIf="item">
+      <mat-card>
+        <mat-card-title-group>
+          <mat-card-title>
+            <h3>{{item.name | uppercase}}</h3>
+          </mat-card-title>
+        </mat-card-title-group>
+        <img matCardImage src={{item.image}} alt={{item.name}}>
+        <mat-card-content>
+          <p>{{item.description}}</p>
+        </mat-card-content>
+        <mat-card-actions align="start">
+          <button mat-button (click)="onAction($event)">LIKE</button>
+          <button mat-button (click)="onAction($event)">SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+
+  <div fxFlex="40">
+    Display item comments here
+  </div>
+</div>

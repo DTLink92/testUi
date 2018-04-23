@@ -38,12 +38,14 @@ import {
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CatalogComponent} from './catalog/catalog.component';
+import {ItemDetailComponent} from './item-detail/item-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogComponent
+    CatalogComponent,
+    ItemDetailComponent
   ],
   imports: [
     BrowserModule,
