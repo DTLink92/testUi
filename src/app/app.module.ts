@@ -39,6 +39,7 @@ import {
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {CatalogComponent} from './catalog/catalog.component';
 import {ItemDetailComponent} from './item-detail/item-detail.component';
+import {ItemService} from './services/item.service';
 
 
 @NgModule({
@@ -58,7 +59,9 @@ import {ItemDetailComponent} from './item-detail/item-detail.component';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+    ItemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
