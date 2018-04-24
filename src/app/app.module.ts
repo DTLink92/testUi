@@ -42,6 +42,9 @@ import {ItemDetailComponent} from './item-detail/item-detail.component';
 import {ItemService} from './services/item.service';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
+import {AboutComponent} from './about/about.component';
+import {HomeComponent} from './home/home.component';
+import {ContactComponent} from './contact/contact.component';
 
 
 @NgModule({
@@ -50,7 +53,10 @@ import {FooterComponent} from './footer/footer.component';
     CatalogComponent,
     ItemDetailComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent,
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
