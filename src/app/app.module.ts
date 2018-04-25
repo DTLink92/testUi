@@ -47,6 +47,7 @@ import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {EmployeeService} from './services/employee.service';
+import {LoginComponent} from './login/login.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import {EmployeeService} from './services/employee.service';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +77,9 @@ import {EmployeeService} from './services/employee.service';
   providers: [
     ItemService,
     EmployeeService
+  ],
+  entryComponents: [
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })
