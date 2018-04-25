@@ -61,6 +61,13 @@
 
   <div fxFlex>
     <h2>Employees </h2>
-    Mostrar aqui los empleados
+    <mat-list>
+      <mat-list-item *ngFor="let employee of employees">
+        <img matListAvatar src={{employee.image}} alt={{employee.name}}>
+        <h3 matLine>{{employee.name}}</h3>
+        <h3 matLine>{{employee.jobPosition}}</h3>
+        <h3 matLine>{{employee.jobDescription}}</h3>
+      </mat-list-item>
+    </mat-list>
   </div>
 </div>
