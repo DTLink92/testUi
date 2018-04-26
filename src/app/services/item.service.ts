@@ -11,16 +11,16 @@ export class ItemService {
   constructor() {
   }
 
-  getItems(): Promise<Item[]> {
-    return Observable.of(ITEMS).delay(2000).toPromise();
+  getItems(): Observable<Item[]> {
+    return Observable.of(ITEMS).delay(2000);
   }
 
-  getItem(id: number): Promise<Item> {
-    return Observable.of(ITEMS.filter((item) => item.id === id)[0]).delay(2000).toPromise();
+  getItem(id: number): Observable<Item> {
+    return Observable.of(ITEMS.filter((item) => item.id === id)[0]).delay(2000);
   }
 
-  getFeaturedItem(): Promise<Item> {
-    return Observable.of(ITEMS.filter((item) => item.featured)[0]).delay(2000).toPromise();
+  getFeaturedItem(): Observable<Item> {
+    return Observable.of(ITEMS.filter((item) => item.featured)[0]).delay(2000);
   }
 
 }
