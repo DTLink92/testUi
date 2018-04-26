@@ -1,6 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Item} from '../shared/item';
 import {ITEMS} from '../shared/items';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/delay';
 
 @Injectable()
 export class ItemService {
@@ -9,15 +12,15 @@ export class ItemService {
   }
 
   getItems(): Promise<Item[]> {
-    return Promise.resolve(ITEMS);
+    return Observable.of(ITEMS).delay(2000).toPromise();
   }
 
   getItem(id: number): Promise<Item> {
-    return Promise.resolve(ITEMS.filter((item) => item.id === id)[0]);
+    return Observable.of(ITEMS.filter((item) => item.id === id)[0]).delay(2000).toPromise();
   }
 
   getFeaturedItem(): Promise<Item> {
-    return Promise.resolve(ITEMS.filter((item) => item.featured)[0]);
+    return Observable.of(ITEMS.filter((item) => item.featured)[0]).delay(2000).toPromise();
   }
 
 }
