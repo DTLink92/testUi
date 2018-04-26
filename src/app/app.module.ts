@@ -48,7 +48,7 @@ import {ContactComponent} from './contact/contact.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {EmployeeService} from './services/employee.service';
 import {LoginComponent} from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -74,7 +74,8 @@ import {FormsModule} from '@angular/forms';
     BrowserAnimationsModule,
     FlexLayoutModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ItemService,
