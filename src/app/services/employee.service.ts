@@ -8,15 +8,15 @@ export class EmployeeService {
   constructor() {
   }
 
-  getEmployees(): Employee[] {
-    return EMPLOYEES;
+  getEmployees(): Promise<Employee[]> {
+    return Promise.resolve(EMPLOYEES);
   }
 
-  getEmployee(id: number): Employee {
-    return EMPLOYEES.filter((employee) => employee.id === id)[0];
+  getEmployee(id: number): Promise<Employee> {
+    return Promise.resolve(EMPLOYEES.filter((employee) => employee.id === id)[0]);
   }
 
-  getFeaturedEmployee(): Employee {
-    return EMPLOYEES.filter((employee) => employee.featured)[0];
+  getFeaturedEmployee(): Promise<Employee> {
+    return Promise.resolve(EMPLOYEES.filter((employee) => employee.featured)[0]);
   }
 }
