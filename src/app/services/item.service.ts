@@ -23,4 +23,9 @@ export class ItemService {
     return Observable.of(ITEMS.filter((item) => item.featured)[0]).delay(2000);
   }
 
+  getItemIds(): Observable<number[]> {
+    return Observable.of(ITEMS.map(item => item.id));
+  }
+
+
 }

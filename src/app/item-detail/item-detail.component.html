@@ -19,16 +19,21 @@
           <p>{{item.description}}</p>
         </mat-card-content>
         <mat-card-actions align="start">
+          <button mat-button [routerLink]="['/itemdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span>
+          </button>
           <button mat-button (click)="goBack()">BACK</button>
           <button mat-button>LIKE</button>
           <button mat-button>SHARE</button>
+          <span class="flex-spacer"></span>
+          <button mat-button [routerLink]="['/itemdetail', next]"><span class="fa fa-chevron-right fa-lg"></span>
+          </button>
         </mat-card-actions>
       </mat-card>
     </div>
 
   </div>
 
-  <div fxFlex="40">
+  <div fxFlex="40" *ngIf="item">
     <mat-list dense>
       <mat-list-item *ngFor="let comment of item.comments">
         <p matLine>{{comment.comment}}</p>
