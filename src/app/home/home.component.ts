@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Item} from '../shared/item';
-import {ItemService} from '../services/item.service';
 import {Employee} from '../shared/employee';
 import {EmployeeService} from '../services/employee.service';
+import {ItemService} from '../services/item.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +15,17 @@ export class HomeComponent implements OnInit {
   employee: Employee;
 
   constructor(private itemService: ItemService,
-              private employeeService: EmployeeService) {
+              private employeeService: EmployeeService,
+              public domSanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
-    this.itemService.getFeaturedItem().subscribe(item => this.item = item);
-    this.employeeService.getFeaturedEmployee().subscribe(employee => this.employee = employee);
+    this.employeeService.getFeaturedEmployee().subscribe(employee => {
+      this.employee = employee;
+    });
+    this.itemService.getFeaturedItem().subscribe(item => {
+      this.item = item;
+    });
   }
 
 }

@@ -1,31 +1,46 @@
 import {Injectable} from '@angular/core';
 import {Item} from '../shared/item';
-import {ITEMS} from '../shared/items';
+
+import {baseURL} from '../shared/baseurl';
+
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/delay';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class ItemService {
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  getItems(): Observable<Item[]> {
-    return Observable.of(ITEMS).delay(2000);
+  getItems(): Observable<any> {
+    return this.http.get(baseURL + 'items')
+      .map((res) => {
+        return res;
+      });
   }
 
   getItem(id: number): Observable<Item> {
-    return Observable.of(ITEMS.filter((item) => item.id === id)[0]).delay(2000);
+    return this.http.get<Item>(baseURL + 'items/' + id)
+      .map(res => {
+        return res;
+      });
   }
 
   getFeaturedItem(): Observable<Item> {
-    return Observable.of(ITEMS.filter((item) => item.featured)[0]).delay(2000);
+    return this.http.get<Item>(baseURL + 'items?featured=true')
+      .map(res => {
+        return res[0];
+      });
   }
 
   getItemIds(): Observable<number[]> {
-    return Observable.of(ITEMS.map(item => item.id));
+    return this.getItems()
+      .map(items => {
+        return items.map(item => item.id);
+      });
   }
-
-
 }

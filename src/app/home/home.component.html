@@ -12,7 +12,8 @@
         <h3>{{item.name | uppercase}}</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src={{item.image}} alt={{item.name}}>
+    <!--<img mat-card-image [src]="domSanitizer.bypassSecurityTrustUrl(item.image)"/>-->
+    <img mat-card-image data-src="data:image/JPEG;base64,{{item.image}}">
     <mat-card-content>
       <p>{{item.description}}
       </p>
@@ -26,7 +27,7 @@
         <h3>{{employee.name | uppercase}}</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src={{employee.image}} alt={{employee.name}}>
+    <img mat-card-image data-src="data:image/JPEG;base64,{{employee.image}}">
     <mat-card-content>
       <p>{{employee.jobPosition}}
       </p>
@@ -34,6 +35,4 @@
       </p>
     </mat-card-content>
   </mat-card>
-
-
 </div>

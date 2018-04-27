@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Item} from '../shared/item';
 import {ItemService} from '../services/item.service';
 
@@ -9,10 +9,9 @@ import {ItemService} from '../services/item.service';
 })
 export class CatalogComponent implements OnInit {
   items: Item[];
-
   selectedItem: Item;
 
-  constructor(private itemService: ItemService) {
+  constructor(private itemService: ItemService, @Inject('BaseURL') public BaseURL) {
   }
 
   ngOnInit() {

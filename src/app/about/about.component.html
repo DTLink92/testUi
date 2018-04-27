@@ -60,10 +60,10 @@
 
 
   <div fxFlex>
-    <h2>Employees </h2>
+    <h2>Employees</h2>
     <mat-list>
       <mat-list-item *ngFor="let employee of employees">
-        <img matListAvatar src={{employee.image}} alt={{employee.name}}>
+        <img matListAvatar data-src="data:image/JPEG;base64,{{employee.image}}" alt={{employee.name}}>
         <h3 matLine>{{employee.name}}</h3>
         <h3 matLine>{{employee.jobPosition}}</h3>
         <h3 matLine>{{employee.jobDescription}}</h3>
