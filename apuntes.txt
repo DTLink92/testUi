@@ -1,0 +1,11 @@
+ng g componet Catalog
+Componet -> Item 
+
+
+0.- crear el model en shared el que corresponda 
+1.- catalog.component.ts -> generar la tabla ... lists 
+2.- template 
+3.-  ng g service services/item
+ punto de integracion entre angular y spring 
+
+ng g module app-routing 
