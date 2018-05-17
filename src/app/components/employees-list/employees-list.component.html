@@ -1,0 +1,18 @@
+<div>
+  <div *ngFor="let employee of employees">//[routerLink]="['/itemdetail', employee.id]">
+    <div class="listed-employee">
+      <div class="field">
+        <span>Nombre: </span><span>{{employee.firstName}}</span>
+      </div>
+      <div class="field">
+        <span>Apellido: </span><span>{{employee.lastName}}</span>
+      </div>
+      <div class="field">
+        <span>CI: </span><span>{{employee.ci}}</span>
+      </div>
+      <div class="field">
+        <span>Cargo: </span><span>Cargo</span>
+      </div>
+    </div>
+  </div>
+</div>
