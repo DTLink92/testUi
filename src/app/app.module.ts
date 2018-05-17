@@ -48,10 +48,13 @@ import {AboutComponent} from './about/about.component';
 import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
-import {EmployeeService} from './services/employee.service';
+// import {EmployeeService} from './services/employee.service';
+import {EmployeeService} from './services/employeeService/employee-service.service';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { EmployeeListComponent } from './components/employees-list/employees-list.component';
+import { EmployeeRegisterFormComponent } from './components/employee-register-form/employee-register-form.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,9 @@ import {HttpClientModule} from '@angular/common/http';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    EmployeeListComponent,
+    EmployeeRegisterFormComponent
   ],
   imports: [
     BrowserModule,
