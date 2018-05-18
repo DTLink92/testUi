@@ -7,12 +7,25 @@ import {ItemDetailComponent} from '../item-detail/item-detail.component';
 import {EmployeeListComponent} from '../components/employees-list/employees-list.component';
 import {EmployeeRegisterFormComponent} from '../components/employee-register-form/employee-register-form.component';
 import {EmployeeComponent} from '../components/employee/employee.component';
+import {PositionComponent} from '../position/position.component';
+import {PositionListComponent} from '../position-list/position-list.component';
+import {PositionTypeEvaluatorComponent} from '../position-type-evaluator/position-type-evaluator.component';
+import {PositionTypeEvaluatorListComponent} from '../position-type-evaluator-list/position-type-evaluator-list.component';
+import {PositionTypeEvaluatorEditComponent} from '../position-type-evaluator-edit/position-type-evaluator-edit.component';
+
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'about', component: AboutComponent},
+  {path: 'position-edit/:id', component: PositionComponent},
+  {path: 'position-add', component: PositionComponent},
+  {path: 'positionList', component: PositionListComponent},
+  {path: 'positionTypeEvaluator', component: PositionTypeEvaluatorComponent},
+  {path: 'positionTypeEvaluatorList', component: PositionTypeEvaluatorListComponent},
+  {path: 'type-evaluator-edit/:id', component: PositionTypeEvaluatorEditComponent},
+  {path: 'type-evaluator-add', component: PositionTypeEvaluatorEditComponent},
   {path: 'itemdetail/:id', component: ItemDetailComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'employees-list', component: EmployeeListComponent},

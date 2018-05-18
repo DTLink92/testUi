@@ -51,6 +51,13 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { PositionComponent } from './position/position.component';
+import { PositionService} from './services/position.service';
+import { PositionTypeEvaluatorService} from './services/position-type-evaluator.service';
+import { PositionTypeEvaluatorComponent } from './position-type-evaluator/position-type-evaluator.component';
+import { PositionTypeEvaluatorListComponent } from './position-type-evaluator-list/position-type-evaluator-list.component';
+import { PositionTypeEvaluatorEditComponent } from './position-type-evaluator-edit/position-type-evaluator-edit.component';
+import { PositionListComponent } from './position-list/position-list.component';
 
 // Service
 import {EmployeeService} from './services/employeeService/employee-service.service';
@@ -70,6 +77,11 @@ import { EmployeeComponent } from './components/employee/employee.component';
     AboutComponent,
     HomeComponent,
     ContactComponent,
+    PositionComponent,
+    PositionTypeEvaluatorComponent,
+    PositionTypeEvaluatorListComponent,
+    PositionTypeEvaluatorEditComponent,
+    PositionListComponent
     LoginComponent,
     EmployeeListComponent,
     EmployeeRegisterFormComponent,
@@ -92,6 +104,8 @@ import { EmployeeComponent } from './components/employee/employee.component';
     ItemService,
     EmployeeService,
     ContractService,
+    PositionService,
+    PositionTypeEvaluatorService,
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
