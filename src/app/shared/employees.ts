@@ -1,7 +1,7 @@
 import {Employee} from './employee';
 
 export const EMPLOYEES: Employee[] = [
-  {
+  /*{
     id: 0,
     name: 'Henry Cavill',
     image: '/assets/images/henry.jpg',
@@ -42,5 +42,5 @@ export const EMPLOYEES: Employee[] = [
     jobDescription: 'Debe garantizar que la experiencia del usuario al estar frente al producto de software sea lo mas agradable ' +
     'possible, cuidando que la usabilidad del producto sea maximizada, debe diseñar los flujos proponiendo nuevos procesos que agilicen ' +
     'los actuales antes de la implementacion de las nuevas funcionalidades.'
-  }
+  }*/
 ];
