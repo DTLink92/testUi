@@ -48,13 +48,17 @@ import {AboutComponent} from './about/about.component';
 import {HomeComponent} from './home/home.component';
 import {ContactComponent} from './contact/contact.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
-// import {EmployeeService} from './services/employee.service';
-import {EmployeeService} from './services/employeeService/employee-service.service';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+
+// Service
+import {EmployeeService} from './services/employeeService/employee-service.service';
+import {ContractService} from './services/contractService/contract-service.service';
+// Components Imports
 import { EmployeeListComponent } from './components/employees-list/employees-list.component';
 import { EmployeeRegisterFormComponent } from './components/employee-register-form/employee-register-form.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,8 @@ import { EmployeeRegisterFormComponent } from './components/employee-register-fo
     ContactComponent,
     LoginComponent,
     EmployeeListComponent,
-    EmployeeRegisterFormComponent
+    EmployeeRegisterFormComponent,
+    EmployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +91,7 @@ import { EmployeeRegisterFormComponent } from './components/employee-register-fo
   providers: [
     ItemService,
     EmployeeService,
+    ContractService,
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [

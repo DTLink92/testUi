@@ -1,62 +1,61 @@
-<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
-  <h1>Register Employee</h1>
-  <form>
-    <div class="form-group">
-      <label for="firstName">Name</label>
-      <input matInput [(ngModel)]="data.firstName"
-             type="text"
-             placeholder="" name="firstName" #firstName="ngModel" id="firstName"required>
-    </div>
-    <div class="form-group">
-      <label for="lastName">Last Name</label>
-      <input [(ngModel)]="data.lastName" type="text" class="form-control" id="lastName" required>
-    </div>
+<div class="adv-category-edit-form">
+  <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+    <h1>Register Employee</h1>
+      <div class="form-group">
+        <label for="firstName">Name</label>
+        <input matInput [(ngModel)]="employee.firstName"
+               type="text"
+               placeholder="" name="firstName" #firstName="ngModel" id="firstName"required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input [(ngModel)]="employee.lastName" name="lastName" type="text" class="form-control" id="lastName" required>
+      </div>
 
-    <div class="form-group">
-      <label for="ci">Ci</label>
-      <input [(ngModel)]="data.ci" type="number" class="form-control" id="ci" required>
-    </div>
+      <div class="form-group">
+        <label for="ci">Ci</label>
+        <input [(ngModel)]="employee.ci" name="ci" type="number" class="form-control" id="ci" required>
+      </div>
 
-    <div class="form-group">
-      <label for="phoneNumber">Phone Number</label>
-      <input [(ngModel)]="data.phoneNumber" type="number" class="form-control" id="phoneNumber" required>
-    </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input [(ngModel)]="employee.phoneNumber" name="phoneNumber"  type="number" class="form-control" id="phoneNumber" required>
+      </div>
 
-    <div class="form-group">
-      <label for="civilState">Civil State</label>
-      <input [(ngModel)]="data.civilState" type="text" class="form-control" id="civilState" required>
-    </div>
+      <div class="form-group">
+        <label for="civilState">Civil State</label>
+        <input [(ngModel)]="employee.civilState" name="civilState" type="text" class="form-control" id="civilState" required>
+      </div>
 
-    <div class="form-group">
-      <label for="depAmount">Dependency Amount</label>
-      <input [(ngModel)]="data.depAmount" type="number" class="form-control" id="depAmount">
-    </div>
+      <div class="form-group">
+        <label for="depAmount">Dependency Amount</label>
+        <input [(ngModel)]="employee.dependenciesAmount" name="depAmount" type="number" class="form-control" id="depAmount">
+      </div>
 
-    <div class="form-group">
-      <label for="experience">Experience</label>
-      <textarea id="experience" cols="80" rows="10" [(ngModel)]="data.experience" ></textarea>
-    </div>
+      <div class="form-group">
+        <label for="experience">Experience</label>
+        <textarea id="experience" cols="80" rows="10" [(ngModel)]="employee.experience" name="experience"></textarea>
+      </div>
 
-    <div class="form-group">
-      <label for="birthDate">BirthDate</label>
-      <input [(ngModel)]="data.birthDate" type="date" class="form-control" id="birthDate" required>
-    </div>
+      <div class="form-group">
+        <label for="birthDate">BirthDate</label>
+        <input [(ngModel)]="employee.birthDate" name="birthdate" type="date" class="form-control" id="birthDate" required>
+      </div>
 
-    <div class="form-group">
-      <label for="positions">Position</label>
-      <select [(ngModel)]="data.positionId" class="form-control" id="positions" required name="positionId">
-        <option *ngFor="let position of allPositions" [value]="position.id">{{position.id}}</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label>Position</label>
+        <select [(ngModel)]="data.positionId">
+          <option *ngFor="let position of allPositions" [ngValue]="position.id">{{position.name}}</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label for="profileImage">Picture</label>
-      <input type="file" [(ngModel)]="data.profileImage" class="form-control" id="profileImage" (change)="handleFileSelect($event)">
-    </div>
+      <div *ngIf="imageData">
+        <img [src]="imageData">
+      </div>
+      <div>
+        <input type="file" id="logo-icon-button" ngModel name="profileImage" (change)="previewImage($event)">
+      </div>
 
-    <img height="200px" [(ngModel)]= "data.profileImage" data-src="data:image/png;base64,{{data.profileImage}}">
-
-    <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
-
+      <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
   </form>
-</form>
+</div>

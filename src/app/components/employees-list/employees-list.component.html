@@ -1,5 +1,5 @@
 <div>
-  <div *ngFor="let employee of employees">//[routerLink]="['/itemdetail', employee.id]">
+  <div *ngFor="let employee of employees" [routerLink]="['/employee', employee.id]">
     <div class="listed-employee">
       <div class="field">
         <span>Nombre: </span><span>{{employee.firstName}}</span>
