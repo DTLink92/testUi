@@ -1,18 +1,24 @@
-<div>
-  <div *ngFor="let employee of employees" [routerLink]="['/employee', employee.id]">
-    <div class="listed-employee">
-      <div class="field">
-        <span>Nombre: </span><span>{{employee.firstName}}</span>
-      </div>
-      <div class="field">
-        <span>Apellido: </span><span>{{employee.lastName}}</span>
-      </div>
-      <div class="field">
-        <span>CI: </span><span>{{employee.ci}}</span>
-      </div>
-      <div class="field">
-        <span>Cargo: </span><span>Cargo</span>
-      </div>
-    </div>
-  </div>
+<div class="col col-lg-1"></div>
+<div class="col col-lg-10 employee-list">
+  <h1>Lista de Empleados</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="employee-list-header">Nombre</th>
+        <th class="employee-list-header">Apellido</th>
+        <th class="employee-list-header">Ci</th>
+        <th class="employee-list-header">Cargo</th>
+        <th class="employee-list-header">Supervisor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="employee-list-item" *ngFor="let employee of employees" [routerLink]="['/employee', employee.id]">
+        <th class="employee-list-item-column">{{employee.firstName}}</th>
+        <th class="employee-list-item-column">{{employee.lastName}}</th>
+        <th class="employee-list-item-column">{{employee.ci}}</th>
+        <th class="employee-list-item-column">{{employee.positionName}}</th>
+        <th class="employee-list-item-column">{{employee.supervisorName}}</th>
+      </tr>
+    </tbody>
+  </table>
 </div>

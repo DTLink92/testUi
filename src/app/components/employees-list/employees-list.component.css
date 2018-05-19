@@ -16,7 +16,26 @@ span {
   margin: 5px;
   box-sizing: border-box;
 }
-
-.listed-employee:hover {
-  border: 3px solid blue;
+.employee-list {
+  height: 600px;
+  overflow-y: auto;
 }
+
+.employee-list .employee-list-item:hover {
+  background-color: #308C88;
+  color: white;
+}
+
+.employee-list-item-column {
+  border: 1px solid white;
+  box-sizing: border-box;
+}
+
+.employee-list-header {
+  background-color: #235655;
+  border: 1px solid white;
+  box-sizing: border-box;
+  color: white;
+}
+
+
