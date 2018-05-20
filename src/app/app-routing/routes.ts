@@ -7,6 +7,7 @@ import {ItemDetailComponent} from '../item-detail/item-detail.component';
 import {EmployeeListComponent} from '../components/employees-list/employees-list.component';
 import {EmployeeRegisterFormComponent} from '../components/employee-register-form/employee-register-form.component';
 import {EmployeeComponent} from '../components/employee/employee.component';
+import {TypeEquipmentComponent} from '../type-equipment/type-equipment.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -17,5 +18,6 @@ export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'employees-list', component: EmployeeListComponent},
   {path: 'employee/:id', component: EmployeeComponent},
-  {path: 'employee-creation-form', component: EmployeeRegisterFormComponent}
-];
+  {path: 'employee-creation-form', component: EmployeeRegisterFormComponent},
+  {path: 'type-equipment', component: TypeEquipmentComponent}
+  ];
