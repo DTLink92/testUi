@@ -70,6 +70,11 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { PositionRecruitmentProfileComponent } from './position-recruitment-profile/position-recruitment-profile.component';
 import { PositionRecruitmentProfileListComponent } from './position-recruitment-profile-list/position-recruitment-profile-list.component';
 import { TypeEquipmentComponent } from './type-equipment/type-equipment.component';
+import { AssignEquipmentComponent } from './assign-equipment/assign-equipment.component';
+import { EmployeeListAssignequipComponent } from './employee-list-assignequip/employee-list-assignequip.component';
+import { EmployeeListWithequipComponent } from './employee-list-withequip/employee-list-withequip.component';
+import { ProjectListAssignequipComponent } from './project-list-assignequip/project-list-assignequip.component';
+import {AssignEquipmentService} from './services/assign-equipment.service';
 
 @NgModule({
   declarations: [
@@ -93,7 +98,11 @@ import { TypeEquipmentComponent } from './type-equipment/type-equipment.componen
     TypeEquipmentComponent,
     EmployeeComponent,
     PositionRecruitmentProfileComponent,
-    PositionRecruitmentProfileListComponent
+    PositionRecruitmentProfileListComponent,
+    AssignEquipmentComponent,
+    EmployeeListAssignequipComponent,
+    EmployeeListWithequipComponent,
+    ProjectListAssignequipComponent
   ],
   imports: [
     BrowserModule,
@@ -115,6 +124,7 @@ import { TypeEquipmentComponent } from './type-equipment/type-equipment.componen
     PositionService,
     PositionTypeEvaluatorService,
     PositionRecruitmentProfileService,
+    AssignEquipmentService,
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
