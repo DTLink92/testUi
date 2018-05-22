@@ -13,6 +13,7 @@ import {PositionTypeEvaluatorComponent} from '../position-type-evaluator/positio
 import {PositionTypeEvaluatorListComponent} from '../position-type-evaluator-list/position-type-evaluator-list.component';
 import {PositionTypeEvaluatorEditComponent} from '../position-type-evaluator-edit/position-type-evaluator-edit.component';
 
+import {TypeEquipmentComponent} from '../type-equipment/type-equipment.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -30,5 +31,6 @@ export const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'employees-list', component: EmployeeListComponent},
   {path: 'employee/:id', component: EmployeeComponent},
-  {path: 'employee-creation-form', component: EmployeeRegisterFormComponent}
-];
+  {path: 'employee-creation-form', component: EmployeeRegisterFormComponent},
+  {path: 'type-equipment', component: TypeEquipmentComponent}
+  ];

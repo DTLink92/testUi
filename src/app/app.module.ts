@@ -1,3 +1,5 @@
+
+
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {baseURL} from './shared/baseurl';
@@ -66,6 +68,7 @@ import {ContractService} from './services/contractService/contract-service.servi
 import { EmployeeListComponent } from './components/employees-list/employees-list.component';
 import { EmployeeRegisterFormComponent } from './components/employee-register-form/employee-register-form.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { TypeEquipmentComponent } from './type-equipment/type-equipment.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +88,8 @@ import { EmployeeComponent } from './components/employee/employee.component';
     LoginComponent,
     EmployeeListComponent,
     EmployeeRegisterFormComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    TypeEquipmentComponent
   ],
   imports: [
     BrowserModule,
