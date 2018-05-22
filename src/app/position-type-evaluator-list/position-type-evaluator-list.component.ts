@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import { PositionTypeEvaluatorService} from '../services/position-type-evaluator.service';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
 @Component({
   selector: 'app-position-type-evaluator-list',

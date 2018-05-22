@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PositionService} from '../services/position.service';
-
+import {PositionRecruitmentProfileService} from '../services/position-recruitment-profile.service';
+import {Position} from '../shared/position';
 @Component({
   selector: 'app-position-list',
   templateUrl: './position-list.component.html',
@@ -8,23 +9,13 @@ import {PositionService} from '../services/position.service';
 })
 export class PositionListComponent implements OnInit {
 
-  private page: number = 0;
-  private positions: Array<any>;
+  positions: Array<Position>;
 
-  constructor(private positionService: PositionService) { }
+  constructor(private positionService: PositionService, private profileService: PositionRecruitmentProfileService) { }
 
   ngOnInit() {
-    this.getPositions();
-  }
-
-  getPositions() {
     this.positionService.getAll().subscribe(data => {
       this.positions = data;
-      console.log(data);
-    },
-      (error) => {
-      console.log(error.error.message);
-      });
+    });
   }
-
 }

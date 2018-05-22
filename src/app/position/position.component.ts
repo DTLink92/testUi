@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PositionService } from '../services/position.service';
+import {PositionRecruitmentProfileService} from '../services/position-recruitment-profile.service';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -15,9 +16,12 @@ export class PositionComponent implements OnInit, OnDestroy {
   position: any = {};
   sub: Subscription;
   private positions: Array<any>;
+  isParent: boolean;
+
+  profiles: Array<any>;
 
   constructor(private route: ActivatedRoute, private router: Router
-    , private positionService: PositionService) { }
+    , private positionService: PositionService, private profileService: PositionRecruitmentProfileService) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
@@ -26,18 +30,27 @@ export class PositionComponent implements OnInit, OnDestroy {
         this.positionService.getType(id).subscribe((position: any) => {
           if (position) {
             this.position = position;
-
-            this.positionService.getAll().subscribe(data => {
-                this.positions = data;
-                console.log(data);
-              },
-              (error) => {
-                console.log(error.error.message);
-              });
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
             this.gotoList();
           }
+        });
+
+        this.positionService.getAll().subscribe(data => {
+            this.positions = data;
+            for (const pos of data) {
+              if (pos.higherWorkPosition + '' === id) {
+                this.isParent = true;
+                break;
+              }
+            }
+            console.log(data);
+          },
+          (error) => {
+            console.log(error.error.message);
+          });
+        this.profileService.getProfileByPositionId(id).subscribe(data => {
+          this.profiles = data;
         });
       }
     });

@@ -6,4 +6,6 @@ export interface Position {
   process: string;
   purpose: string;
   higherWorkPosition: number;
+  createdOn: string;
+  profilesName: string[];
 }
