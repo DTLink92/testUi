@@ -1,0 +1,43 @@
+<mat-card>
+  <form #profileForm="ngForm" (ngSubmit)="save(profileForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{profile.id ? 'Edit' : 'Add'}} Recruitment Profile</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="fieldRow">
+      <input type="hidden" name="id" [(ngModel)]="profile.id">
+        <mat-form-field>
+          <mat-select placeholder="Position" [(ngModel)]="profile.position" name="position">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let high of positions" [value]="high.id">
+            {{high.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="fieldRow">
+        <mat-form-field>
+          <input matInput placeholder="Description" [(ngModel)]="profile.description"
+               required name="description" #description>
+        </mat-form-field>
+        <mat-form-field>
+          <textarea matInput placeholder="Requirement" [(ngModel)]="profile.requirement"
+                  required name="requirement" #requirement>{{profile.requirement}}</textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput placeholder="verification" [(ngModel)]="profile.verification"
+                  required name="verification" #verification>{{profile.verification}}</textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!profileForm.form.valid">Save</button>
+      <button mat-raised-button (click)="remove(profile.id)" color="secondary"
+              *ngIf="profile.id" type="button">Delete</button>
+      <a mat-button (click)="gotoList()">Cancel</a>
+    </mat-card-actions>
+  </form>
+</mat-card>
+

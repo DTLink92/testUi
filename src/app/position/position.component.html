@@ -1,0 +1,87 @@
+<mat-card>
+  <mat-card>
+  <form #positionForm="ngForm" (ngSubmit)="save(positionForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{position.id ? 'Edit' : 'Add'}} Position </h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <input type="hidden" [(ngModel)]="position.id"  name="id" />
+
+        <input matInput placeholder="Code" [(ngModel)]="position.code"
+               required name="code" #code />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="name" [(ngModel)]="position.name"
+               required name="name" #name />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Higher Position" [(ngModel)]="position.higherWorkPosition" name="higherWorkPosition">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let high of positions" [value]="high.id">
+            {{high.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Area" [(ngModel)]="position.area"
+               required name="area" #area>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Process" [(ngModel)]="position.process"
+               required name="process" #process>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Purpose" [(ngModel)]="position.purpose"
+               required name="purpose" #purpose>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!positionForm.form.valid">Save</button>
+
+      <button mat-raised-button (click)="remove(position.id)" color="secondary"
+              type="button" [disabled]="isParent">Delete</button>
+
+      <a mat-button routerLink="/positionList">Cancel</a>
+    </mat-card-actions>
+  </form>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header><h2>Position Profiles</h2></mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let profile of profiles">
+          <h3 mat-line>{{profile.id}}</h3>
+          <h3 mat-line>
+            <a mat-button [routerLink]="['/position-profile-edit', profile.id]">{{profile.requirement}}</a>
+          </h3>
+          <h3 mat-line>{{profile.description}}</h3>
+          <h3 mat-line>{{profile.verification}}</h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <button mat-fab color="primary" [routerLink]="['/profile-add']">Add</button>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header><h2>Position Performance</h2></mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let profile of profiles">
+          <h3 mat-line>{{profile.id}}</h3>
+          <h3 mat-line>
+            <a mat-button [routerLink]="['/profile-edit', profile.id]">{{profile.requirement}}</a>
+          </h3>
+          <h3 mat-line>{{profile.description}}</h3>
+          <h3 mat-line>{{profile.verification}}</h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <button mat-fab color="primary" [routerLink]="['/profile-add']">Add</button>
+  </mat-card>
+
+</mat-card>
+

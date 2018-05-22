@@ -1,0 +1,32 @@
+<mat-card>
+  <mat-card-header><mat-card-title><h2>Positions</h2></mat-card-title></mat-card-header>
+  <mat-card-content>
+    <mat-list class="myTable">
+      <mat-list-item class="tableHeader">
+        <div class="numberList">
+          <h3>ID</h3>
+        </div>
+        <div class="descriptionList">
+          <h3>Name</h3>
+        </div>
+        <div class="descriptionList"><h3>Created On</h3></div>
+        <div class="descriptionList"><h3>Recruitment Profile</h3></div>
+      </mat-list-item>
+      <mat-list-item *ngFor="let position of positions" class="myTableRow">
+        <div class="numberList" ><h3 mat-line >{{position.id}}</h3></div>
+        <div class="descriptionList">
+          <h3 mat-line>
+          <a mat-button [routerLink]="['/position-edit', position.id]">{{position.name}}</a>
+        </h3>
+        </div>
+        <div class="descriptionList">
+          <p>{{position.createdOn}}</p>
+        </div>
+        <div class="descriptionList">
+          <p *ngFor="let profile of position.profilesName" class="listProfiles">- {{profile}}</p>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <button mat-raised-button color="primary" [routerLink]="['/position-add']">Add</button>
+</mat-card>

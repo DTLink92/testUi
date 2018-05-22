@@ -1,0 +1,34 @@
+<mat-card>
+  <mat-card-header><mat-card-title><h2>Position Profiles</h2></mat-card-title></mat-card-header>
+  <mat-card-content>
+    <mat-list class="myTable">
+      <mat-list-item class="tableHeader">
+        <div class="numberList">
+          <h3>ID</h3>
+        </div>
+        <div class="descriptionList">
+          <h3>Description</h3>
+        </div>
+        <div class="descriptionList"><h3>Created On</h3></div>
+        <div class="descriptionList"><h3>For the Position</h3></div>
+      </mat-list-item>
+      <mat-list-item *ngFor="let profile of profiles" class="myTableRow">
+        <div class="numberList">
+          <h3>{{profile.id}}</h3>
+        </div>
+        <div class="descriptionList">
+          <h3>
+            <a mat-button [routerLink]="['/profile-edit', profile.id]">{{profile.description}}</a>
+          </h3>
+        </div>
+        <div class="descriptionList">
+          <p>{{profile.created}}</p>
+        </div>
+        <div class="descriptionList">
+          <p>{{profile.positionName}}</p>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <button mat-raised-button color="primary" [routerLink]="['/profile-add']">ADD</button>
+</mat-card>
