@@ -1,9 +1,9 @@
-export interface EmployeeAssignEquipment {
+export interface AssignEquipment {
   id: number;
   idSupervisor: number;
   idEmployee: number;
-  idEquipment: number;
-  description: string;
   dateAssign: Date;
   dateReturn: Date;
+  description: string;
+  statusEmployee: number;
 }

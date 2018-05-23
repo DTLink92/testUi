@@ -75,6 +75,8 @@ import { EmployeeListAssignequipComponent } from './employee-list-assignequip/em
 import { EmployeeListWithequipComponent } from './employee-list-withequip/employee-list-withequip.component';
 import { ProjectListAssignequipComponent } from './project-list-assignequip/project-list-assignequip.component';
 import {AssignEquipmentService} from './services/assign-equipment.service';
+import {PositionEquipmentService} from './services/position-equipment.service';
+import {DetailAssignEquipmentService} from './services/detail-assign-equipment.service';
 
 @NgModule({
   declarations: [
@@ -125,6 +127,8 @@ import {AssignEquipmentService} from './services/assign-equipment.service';
     PositionTypeEvaluatorService,
     PositionRecruitmentProfileService,
     AssignEquipmentService,
+    DetailAssignEquipmentService,
+    PositionEquipmentService,
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [

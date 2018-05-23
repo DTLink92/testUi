@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
 import {baseURL} from '../shared/baseurl';
 import {AssignEquipment} from '../shared/assignEquipment';
+import {Observable} from 'rxjs/Observable';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {PositionEquipment} from '../shared/positionEquipment';
 
 @Injectable()
-export class AssignEquipmentService {
-  public PROFILE_API = baseURL + 'assign_equipment';
+export class PositionEquipmentService {
+  public PROFILE_API = baseURL + 'position_equipment';
 
   constructor(private http: HttpClient) {
   }
@@ -17,7 +18,7 @@ export class AssignEquipmentService {
     })
   };
 
-  getAssignEquipments(): Observable<any> {
+  getPositionEquipments(): Observable<any> {
     return this.http.get(this.PROFILE_API)
       .map((res) => {
         return res;
@@ -26,25 +27,25 @@ export class AssignEquipmentService {
       });
   }
 
-  getAssignEquipment(id: number): Observable<AssignEquipment> {
+  getPositionEquipment(id: number): Observable<AssignEquipment> {
     return this.http.get<AssignEquipment>(this.PROFILE_API + '/' + id)
       .map(res => {
         return res;
       });
   }
 
-  save(assignEq: any): Observable<any> {
+  save(positionEquip: any): Observable<any> {
     let result: Observable<Object>;
-    if (assignEq['id']) {
-      result = this.http.put(this.PROFILE_API, assignEq);
+    if (positionEquip['id']) {
+      result = this.http.put(this.PROFILE_API, positionEquip);
     } else {
-      result = this.http.post(this.PROFILE_API, assignEq);
+      result = this.http.post(this.PROFILE_API, positionEquip);
     }
     return result;
   }
 
-  createAssignEquipment(assignEq: AssignEquipment): Observable<AssignEquipment> {
-    return this.http.post<any>(this.PROFILE_API, assignEq, this.httpOptions)
+  createPositionEquipment(positionEquip: PositionEquipment): Observable<PositionEquipment> {
+    return this.http.post<any>(this.PROFILE_API, positionEquip, this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -52,8 +53,8 @@ export class AssignEquipmentService {
       });
   }
 
-  updateAssignEquipment(assignEq: AssignEquipment): Observable<AssignEquipment> {
-    return this.http.post<any>(this.PROFILE_API + '/' + assignEq.id, assignEq, this.httpOptions)
+  updatePositionEquipment(positionEquip: PositionEquipment): Observable<PositionEquipment> {
+    return this.http.post<any>(this.PROFILE_API + '/' + positionEquip.id, positionEquip, this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {

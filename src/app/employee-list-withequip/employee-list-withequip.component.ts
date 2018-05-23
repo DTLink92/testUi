@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {EmployeeAssignEquipment} from '../shared/assignEquipment';
 import {AssignEquipmentService} from '../services/assign-equipment.service';
+import {AssignEquipment} from '../shared/assignEquipment';
 
 @Component({
   selector: 'app-employee-list-withequip',
@@ -8,7 +8,7 @@ import {AssignEquipmentService} from '../services/assign-equipment.service';
   styleUrls: ['./employee-list-withequip.component.scss']
 })
 export class EmployeeListWithequipComponent implements OnInit {
-  assignEquipmets: Array<EmployeeAssignEquipment>;
+  assignEquipmets: Array<AssignEquipment>;
   constructor(private assignEquipmentService: AssignEquipmentService) { }
 
   ngOnInit() {
