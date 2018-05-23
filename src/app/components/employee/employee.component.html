@@ -1,3 +1,110 @@
-<p>
-  employee works!
-</p>
+<div class="col col-lg-1"></div>
+<div class="col col-lg-10 info-employee-container">
+  <div class="col col-lg-6">
+    <h1>Informacion del Empleado</h1>
+  </div>
+  <div class="col col-lg-6">
+    <button type="button" class="btn btn-default put-delete-buttons" (click)="edit()"
+            id="edit">{{this.update}}  <span class="glyphicon glyphicon-pencil"></span></button>
+    <button type="button" class="btn btn-default put-delete-buttons" (click)="delete()"
+            id="delete">Eliminar  <span class="glyphicon glyphicon-trash"></span></button>
+  </div>
+  <div class="info-employee-panel">
+    <h2>Datos personales</h2>
+    <div class="left">
+      <div class="form-group">
+        <label>Nombre: </label>
+        <input [(ngModel)]="employee.firstName" name="firstName"
+               [disabled]="isDisabled()" type="text" class="form-control" id="employeeName" required>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Apellido: </label>
+        <input [(ngModel)]="employee.lastName" name="lastName"
+               [disabled]="isDisabled()" type="text" class="form-control" id="lastName" required>
+      </div>
+      <div class="form-group">
+        <label for="ci">Ci:</label>
+        <input [(ngModel)]="employee.ci" name="ci" type="number"
+               disabled="true" class="form-control" id="ci" required>
+      </div>
+      <div class="form-group">
+        <label for="birthDate">Fecha de Nacimiento:</label>
+        <input [ngModel]="employee.birthday | date:'yyyy-MM-dd'" name="birthdate"
+               disabled="true" type="date" class="form-control" id="birthDate" required>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Telf:</label>
+        <input [(ngModel)]="employee.phoneNumber" name="phoneNumber"
+               [disabled]="isDisabled()" type="number" class="form-control" id="phoneNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="depAmount">No. de Dependientes</label>
+        <input [(ngModel)]="employee.dependenciesAmount" name="depAmount"
+               [disabled]="isDisabled()" type="number" class="form-control" id="depAmount">
+      </div>
+      <div class="form-group">
+        <label for="civilState">Estado civil: </label>
+        <select (change)="changeCivilState($event.target.value)"
+                [(ngModel)]="employee.civilState" [disabled]="isDisabled()">
+          <option *ngFor="let civilState of civilStates" id="civilState"
+                  [value]="civilState.value">{{civilState.value}}</option>
+        </select>
+      </div>
+      <div class="form-group experience">
+        <label for="experience">Experiencia:</label>
+        <textarea id="experience" cols="80" rows="10"
+                  [disabled]="isDisabled()" [(ngModel)]="employee.experience" name="experience"></textarea>
+      </div>
+    </div>
+    <div class="right">
+      <div class="form-group" id="image-button">
+        <label for="experience">Foto:</label>
+        <input type="file" id="logo-icon-button" ngModel
+               name="profileImage" (change)="previewImage($event)">
+      </div>
+      <div class="profile-image">
+        <img [src]="imageData">
+      </div>
+    </div>
+  </div>
+  <div class="col col-lg-12">
+    <h2>Informacion del Contrato</h2>
+    <div class="create-employee-form contract-section">
+      <div class="form-group">
+        <label>Cargo del empleado: </label>
+        <select (change)="positionId($event.target.value)"
+                [(ngModel)]="employee.positionId" [disabled]="isDisabled()">
+          <option *ngFor="let position of allPositions" [value]="position.id">{{position.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label> Supervisor: </label>
+        <select (change)="supervisorId($event.target.value)" [disabled]="isDisabled()">
+          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="initDate">*Fecha de Inicio de Contrato:</label>
+        <input [disabled]="isDisabled()" [ngModel]="employee.initDate | date:'yyyy-MM-dd'"
+               name="initDate" type="date" class="form-control" id="initDate" required>
+      </div>
+      <div class="form-group">
+        <label for="finishDate">*Fecha de Finalizacion de Contrato:</label>
+        <input [disabled]="isDisabled()" [ngModel]="employee.finishDate | date:'yyyy-MM-dd'"
+               name="finishDate" type="date" class="form-control" id="finishDate" required>
+      </div>
+      <div class="form-group experience">
+        <label for="conctractDescription">Descripcion:</label>
+          <textarea [disabled]="isDisabled()" id="conctractDescription" cols="80" rows="10" [(ngModel)]="employee.description" name="conctractDescription"></textarea>
+      </div>
+    </div>
+    <div class="col col-lg-12" id="buttons-section">
+      <div class="alert alert-danger" role="alert" id="alert" *ngIf="isInvalidForm()">{{errorMessage}}</div>
+      <h6>Los campos con (*) son obligatorios</h6>
+      <button type="button" class="btn btn-default" (click)="cancel()" id="adv-cancel"><span class="glyphicon glyphicon-chevron-left"></span>Cancel</button>
+      <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()">Submit</button>
+      <div [routerLink]="['/employees-list']" id="router-to-employee-list">
+      </div>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,6 @@
   margin-top: 20px;
   padding: 20px;
   margin-bottom: 30px;
-  height: 600px;
 }
 
 .profile-image img{
@@ -20,27 +19,29 @@
   background-color: #F1F1F1;
   border-radius: 10px;
   padding: 20px;
-  height: 1350px;
-  font-weight: bold;
-  margin-bottom: 20px;
+  height: 1250px;
+  width: 100%;
 }
 
 .left {
-  width: 50%;
+  width: 40%;
   float: left;
-  height: 500px;
 }
 
 .right {
-  width: 30%;
+  width: 40%;
   float: right;
 }
 
 #experience {
-  width: 100%;
+  width: 250%;
 }
 
-.info-employee-container h2 {
+.form-employee-container h2 {
+  border-bottom: 1px solid black;
+}
+
+.form-employee-container h2 {
   margin-top: 30px;
   background-color: #235655;
   color: white;
@@ -48,8 +49,7 @@
   border-radius: 10px;
 }
 
-.info-employee-panel select {
-  float: left;
+.form-employee-container select {
   display: block;
   width: 100%;
   height: 34px;
@@ -79,58 +79,4 @@
 
 .router-to-employee-list {
   display: none;
-}
-
-label {
-  float: left;
-}
-
-.form-group {
-  float: left;
-  width: 40%;
-  height: 50px;
-  box-sizing: border-box;
-  margin-left: 10px;
-}
-
-.experience {
-  width: 100%;
-}
-
-.contract-section {
-  height: 400px;
-}
-
-@media only screen and (max-width: 1350px) {
-  .info-employee-container {
-    width: 1350px;
-  }
-}
-
-input:disabled,
-input[disabled]{
-  border: none;
-  background-color: #F1F1F1;
-}
-
-#buttons-section {
-  display: none;
-}
-#image-button {
-  display: none;
-}
-.put-delete-buttons {
-  float: right;
-  margin-top: 15px;
-  background-color: #308C88;
-  color: white;
-  margin-right: 5px;
-  margin-left: 5px;
-}
-
-.put-delete-buttons:hover {
-  background-color: white;
-  color: #308C88;
-  border: 2px solid #308C88;
-  box-sizing: border-box;
 }
