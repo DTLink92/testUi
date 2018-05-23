@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {baseURL} from './shared/baseurl';
 
 import {AppComponent} from './app.component';
+import { GiphyService } from './shared/giphy/giphy.service';
 
 import 'hammerjs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -51,17 +52,19 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {PositionComponent} from './position/position.component';
-import {PositionTypeEvaluatorComponent} from './position-type-evaluator/position-type-evaluator.component';
-import {PositionTypeEvaluatorListComponent} from './position-type-evaluator-list/position-type-evaluator-list.component';
-import {PositionTypeEvaluatorEditComponent} from './position-type-evaluator-edit/position-type-evaluator-edit.component';
-import {PositionListComponent} from './position-list/position-list.component';
 // Service
 import {EmployeeService} from './services/employeeService/employee-service.service';
 import {ContractService} from './services/contractService/contract-service.service';
 import {PositionService} from './services/position.service';
 import {PositionTypeEvaluatorService} from './services/position-type-evaluator.service';
 import {PositionRecruitmentProfileService} from './services/position-recruitment-profile.service';
+import { PositionComponent } from './position/position.component';
+import { PositionTypeEvaluatorComponent } from './position-type-evaluator/position-type-evaluator.component';
+import { PositionTypeEvaluatorListComponent } from './position-type-evaluator-list/position-type-evaluator-list.component';
+import { PositionTypeEvaluatorEditComponent } from './position-type-evaluator-edit/position-type-evaluator-edit.component';
+import { PositionListComponent } from './position-list/position-list.component';
+import { RouterModule, Routes } from '@angular/router';
+import {TypeEquipmentService} from './services/type-equipment.service';
 // Components Imports
 import {EmployeeListComponent} from './components/employees-list/employees-list.component';
 import {EmployeeRegisterFormComponent} from './components/employee-register-form/employee-register-form.component';
@@ -81,6 +84,25 @@ import {ProjectComponent} from './project/project.component';
 import {ProjectService} from './services/project.service';
 import { CarListComponent } from './car-list/car-list.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
+import { EquipmentComponent } from './equipment/equipment.component';
+import { TypeEquipmentEditComponent } from './type-equipment-edit/type-equipment-edit.component';
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/type-equipment', pathMatch: 'full' },
+  {
+    path: 'type-equipment',
+    component: TypeEquipmentComponent
+  },
+  {
+    path: 'type-equipment-add',
+    component: TypeEquipmentEditComponent
+  },
+  {
+    path: 'type-equipment-edit/:id',
+    component: TypeEquipmentEditComponent
+  }
+];
+
 
 @NgModule({
   declarations: [
@@ -115,7 +137,9 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     ProjectListAssignequipComponent,
     ProjectComponent,
     CarListComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    EquipmentComponent,
+    TypeEquipmentEditComponent
   ],
   imports: [
     BrowserModule,
@@ -128,7 +152,8 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     FlexLayoutModule, AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     ItemService,
@@ -141,6 +166,8 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     DetailAssignEquipmentService,
     PositionEquipmentService,
     ProjectService,
+    TypeEquipmentService,
+    GiphyService,
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [

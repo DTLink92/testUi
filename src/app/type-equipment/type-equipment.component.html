@@ -1,3 +1,46 @@
-<p>
-  type-equipment works!
-</p>
+<h1 >
+  Type Equipments
+</h1>
+  <div align="center">
+  <img  src="../../assets/images/type-equipment.jpg" alt="Logo" width="900" height="250"   >
+  </div>
+<br>
+<div class="select-type">
+  <mat-card>
+  <mat-card-header>TypeEquipment List</mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item *ngFor="let typeEquipment of typeEquipments">
+        <img mat-list-avatar src="{{typeEquipment.giphyUrl}}" alt="{{typeEquipment.name}}">
+        <h3 mat-line>{{typeEquipment.name}}<a mat-button [routerLink]="['/type-equipment-edit', typeEquipment.id]"> <b>Edit</b></a></h3>
+        <p mat-line>"{{ typeEquipment.descriptionTypeEquipment }}"</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <button mat-fab color="primary" [routerLink]="['/type-equipment-add']">Add</button>
+</mat-card>
+<br>
+</div>
+<h3 align="center">Select a Type Equipment for view list.</h3>
+<div class="select-type" >
+  <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-select placeholder="Type Equipment">
+     <!-- <mat-option *ngFor="let type of types" [value]="type.value">
+        {{ type.viewValue }}
+      </mat-option>-->
+      <mat-option *ngFor="let typeEquipment of typeEquipments" >
+        {{ typeEquipment.name }}
+      </mat-option>
+    </mat-select>
+
+      </mat-form-field>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-success" (click)="onSubmit()">View</button>
+
+  </form>
+
+</div>
+<p></p>
+
