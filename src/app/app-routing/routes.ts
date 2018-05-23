@@ -16,6 +16,10 @@ import {PositionRecruitmentProfileListComponent} from '../position-recruitment-p
 import {PositionRecruitmentProfileComponent} from '../position-recruitment-profile/position-recruitment-profile.component';
 
 import {TypeEquipmentComponent} from '../type-equipment/type-equipment.component';
+import {AssignEquipmentComponent} from '../assign-equipment/assign-equipment.component';
+import {EmployeeListAssignequipComponent} from '../employee-list-assignequip/employee-list-assignequip.component';
+import {EmployeeListWithequipComponent} from '../employee-list-withequip/employee-list-withequip.component';
+import {ProjectListAssignequipComponent} from '../project-list-assignequip/project-list-assignequip.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -38,5 +42,9 @@ export const routes: Routes = [
   {path: 'employees-list', component: EmployeeListComponent},
   {path: 'employee/:id', component: EmployeeComponent},
   {path: 'employee-creation-form', component: EmployeeRegisterFormComponent},
-  {path: 'type-equipment', component: TypeEquipmentComponent}
+  {path: 'type-equipment', component: TypeEquipmentComponent},
+  {path: 'assign-equipment', component: AssignEquipmentComponent},
+  {path: 'employee-list-assignequip', component: EmployeeListAssignequipComponent},
+  {path: 'employee-list-withequip', component: EmployeeListWithequipComponent},
+  {path: 'project-list-assignequip', component: ProjectListAssignequipComponent}
   ];
