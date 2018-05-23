@@ -1,0 +1,136 @@
+.info-employee-panel {
+  background-color: #F1F1F1;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  margin-bottom: 30px;
+  height: 600px;
+}
+
+.profile-image img{
+  width: 300px;
+  height: 300px;
+  background-size: 100% 100%;
+  margin-top: 20px;
+}
+
+.info-employee-container {
+  background-color: #F1F1F1;
+  border-radius: 10px;
+  padding: 20px;
+  height: 1350px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.left {
+  width: 50%;
+  float: left;
+  height: 500px;
+}
+
+.right {
+  width: 30%;
+  float: right;
+}
+
+#experience {
+  width: 100%;
+}
+
+.info-employee-container h2 {
+  margin-top: 30px;
+  background-color: #235655;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.info-employee-panel select {
+  float: left;
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s
+}
+
+#conctractDescription {
+  width: 100%;
+}
+
+.form-employee-container .alert {
+  background-color: #862600;
+  color: white
+}
+
+.router-to-employee-list {
+  display: none;
+}
+
+label {
+  float: left;
+}
+
+.form-group {
+  float: left;
+  width: 40%;
+  height: 50px;
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+.experience {
+  width: 100%;
+}
+
+.contract-section {
+  height: 400px;
+}
+
+@media only screen and (max-width: 1350px) {
+  .info-employee-container {
+    width: 1350px;
+  }
+}
+
+input:disabled,
+input[disabled]{
+  border: none;
+  background-color: #F1F1F1;
+}
+
+#buttons-section {
+  display: none;
+}
+#image-button {
+  display: none;
+}
+.put-delete-buttons {
+  float: right;
+  margin-top: 15px;
+  background-color: #308C88;
+  color: white;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.put-delete-buttons:hover {
+  background-color: white;
+  color: #308C88;
+  border: 2px solid #308C88;
+  box-sizing: border-box;
+}

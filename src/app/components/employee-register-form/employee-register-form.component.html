@@ -1,61 +1,90 @@
-<div class="adv-category-edit-form">
-  <form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
-    <h1>Register Employee</h1>
+<div class="col col-lg-2"></div>
+<div class="col col-lg-8 form-employee-container">
+  <h1>Registrar Empleado</h1>
+  <h2>Informacion Personal</h2>
+  <div class="create-employee-form">
+    <div class="left">
       <div class="form-group">
-        <label for="firstName">Name</label>
-        <input matInput [(ngModel)]="employee.firstName"
-               type="text"
-               placeholder="" name="firstName" #firstName="ngModel" id="firstName"required>
+        <label for="lastName">*Nombre: </label>
+        <input [(ngModel)]="employee.firstName" name="firstName" type="text" class="form-control" id="employeeName" required>
       </div>
       <div class="form-group">
-        <label for="lastName">Last Name</label>
+        <label for="lastName">*Apellido: </label>
         <input [(ngModel)]="employee.lastName" name="lastName" type="text" class="form-control" id="lastName" required>
       </div>
-
       <div class="form-group">
-        <label for="ci">Ci</label>
+        <label for="ci">*Ci:</label>
         <input [(ngModel)]="employee.ci" name="ci" type="number" class="form-control" id="ci" required>
       </div>
-
       <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
+        <label for="birthDate">*Fecha de Nacimiento:</label>
+        <input [(ngModel)]="employee.birthday" name="birthdate" type="date" class="form-control" id="birthDate" required>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">*Telf:</label>
         <input [(ngModel)]="employee.phoneNumber" name="phoneNumber"  type="number" class="form-control" id="phoneNumber" required>
       </div>
-
       <div class="form-group">
-        <label for="civilState">Civil State</label>
-        <input [(ngModel)]="employee.civilState" name="civilState" type="text" class="form-control" id="civilState" required>
-      </div>
-
-      <div class="form-group">
-        <label for="depAmount">Dependency Amount</label>
-        <input [(ngModel)]="employee.dependenciesAmount" name="depAmount" type="number" class="form-control" id="depAmount">
-      </div>
-
-      <div class="form-group">
-        <label for="experience">Experience</label>
-        <textarea id="experience" cols="80" rows="10" [(ngModel)]="employee.experience" name="experience"></textarea>
-      </div>
-
-      <div class="form-group">
-        <label for="birthDate">BirthDate</label>
-        <input [(ngModel)]="employee.birthDate" name="birthdate" type="date" class="form-control" id="birthDate" required>
-      </div>
-
-      <div class="form-group">
-        <label>Position</label>
-        <select [(ngModel)]="data.positionId">
-          <option *ngFor="let position of allPositions" [ngValue]="position.id">{{position.name}}</option>
+        <label for="civilState">*Estado civil: </label>
+        <select (change)="changeCivilState($event.target.value)">
+          <option *ngFor="let civilState of civilStates" id="civilState" [value]="civilState.value">{{civilState.value}}</option>
         </select>
       </div>
-
-      <div *ngIf="imageData">
-        <img [src]="imageData">
+      <div class="form-group">
+        <label for="depAmount">No. de Dependientes</label>
+        <input [(ngModel)]="employee.dependenciesAmount" name="depAmount" type="number" class="form-control" id="depAmount">
       </div>
-      <div>
+      <div class="form-group">
+        <label for="experience">Experiencia:</label>
+        <textarea id="experience" cols="80" rows="10" [(ngModel)]="employee.experience" name="experience"></textarea>
+      </div>
+    </div>
+    <div class="right">
+      <div class="form-group">
+        <label for="experience">Foto:</label>
         <input type="file" id="logo-icon-button" ngModel name="profileImage" (change)="previewImage($event)">
       </div>
-
-      <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
-  </form>
+      <div class="profile-image" *ngIf="imageData">
+        <img [src]="imageData">
+      </div>
+    </div>
+  </div>
+  <div class="col col-lg-12">
+    <h2>Informacion del Contrato</h2>
+    <div class="create-employee-form contract">
+      <div class="form-group">
+        <label>(*)Cargo del empleado: </label>
+        <select (change)="positionId($event.target.value)">
+          <option *ngFor="let position of allPositions" [value]="position.id">{{position.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label> Supervisor: </label>
+        <select (change)="supervisorId($event.target.value)">
+          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="initDate">*Fecha de Inicio de Contrato:</label>
+        <input [(ngModel)]="data.initDate" name="initDate" type="date" class="form-control" id="initDate" required>
+      </div>
+      <div class="form-group">
+        <label for="finishDate">*Fecha de Finalizacion de Contrato:</label>
+        <input [(ngModel)]="data.finishDate" name="finishDate" type="date" class="form-control" id="finishDate" required>
+      </div>
+      <label for="conctractDescription">Descripcion:</label>
+      <div class="form-group">
+        <textarea id="conctractDescription" cols="80" rows="10"
+                  [(ngModel)]="data.description" name="conctractDescription"></textarea>
+      </div>
+    </div>
+    <div class="button-section">
+      <div class="alert alert-danger" role="alert" id="alert" *ngIf="isInvalidForm()">{{errorMessage}}</div>
+      <h6>Los campos con (*) son obligatorios</h6>
+      <button type="button" class="btn btn-default" (click)="cancel()" id="adv-cancel"><span class="glyphicon glyphicon-chevron-left"></span>Cancel</button>
+      <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()">Submit</button>
+      <div [routerLink]="['/employees-list']" id="router-to-employee-list">
+      </div>
+    </div>
+  </div>
 </div>

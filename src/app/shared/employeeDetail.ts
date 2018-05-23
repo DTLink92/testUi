@@ -10,4 +10,12 @@ export interface EmployeeDetail {
   experience: string;
   birthday: Date;
   profileImage: string;
+  positionName: string;
+  supervisorName: string;
+  description: string;
+  initDate: Date;
+  finishDate: Date;
+  positionId: number;
+  supervisorId: number;
+  contractId: number;
 }

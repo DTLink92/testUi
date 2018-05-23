@@ -1,19 +1,11 @@
-.create-employee-form {
+.info-employee-panel {
   background-color: #F1F1F1;
   border-radius: 10px;
   padding-bottom: 50px;
   width: 100%;
   margin-top: 20px;
   padding: 20px;
-  height: 800px;
-}
-
-.contract {
-  height: 600px;
-}
-
-.button-section {
-  height: 200px;
+  margin-bottom: 30px;
 }
 
 .profile-image img{
@@ -23,13 +15,12 @@
   margin-top: 20px;
 }
 
-.form-employee-container {
+.info-employee-container {
   background-color: #F1F1F1;
   border-radius: 10px;
-  padding-bottom: 50px;
   padding: 20px;
-  height: 1850px;
-  margin-bottom: 20px;
+  height: 1250px;
+  width: 100%;
 }
 
 .left {
@@ -88,10 +79,4 @@
 
 .router-to-employee-list {
   display: none;
-}
-
-@media only screen and (max-width: 1350px) {
-  .form-employee-container {
-    width: 1350px;
-  }
 }

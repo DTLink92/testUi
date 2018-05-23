@@ -5,4 +5,9 @@ export interface Contract {
   finishDate: Date;
   employeeId: number;
   positionId: number;
+  supervisorId: number;
+  employeeFirstName: string;
+  employeeLastName: string;
+  employeeCi: number;
+  positionName: string;
 }
