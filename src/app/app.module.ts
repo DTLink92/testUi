@@ -77,6 +77,7 @@ import { ProjectListAssignequipComponent } from './project-list-assignequip/proj
 import {AssignEquipmentService} from './services/assign-equipment.service';
 import {PositionEquipmentService} from './services/position-equipment.service';
 import {DetailAssignEquipmentService} from './services/detail-assign-equipment.service';
+import { AccidentRecordComponent } from './accident-record/accident-record.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +106,7 @@ import {DetailAssignEquipmentService} from './services/detail-assign-equipment.s
     EmployeeListAssignequipComponent,
     EmployeeListWithequipComponent,
     ProjectListAssignequipComponent
+    AccidentRecordComponent
   ],
   imports: [
     BrowserModule,
