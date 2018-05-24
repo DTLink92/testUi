@@ -34,7 +34,7 @@ export class EmployeeService {
   postEmployee(employee: any): Observable<any> {
     return this.http.post<any>('http://localhost:8080/employees', employee)
       .map((res) => {
-        return <EmployeeDetail>res;
+        return res;
       }).catch(error => {
         return error;
       });

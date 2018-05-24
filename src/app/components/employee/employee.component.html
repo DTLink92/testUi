@@ -79,7 +79,8 @@
       </div>
       <div class="form-group">
         <label> Supervisor: </label>
-        <select (change)="supervisorId($event.target.value)" [disabled]="isDisabled()">
+        <select (change)="supervisorId($event.target.value)" [disabled]="isDisabled()"
+                [(ngModel)]="employee.supervisorId" >
           <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}}</option>
         </select>
       </div>

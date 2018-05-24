@@ -3,6 +3,7 @@ import {EmployeeService} from '../../services/employeeService/employee-service.s
 import {ActivatedRoute, Params} from '@angular/router';
 import {Contract} from '../../shared/contract';
 import {ContractService} from '../../services/contractService/contract-service.service';
+import {Employee} from '../../shared/employee';
 
 @Component({
   selector: 'app-employee',
@@ -49,6 +50,7 @@ export class EmployeeComponent implements OnInit {
   ];
   disabled = true;
   allPositions = [];
+  allSupervisor: Array<Employee> = [];
   constructor(private employeeService: EmployeeService,
               private route: ActivatedRoute,
               private contractService: ContractService) { }
@@ -64,6 +66,7 @@ export class EmployeeComponent implements OnInit {
         this.imageData = employee.profileImage;
         this.employeeService.getPositions().subscribe(data => {
           this.allPositions = data;
+          this.positionId(this.employee.positionId.toString());
         });
       });
   }
@@ -177,11 +180,27 @@ export class EmployeeComponent implements OnInit {
         employeeFirstName: '',
         employeeLastName: '',
         employeeCi: 0,
-        positionName: ''
+        positionName: '',
+        salary: 0
       };
       this.contractService.updateContract(contract).subscribe(response => {
         location.reload();
       });
+    });
+  }
+  positionId(id: any) {
+    this.employee.positionId = id;
+    let highPositionid = 0;
+    this.allPositions.forEach(position => {
+      if (position.id.toString() === id) {
+        highPositionid = position.higherWorkPosition;
+      }
+    });
+    this.contractService.getEmployeesByPosition(highPositionid).subscribe(response => {
+      this.allSupervisor = response;
+      if (this.allSupervisor.length > 0) {
+        this.employee.supervisorId = this.allSupervisor[0].id;
+      }
     });
   }
 }
