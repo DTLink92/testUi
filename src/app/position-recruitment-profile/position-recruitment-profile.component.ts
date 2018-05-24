@@ -16,6 +16,8 @@ export class PositionRecruitmentProfileComponent implements OnInit, OnDestroy {
   sub: Subscription;
   url: any = {};
   positions: Array<any>;
+  id: string;
+  redirectString: string;
   constructor(private route: ActivatedRoute, private router: Router
               , private profileService: PositionRecruitmentProfileService
               , private positionService: PositionService) { }
@@ -25,7 +27,7 @@ export class PositionRecruitmentProfileComponent implements OnInit, OnDestroy {
       this.url = this.route.snapshot.url[0].toString();
       const id = params['id'];
       if (id) {
-        console.log(id);
+        this.id = id;
         this.profileService.getProfile(id).subscribe((profile: any) => {
           if (profile) {
             this.profile = profile;
@@ -34,6 +36,11 @@ export class PositionRecruitmentProfileComponent implements OnInit, OnDestroy {
             this.gotoList();
           }
         });
+      }
+      const positionId = params['positionId'];
+      if ( positionId ) {
+        this.id = positionId;
+        this.profile.position = positionId;
       }
       this.positionService.getAll().subscribe(data => {
         this.positions = data;
@@ -44,11 +51,14 @@ export class PositionRecruitmentProfileComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
   gotoList() {
-    if ( this.url.includes('position' )) {
-      this.router.navigate(['/positionList']);
-    } else {
-      this.router.navigate(['/profileList']);
+    this.redirectString = '/profileList';
+    if ( this.url.includes('position-profile-edit' )) {
+      this.redirectString = '/position-edit/' + this.profile.position;
     }
+    if (this.url.includes('position-profile-add')) {
+      this.redirectString = '/position-edit/' + this.id;
+    }
+    this.router.navigate([this.redirectString]);
   }
   save(form: NgForm) {
     this.profileService.save(form).subscribe(result => {

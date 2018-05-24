@@ -1,3 +1,96 @@
-.example-full-width {
+.mat-form-field {
+  width: 350px;
+  padding-left: 50px;
+}
+.mat-card-actions{
+  padding-left: 18px;
+}
+.mat-form-field-Purpose{
+  width: 67%;
+}
+
+fieldRow{
+  width: 70%;
+}
+
+fieldRowPurpose{
   width: 100%;
+}
+
+.numberList {
+  width: 50px;
+}
+.descriptionList{
+  width: 200px;
+  padding: 0 5px 0 50px;
+}
+.descriptionListProfile{
+  width: 80%;
+  padding: 0 5px 0 5px;
+}
+.mat-list-item-content{
+  padding: 0px;
+}
+.mat-line{
+  padding:0px;
+  margin:0px;
+  padding-top: 2px;
+}
+.profileContent{
+  display: inline-block;
+  width: 100%;
+}
+.profileDescription{
+  padding: 0px;
+  margin: 0px;
+  float: left;
+}
+.mat-button{
+  text-align: left !important;
+}
+.mat-button:hover {
+  border-radius: 5px 5px 5px 5px;
+  background: #666;
+  font-size: 16px;
+  text-align: left !important;
+  width: 200px;
+  border: 1px solid #212121;
+  color: #BDBDBD;
+}
+.myTable {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  vertical-align:baseline;
+  background:transparent;
+  background:#f5f5f5;
+  width: 70%;
+  border-collapse: collapse;
+  border: 1px solid #CCC;
+}
+.tableHeader {
+  font-weight: bold;
+  background-color: #E1E1E1;
+  padding:5px;
+  border-bottom:1px solid #CCC ;
+}
+.myTableRow:hover {
+  background-color: #FEFEFE;
+  border: 1px solid #CCC;
+}
+.mat-raised-button{
+  width: 150px;
+}
+
+.alert-danger{
+  color: #a94442;
+  background-color: #f2dede;
+  border-color:#edccd1;
+}
+
+.alert{
+  width: 350px;
+  border:1px solid transparent;
+  border-radius:4px;
 }

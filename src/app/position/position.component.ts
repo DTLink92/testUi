@@ -16,7 +16,11 @@ export class PositionComponent implements OnInit, OnDestroy {
   position: any = {};
   sub: Subscription;
   private positions: Array<any>;
+  private areas: Array<any>;
   isParent: boolean;
+  id: string;
+  url: any = {};
+  isAddForm: boolean;
 
   profiles: Array<any>;
 
@@ -24,9 +28,14 @@ export class PositionComponent implements OnInit, OnDestroy {
     , private positionService: PositionService, private profileService: PositionRecruitmentProfileService) { }
 
   ngOnInit() {
+    this.positionService.getAllAreas().subscribe(data => {
+      this.areas = data;
+    });
     this.sub = this.route.params.subscribe(params => {
+      this.url = this.route.snapshot.url[0].toString();
       const id = params['id'];
       if (id) {
+        this.id = id;
         this.positionService.getType(id).subscribe((position: any) => {
           if (position) {
             this.position = position;
@@ -35,23 +44,25 @@ export class PositionComponent implements OnInit, OnDestroy {
             this.gotoList();
           }
         });
-
-        this.positionService.getAll().subscribe(data => {
-            this.positions = data;
-            for (const pos of data) {
-              if (pos.higherWorkPosition + '' === id) {
-                this.isParent = true;
-                break;
-              }
-            }
-            console.log(data);
-          },
-          (error) => {
-            console.log(error.error.message);
-          });
         this.profileService.getProfileByPositionId(id).subscribe(data => {
           this.profiles = data;
         });
+      }
+      this.positionService.getAll().subscribe(data => {
+        this.positions = data;
+        if ( this.id != null ) {
+          for (const pos of data) {
+            if (pos.higherWorkPosition + '' === this.id) {
+              this.isParent = true;
+              break;
+            }
+          }
+        }
+      });
+      if ( this.url.includes('position-add' )) {
+        this.isAddForm = true;
+      } else {
+        this.isAddForm = false;
       }
     });
   }
@@ -63,9 +74,13 @@ export class PositionComponent implements OnInit, OnDestroy {
     this.router.navigate(['/positionList']);
   }
   save(form: NgForm) {
-    this.positionService.save(form).subscribe(result => {
-      this.gotoList();
-    }, error => console.error(error));
+    if (form['higherWorkPosition'] != null && form['area'] != null) {
+      this.positionService.save(form).subscribe(result => {
+        this.gotoList();
+      }, error => console.error(error));
+    } else {
+      console.log('hay valores nulos');
+    }
   }
   remove(id) {
     this.positionService.remove(id).subscribe(result => {

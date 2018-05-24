@@ -2,40 +2,80 @@
   <mat-card>
   <form #positionForm="ngForm" (ngSubmit)="save(positionForm.value)">
     <mat-card-header>
-      <mat-card-title><h2>{{position.id ? 'Edit' : 'Add'}} Position </h2></mat-card-title>
+      <h2>{{position.id ? 'Edit' : 'Add'}} Position </h2>
     </mat-card-header>
     <mat-card-content>
-      <mat-form-field>
-        <input type="hidden" [(ngModel)]="position.id"  name="id" />
+      <div class="fieldRow">
+        <mat-form-field>
+          <input type="hidden" [(ngModel)]="position.id"  name="id" />
 
-        <input matInput placeholder="Code" [(ngModel)]="position.code"
-               required name="code" #code />
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="name" [(ngModel)]="position.name"
-               required name="name" #name />
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-select placeholder="Higher Position" [(ngModel)]="position.higherWorkPosition" name="higherWorkPosition">
-          <mat-option>None</mat-option>
-          <mat-option *ngFor="let high of positions" [value]="high.id">
-            {{high.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Area" [(ngModel)]="position.area"
-               required name="area" #area>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Process" [(ngModel)]="position.process"
-               required name="process" #process>
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Purpose" [(ngModel)]="position.purpose"
-               required name="purpose" #purpose>
-      </mat-form-field>
+          <input matInput placeholder="Code" [(ngModel)]="position.code"
+               required name="code" #code="ngModel" />
+          <div *ngIf="position.id == null || code.invalid">
+            <div *ngIf="code.invalid || code.pristine" class="alert alert-danger">
+              <small>Code is required !</small>
+            </div>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="fieldRow">
+        <mat-form-field>
+          <input matInput placeholder="name" [(ngModel)]="position.name"
+               required name="name" #name="ngModel" />
+          <div *ngIf="position.id == null || name.invalid">
+            <div *ngIf="name.invalid || name.pristine" class="alert alert-danger">
+              <small>Name is required !</small>
+            </div>
+          </div>
+          </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Higher Position" [(ngModel)]="position.higherWorkPosition" name="higherWorkPosition"
+                      required #higherWorkPosition = ngModel>
+            <mat-option *ngFor="let high of positions" [value]="high.id">
+              {{high.name}}
+            </mat-option>
+          </mat-select>
+          <div *ngIf="position.id == null || higherWorkPosition.invalid">
+            <div *ngIf="higherWorkPosition.invalid || higherWorkPosition.pristine" class="alert alert-danger">
+              <small>Higher Work Position is required !</small>
+            </div>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="fieldRow">
+        <mat-form-field>
+          <mat-select placeholder="Area" [(ngModel)]="position.area" name="area" #area="ngModel">
+            <mat-option *ngFor="let area of areas" [value]="area.id">
+              {{area.name}}
+            </mat-option>
+          </mat-select>
+          <div *ngIf="position.id == null || area.invalid">
+            <div *ngIf="area.invalid || area.pristine" class="alert alert-danger">
+              <small>Area is required !</small>
+            </div>
+          </div>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Process" [(ngModel)]="position.process"
+               required name="process" #process="ngModel">
+          <div *ngIf="position.id == null || process.invalid">
+            <div *ngIf="process.invalid || process.pristine" class="alert alert-danger">
+              <small>Process is required !</small>
+            </div>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="fieldRowPurpose">
+        <mat-form-field class="mat-form-field-Purpose">
+          <textarea matInput placeholder="Purpose" [(ngModel)]="position.purpose"
+                  required name="purpose" #purpose="ngModel">{{position.purpose}}</textarea>
+          <div *ngIf="position.id == null || purpose.invalid">
+            <div *ngIf="purpose.invalid || purpose.pristine" class="alert alert-danger">
+              <small>Purpose is required !</small>
+            </div>
+          </div>
+        </mat-form-field>
+      </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit"
@@ -49,38 +89,43 @@
   </form>
   </mat-card>
 
-  <mat-card>
+  <mat-card *ngIf ="id != null">
     <mat-card-header><h2>Position Profiles</h2></mat-card-header>
     <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let profile of profiles">
-          <h3 mat-line>{{profile.id}}</h3>
-          <h3 mat-line>
-            <a mat-button [routerLink]="['/position-profile-edit', profile.id]">{{profile.requirement}}</a>
-          </h3>
-          <h3 mat-line>{{profile.description}}</h3>
-          <h3 mat-line>{{profile.verification}}</h3>
+      <mat-list class="myTable">
+        <mat-list-item class="tableHeader">
+          <div class="numberList"><h3>ID</h3></div>
+          <div class="descriptionListProfile"><h3>Description</h3></div>
+        </mat-list-item>
+        <mat-list-item *ngFor="let profile of profiles"  class="myTableRow">
+          <div class="numberList"><h3 mat-line>{{profile.id}}</h3></div>
+          <div class="descriptionListProfile">
+            <h4 class="profileDescription">Description:<a mat-button [routerLink]="['/position-profile-edit', profile.id]">{{profile.description}}</a></h4>
+            <div class="profileContent"><h4 class="profileDescription">Verification:</h4><p mat-line> {{profile.verification}}</p></div>
+          <div class="profileContent"><h4 class="profileDescription">Requeriment:</h4><p mat-line> {{profile.requirement}}</p></div>
+          </div>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
-    <button mat-fab color="primary" [routerLink]="['/profile-add']">Add</button>
+    <button mat-raised-button color="primary" [routerLink]="['/position-profile-add',position.id]">ADD</button>
   </mat-card>
 
-  <mat-card>
+  <mat-card *ngIf ="id != null">
     <mat-card-header><h2>Position Performance</h2></mat-card-header>
     <mat-card-content>
-      <mat-list>
-        <mat-list-item *ngFor="let profile of profiles">
-          <h3 mat-line>{{profile.id}}</h3>
-          <h3 mat-line>
-            <a mat-button [routerLink]="['/profile-edit', profile.id]">{{profile.requirement}}</a>
-          </h3>
-          <h3 mat-line>{{profile.description}}</h3>
-          <h3 mat-line>{{profile.verification}}</h3>
+      <mat-list class="myTable">
+        <mat-list-item class="tableHeader">
+          <div class="numberList"><h3>ID</h3></div>
+          <div class="descriptionList"><h3>Name</h3></div>
+          <div class="descriptionList"><h3>Ability</h3></div>
+        </mat-list-item>
+        <mat-list-item>
+          <div class="numberList"><p>{{position.performanceId}}</p></div>
+          <div class="descriptionList"><p mat-line>{{position.performanceName}}</p></div>
+          <div class="descriptionList"><p mat-line>{{position.performanceAbility}}</p></div>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
-    <button mat-fab color="primary" [routerLink]="['/profile-add']">Add</button>
   </mat-card>
 
 </mat-card>

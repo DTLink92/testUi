@@ -31,6 +31,7 @@ export const routes: Routes = [
   {path: 'positionList', component: PositionListComponent},
   {path: 'profile-edit/:id', component: PositionRecruitmentProfileComponent},
   {path: 'position-profile-edit/:id', component: PositionRecruitmentProfileComponent},
+  {path: 'position-profile-add/:positionId', component: PositionRecruitmentProfileComponent},
   {path: 'profile-add', component: PositionRecruitmentProfileComponent},
   {path: 'profileList', component: PositionRecruitmentProfileListComponent},
   {path: 'positionTypeEvaluator', component: PositionTypeEvaluatorComponent},
