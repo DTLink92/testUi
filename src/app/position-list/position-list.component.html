@@ -11,6 +11,7 @@
         </div>
         <div class="descriptionList"><h3>Created On</h3></div>
         <div class="descriptionList"><h3>Recruitment Profile</h3></div>
+        <div class="descriptionList"><h3>Area</h3></div>
       </mat-list-item>
       <mat-list-item *ngFor="let position of positions" class="myTableRow">
         <div class="numberList" ><h3 mat-line >{{position.id}}</h3></div>
@@ -24,6 +25,9 @@
         </div>
         <div class="descriptionList">
           <p *ngFor="let profile of position.profilesName" class="listProfiles">- {{profile}}</p>
+        </div>
+        <div class="descriptionList">
+          <p>{{position.areaName}}</p>
         </div>
       </mat-list-item>
     </mat-list>

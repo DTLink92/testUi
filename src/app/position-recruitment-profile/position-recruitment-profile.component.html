@@ -7,27 +7,46 @@
       <div class="fieldRow">
       <input type="hidden" name="id" [(ngModel)]="profile.id">
         <mat-form-field>
-          <mat-select placeholder="Position" [(ngModel)]="profile.position" name="position">
-            <mat-option>None</mat-option>
+          <mat-select placeholder="Position" [(ngModel)]="profile.position" name="position" required #position="ngModel">
             <mat-option *ngFor="let high of positions" [value]="high.id">
             {{high.name}}
             </mat-option>
           </mat-select>
+          <div *ngIf="profile.id == null || position.invalid">
+            <div *ngIf="position.invalid || position.pristine" class="alert alert-danger">
+              <small>Position is required !</small>
+            </div>
+          </div>
         </mat-form-field>
       </div>
       <div class="fieldRow">
         <mat-form-field>
           <input matInput placeholder="Description" [(ngModel)]="profile.description"
-               required name="description" #description>
+               required name="description" #description="ngModel">
+          <div *ngIf="profile.id == null || description.invalid">
+            <div *ngIf="description.invalid || description.pristine" class="alert alert-danger">
+              <small>Description is required !</small>
+            </div>
+          </div>
         </mat-form-field>
         <mat-form-field>
           <textarea matInput placeholder="Requirement" [(ngModel)]="profile.requirement"
-                  required name="requirement" #requirement>{{profile.requirement}}</textarea>
+                  required name="requirement" #requirement="ngModel">{{profile.requirement}}</textarea>
+          <div *ngIf="profile.id == null || requirement.invalid">
+            <div *ngIf="requirement.invalid || requirement.pristine" class="alert alert-danger">
+              <small>Requirement is required !</small>
+            </div>
+          </div>
         </mat-form-field>
 
         <mat-form-field>
           <textarea matInput placeholder="verification" [(ngModel)]="profile.verification"
-                  required name="verification" #verification>{{profile.verification}}</textarea>
+                  required name="verification" #verification="ngModel">{{profile.verification}}</textarea>
+          <div *ngIf="profile.id == null || verification.invalid">
+            <div *ngIf="verification.invalid || verification.pristine" class="alert alert-danger">
+              <small>Verification is required !</small>
+            </div>
+          </div>
         </mat-form-field>
       </div>
     </mat-card-content>

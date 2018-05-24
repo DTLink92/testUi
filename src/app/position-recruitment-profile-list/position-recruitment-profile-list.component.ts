@@ -8,7 +8,6 @@ import { PositionService } from '../services/position.service';
 })
 export class PositionRecruitmentProfileListComponent implements OnInit {
   profiles: Array<any>;
-  positions: Array<any>;
   constructor(private profileService: PositionRecruitmentProfileService, private positionService: PositionService) { }
 
   ngOnInit() {

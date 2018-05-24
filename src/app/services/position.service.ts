@@ -7,6 +7,7 @@ import {baseURL} from '../shared/baseurl';
 export class PositionService {
 
   public POSITION_API = baseURL + 'positions';
+  public AREA_API = baseURL + 'areas';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -38,5 +39,9 @@ export class PositionService {
     const url = `${this.POSITION_API}/${id}`;
     console.log('entro aqui remove service ' + url);
     return this.http.delete( url);
+  }
+
+  getAllAreas(): Observable<any> {
+    return this.http.get(this.AREA_API);
   }
 }
