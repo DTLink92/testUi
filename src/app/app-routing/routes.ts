@@ -20,6 +20,7 @@ import {AssignEquipmentComponent} from '../assign-equipment/assign-equipment.com
 import {EmployeeListAssignequipComponent} from '../employee-list-assignequip/employee-list-assignequip.component';
 import {EmployeeListWithequipComponent} from '../employee-list-withequip/employee-list-withequip.component';
 import {ProjectListAssignequipComponent} from '../project-list-assignequip/project-list-assignequip.component';
+import {ProjectComponent} from '../project/project.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -47,5 +48,6 @@ export const routes: Routes = [
   {path: 'assign-equipment', component: AssignEquipmentComponent},
   {path: 'employee-list-assignequip', component: EmployeeListAssignequipComponent},
   {path: 'employee-list-withequip', component: EmployeeListWithequipComponent},
+  {path: 'projects', component: ProjectComponent},
   {path: 'project-list-assignequip', component: ProjectListAssignequipComponent}
   ];

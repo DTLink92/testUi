@@ -1,0 +1,64 @@
+<div class="container"
+     fxLayout="column">
+
+  <!--&lt;!&ndash;tabla plantilla&ndash;&gt;-->
+  <!--<div fxFlex >-->
+    <!--<app-car-list></app-car-list>-->
+  <!--</div>-->
+
+  <!--&lt;!&ndash;##Projects en formato json&ndash;&gt;-->
+  <!--<div fxFlex >-->
+    <!--<ul>-->
+      <!--<li *ngFor="let project of projects" > <p>{{project | json}}</p> {{project.id}} {{project.name}} </li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <div fxFlex class="spinner-container" *ngIf="projects">
+
+    <div fxFlex>
+      <div class="example-container mat-elevation-z8">
+        <h1> LIST OF PROJECTS </h1>
+        <mat-table #table [dataSource]="projects">
+
+          <!-- id Column -->
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> Code. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          </ng-container>
+          <!-- Gestion Column-->
+          <ng-container matColumnDef="gestion">
+            <mat-header-cell *matHeaderCellDef> Gestion. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.gestion}} </mat-cell>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+          <!-- Options  Column -->
+
+          <ng-container matColumnDef="options">
+            <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <button mat-button  (click)="editMember(element)"><span class="fa fa-edit fa-lg"></span>Edit</button>
+            <button mat-button  (click)="detailProject(element)"><span class="fa fa-info fa-lg"></span>Details</button>
+            <button mat-button  (click)="deleteProject(element)"><span class="fa fa-trash  fa-lg"></span>Delete</button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+      </div>
+    </div>
+    <br>
+  </div>
+  <div [hidden]="projects">
+    <mat-spinner></mat-spinner>
+    <h4>Loading . . . Please Wait</h4>
+  </div>
+
+</div>
+
