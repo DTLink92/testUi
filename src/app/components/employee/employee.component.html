@@ -30,7 +30,7 @@
       <div class="form-group">
         <label for="birthDate">Fecha de Nacimiento:</label>
         <input [ngModel]="employee.birthday | date:'yyyy-MM-dd'" name="birthdate"
-               disabled="true" type="date" class="form-control" id="birthDate" required>
+               [disabled]="isDisabled()" type="date" class="form-control" id="birthDate" required>
       </div>
       <div class="form-group">
         <label for="phoneNumber">Telf:</label>
@@ -88,7 +88,7 @@
         <label> Supervisor: </label>
         <select (change)="supervisorId($event.target.value)" [disabled]="isDisabled()"
                 [(ngModel)]="employee.supervisorId" >
-          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}}</option>
+          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}} {{supervisor.lastName}}</option>
         </select>
       </div>
       <div class="form-group">

@@ -67,7 +67,7 @@
       <div class="form-group">
         <label> Supervisor: </label>
         <select (change)="supervisorId($event.target.value)">
-          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}}</option>
+          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}} {{supervisor.lastName}}</option>
         </select>
       </div>
       <div class="form-group">
