@@ -2,12 +2,19 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Employeeaccident } from '../../shared/employeeaccident';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import {Employee} from '../../shared/employee';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class EmployeeAccidentService {
 
   dataChange: BehaviorSubject<Employeeaccident[]> = new BehaviorSubject<Employeeaccident[]>([]);
+  dataChangeEmployee: BehaviorSubject<Employee[]> = new BehaviorSubject<Employee[]>([]);
+
+
   private readonly API_URL = 'http://localhost:8080/employee_accidents';
+  private readonly API_URL_EMPLOYEE = 'http://localhost:8080/employees';
+
   dialogData: any;
 
   constructor (public httpClient: HttpClient) {}
@@ -43,7 +50,7 @@ export class EmployeeAccidentService {
   }
 
   delete (id: number): void {
-    this.httpClient.delete(this.API_URL + '/' + id,this.httpOptions)
+    this.httpClient.delete(this.API_URL + '/' + id, this.httpOptions)
     .subscribe((ok) => {
       console.log(ok);
     });
@@ -56,6 +63,15 @@ export class EmployeeAccidentService {
       },
       (error: HttpErrorResponse) => {
         console.log (error.name + ' ' + error.message);
+      });
+  }
+
+  getAccidents(): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/accidents')
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
       });
   }
 
