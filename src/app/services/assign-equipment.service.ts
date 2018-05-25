@@ -61,10 +61,9 @@ export class AssignEquipmentService {
       });
   }
 
-  /*remove(id) {
+  remove(id: number) {
     const url = `${this.PROFILE_API}/${id}`;
-    console.log('entro aqui remove service ' + url);
     return this.http.delete( url);
-  }*/
+  }
 
 }

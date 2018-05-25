@@ -1,3 +1,39 @@
 <p>
   employee-list-assignequip works!
 </p>
+
+<mat-card>
+  <mat-card-header><mat-card-title><h2>List Equipment Assign</h2></mat-card-title></mat-card-header>
+  <mat-card-content>
+    <mat-list class="myTable">
+      <mat-list-item class="tableHeader">
+        <div class="numberList">
+          <h3>ID</h3>
+        </div>
+        <div class="descriptionList">
+          <h3>Employee Name</h3>
+        </div>
+        <div class="descriptionList"><h3>Assign Date</h3></div>
+        <div class="descriptionList"><h3>Equipment</h3></div>
+      </mat-list-item>
+      <mat-list-item *ngFor="let assignEquip of assignEquips" class="myTableRow">
+        <div class="numberList">
+          <h3>{{assignEquip.id}}</h3>
+        </div>
+        <div class="descriptionList">
+          <p>{{assignEquip.fullNameEmployee}}</p>
+        </div>
+        <div class="descriptionList">
+          <p>{{assignEquip.dateAssign}}</p>
+        </div>
+        <div class="descriptionList">
+          <h3>
+            <a mat-button [routerLink]="['/assign-equip-employee', assignEquip.id]">Assign Equipment</a>
+          </h3>
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <button mat-raised-button color="primary" [routerLink]="['/assign-equipment-add']">ADD</button>
+</mat-card>
+
