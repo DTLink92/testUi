@@ -51,36 +51,35 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import { PositionComponent } from './position/position.component';
-import { PositionTypeEvaluatorComponent } from './position-type-evaluator/position-type-evaluator.component';
-import { PositionTypeEvaluatorListComponent } from './position-type-evaluator-list/position-type-evaluator-list.component';
-import { PositionTypeEvaluatorEditComponent } from './position-type-evaluator-edit/position-type-evaluator-edit.component';
-import { PositionListComponent } from './position-list/position-list.component';
-
+import {PositionComponent} from './position/position.component';
+import {PositionTypeEvaluatorComponent} from './position-type-evaluator/position-type-evaluator.component';
+import {PositionTypeEvaluatorListComponent} from './position-type-evaluator-list/position-type-evaluator-list.component';
+import {PositionTypeEvaluatorEditComponent} from './position-type-evaluator-edit/position-type-evaluator-edit.component';
+import {PositionListComponent} from './position-list/position-list.component';
 // Service
 import {EmployeeService} from './services/employeeService/employee-service.service';
 import {ContractService} from './services/contractService/contract-service.service';
-import { PositionService} from './services/position.service';
-import { PositionTypeEvaluatorService} from './services/position-type-evaluator.service';
-import { PositionRecruitmentProfileService } from './services/position-recruitment-profile.service';
+import {PositionService} from './services/position.service';
+import {PositionTypeEvaluatorService} from './services/position-type-evaluator.service';
+import {PositionRecruitmentProfileService} from './services/position-recruitment-profile.service';
 // Components Imports
-import { EmployeeListComponent } from './components/employees-list/employees-list.component';
-import { EmployeeRegisterFormComponent } from './components/employee-register-form/employee-register-form.component';
-import { EmployeeComponent } from './components/employee/employee.component';
-import { PositionRecruitmentProfileComponent } from './position-recruitment-profile/position-recruitment-profile.component';
-import { PositionRecruitmentProfileListComponent } from './position-recruitment-profile-list/position-recruitment-profile-list.component';
-import { TypeEquipmentComponent } from './type-equipment/type-equipment.component';
-import { AssignEquipmentComponent } from './assign-equipment/assign-equipment.component';
-import { EmployeeListAssignequipComponent } from './employee-list-assignequip/employee-list-assignequip.component';
-import { EmployeeListWithequipComponent } from './employee-list-withequip/employee-list-withequip.component';
-import { ProjectListAssignequipComponent } from './project-list-assignequip/project-list-assignequip.component';
+import {EmployeeListComponent} from './components/employees-list/employees-list.component';
+import {EmployeeRegisterFormComponent} from './components/employee-register-form/employee-register-form.component';
+import {EmployeeComponent} from './components/employee/employee.component';
+import {PositionRecruitmentProfileComponent} from './position-recruitment-profile/position-recruitment-profile.component';
+import {PositionRecruitmentProfileListComponent} from './position-recruitment-profile-list/position-recruitment-profile-list.component';
+import {TypeEquipmentComponent} from './type-equipment/type-equipment.component';
+import {AssignEquipmentComponent} from './assign-equipment/assign-equipment.component';
+import {EmployeeListAssignequipComponent} from './employee-list-assignequip/employee-list-assignequip.component';
+import {EmployeeListWithequipComponent} from './employee-list-withequip/employee-list-withequip.component';
+import {ProjectListAssignequipComponent} from './project-list-assignequip/project-list-assignequip.component';
 import {AssignEquipmentService} from './services/assign-equipment.service';
 import {PositionEquipmentService} from './services/position-equipment.service';
 import {DetailAssignEquipmentService} from './services/detail-assign-equipment.service';
-import { AccidentRecordComponent } from './accident-record/accident-record.component';
-import { ProjectComponent } from './project/project.component';
+import {AccidentRecordComponent} from './accident-record/accident-record.component';
+import {ProjectComponent} from './project/project.component';
 import {ProjectService} from './services/project.service';
-import { CarListComponent } from './car-list/car-list.component';
+import {CarListComponent} from './car-list/car-list.component';
 
 
 @NgModule({
@@ -110,15 +109,13 @@ import { CarListComponent } from './car-list/car-list.component';
     EmployeeListAssignequipComponent,
     EmployeeListWithequipComponent,
     ProjectListAssignequipComponent,
-<<<<<<< HEAD
-    AccidentRecordComponent
-=======
+    AccidentRecordComponent,
     AccidentRecordComponent,
     AccidentRecordComponent,
     ProjectListAssignequipComponent,
     ProjectComponent,
     CarListComponent
->>>>>>> 65d6d527dfec2a0fab512c741bdf23130167a8bf
+
   ],
   imports: [
     BrowserModule,
