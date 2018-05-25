@@ -16,6 +16,7 @@ export class ProjectService {
   constructor(private http: HttpClient) {
     }
   getAll(): Observable<any> {
+    console.log('#######lista de todos los projects#####' + this.PROJECT_API);
     return this.http.get(this.PROJECT_API);
   }
   getType (id: number): Observable<any> {
