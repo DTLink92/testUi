@@ -50,6 +50,13 @@
                   [value]="civilState.value">{{civilState.value}}</option>
         </select>
       </div>
+      <div class="form-group">
+        <label for="genre">*Genero: </label>
+        <select (change)="changeGenre($event.target.value)"
+                [(ngModel)]="employee.genre" [disabled]="isDisabled()">
+          <option *ngFor="let genre of genres" id="genre" [value]="genre.value">{{genre.value}}</option>
+        </select>
+      </div>
       <div class="form-group experience">
         <label for="experience">Experiencia:</label>
         <textarea id="experience" cols="80" rows="10"
@@ -79,7 +86,8 @@
       </div>
       <div class="form-group">
         <label> Supervisor: </label>
-        <select (change)="supervisorId($event.target.value)" [disabled]="isDisabled()">
+        <select (change)="supervisorId($event.target.value)" [disabled]="isDisabled()"
+                [(ngModel)]="employee.supervisorId" >
           <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}}</option>
         </select>
       </div>
@@ -92,6 +100,12 @@
         <label for="finishDate">*Fecha de Finalizacion de Contrato:</label>
         <input [disabled]="isDisabled()" [ngModel]="employee.finishDate | date:'yyyy-MM-dd'"
                name="finishDate" type="date" class="form-control" id="finishDate" required>
+      </div>
+      <div class="form-group">
+        <label for="salary">*Salario:</label>
+        <input [disabled]="isDisabled()" type="number" min="0" step="any"
+               [(ngModel)]="employee.salary" name="salary"
+               class="form-control" id="salary" required/>
       </div>
       <div class="form-group experience">
         <label for="conctractDescription">Descripcion:</label>

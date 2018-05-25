@@ -35,6 +35,12 @@
         <input [(ngModel)]="employee.dependenciesAmount" name="depAmount" type="number" class="form-control" id="depAmount">
       </div>
       <div class="form-group">
+        <label for="genre">*Genero: </label>
+        <select (change)="changeGenre($event.target.value)">
+          <option *ngFor="let genre of genres" id="genre" [value]="genre.value">{{genre.value}}</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="experience">Experiencia:</label>
         <textarea id="experience" cols="80" rows="10" [(ngModel)]="employee.experience" name="experience"></textarea>
       </div>
@@ -72,9 +78,15 @@
         <label for="finishDate">*Fecha de Finalizacion de Contrato:</label>
         <input [(ngModel)]="data.finishDate" name="finishDate" type="date" class="form-control" id="finishDate" required>
       </div>
+      <div class="form-group">
+        <label for="salary">*Salario:</label>
+        <input type="number" min="0" step="any"
+               [(ngModel)]="data.salary" name="salary"
+               class="form-control" id="salary" required/>
+      </div>
       <label for="conctractDescription">Descripcion:</label>
       <div class="form-group">
-        <textarea id="conctractDescription" cols="80" rows="10"
+        <textarea id="conctractDescription" cols="80" rows="7"
                   [(ngModel)]="data.description" name="conctractDescription"></textarea>
       </div>
     </div>

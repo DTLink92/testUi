@@ -10,4 +10,5 @@ export interface Contract {
   employeeLastName: string;
   employeeCi: number;
   positionName: string;
+  salary: number;
 }

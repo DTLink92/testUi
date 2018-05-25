@@ -15,10 +15,10 @@ export class ContractService {
 
   constructor(private http: HttpClient) { }
 
-  postContract(contract: Contract): Observable<Contract> {
+  postContract(contract: Contract): Observable<any> {
     return this.http.post<any>('http://localhost:8080/position_assign_employees', contract, this.httpOptions)
       .map((res) => {
-        return res;
+        return <Contract>res;
       }).catch(error => {
         return error;
       });
@@ -33,7 +33,8 @@ export class ContractService {
       });
   }
   getEmployeesByPosition(id: number): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/position_assign_employees/position=' + id)
+    const url = 'http://localhost:8080/position_assign_employees/position=' + id;
+    return this.http.get(url)
       .map((res) => {
         return res;
       }).catch(error => {
