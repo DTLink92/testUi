@@ -19,4 +19,5 @@ export interface EmployeeDetail {
   supervisorId: number;
   contractId: number;
   genre: string;
+  salary: number;
 }

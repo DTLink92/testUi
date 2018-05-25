@@ -55,7 +55,8 @@ export class EmployeeRegisterFormComponent implements OnInit {
     description: '',
     initDate: null,
     finishDate: null,
-    genre: ''
+    genre: '',
+    salary: 0
   };
   allPositions = [];
   allSupervisor: Array<Employee> = [];

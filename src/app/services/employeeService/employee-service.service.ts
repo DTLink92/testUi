@@ -40,7 +40,11 @@ export class EmployeeService {
       });
   }
   deleteEmployee(id: number) {
-    this.http.delete('http://localhost:8080/employees/' + id).subscribe();
+    return this.http.delete('http://localhost:8080/employees/' + id).map((res) => {
+      return res;
+    }).catch(error => {
+      return error;
+    });
   }
   updateEmployee(employee: any): Observable<any> {
     return this.http.put<any>('http://localhost:8080/employees', employee)

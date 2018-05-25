@@ -37,8 +37,15 @@ export class EmployeeComponent implements OnInit {
     finishDate: null,
     positionId: 0,
     supervisorId: 0,
-    contractId: 0
+    contractId: 0,
+    salary: 0,
+    genre: ''
   };
+  genres = [
+    { value: 'Masculino'},
+    { value: 'Femenino'},
+    { value: 'Otro'}
+  ];
   data = {
     positionId: 0
   };
@@ -49,6 +56,7 @@ export class EmployeeComponent implements OnInit {
     { value: 'Viudo/a'}
   ];
   disabled = true;
+  firstLoad = true;
   allPositions = [];
   allSupervisor: Array<Employee> = [];
   constructor(private employeeService: EmployeeService,
@@ -91,12 +99,13 @@ export class EmployeeComponent implements OnInit {
     if (this.invalidString(this.employee.civilState, 1000, 'Estado civil')) {
       return true;
     }
-    if (this.employee.phoneNumber <= 0) {
-      this.errorMessage = 'El Telefono no puede ser 0 o menor a 0';
+    if (this.invalidNumber(this.employee.phoneNumber, 'Telefono')) {
       return true;
     }
-    if (this.employee.ci <= 0) {
-      this.errorMessage = 'El Ci no puede ser 0 o menor a 0';
+    if (this.invalidNumber(this.employee.ci, 'Ci')) {
+      return true;
+    }
+    if (this.invalidNumber(this.employee.salary, 'Salario')) {
       return true;
     }
     if (this.employee.positionId <= 0) {
@@ -105,7 +114,13 @@ export class EmployeeComponent implements OnInit {
     }
     return false;
   }
-
+  invalidNumber(currentNumber, input) {
+    if (currentNumber <= 0) {
+      this.errorMessage = 'El '+input+' no puede ser 0 o menor a 0';
+      return true;
+    }
+    return false;
+  }
   invalidString(currentString, maxlength, input) {
     if (!currentString) {
       this.errorMessage = 'El campo ' + input + ' no puede estar vacio';
@@ -159,7 +174,12 @@ export class EmployeeComponent implements OnInit {
   }
   delete() {
     const id = this.employee.id;
-    this.employeeService.deleteEmployee(this.employee.id);
+    this.contractService.deleteContract(this.employee.contractId).subscribe(data => {
+      this.employeeService.deleteEmployee(this.employee.id).subscribe(response => {
+        const element = document.getElementById('router-to-employee-list');
+        element.click();
+      });
+    });
   }
   isDisabled() {
     return this.disabled;
@@ -199,7 +219,11 @@ export class EmployeeComponent implements OnInit {
     this.contractService.getEmployeesByPosition(highPositionid).subscribe(response => {
       this.allSupervisor = response;
       if (this.allSupervisor.length > 0) {
-        this.employee.supervisorId = this.allSupervisor[0].id;
+        if (this.firstLoad) {
+          this.firstLoad = false;
+        } else {
+          this.employee.supervisorId = this.allSupervisor[0].id;
+        }
       }
     });
   }
