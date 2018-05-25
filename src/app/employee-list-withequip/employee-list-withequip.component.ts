@@ -20,7 +20,7 @@ export class EmployeeListWithequipComponent implements OnInit {
         console.log(data);
       },
       (error) => {
-        console.log(error.error.message);
+        console.log(error);
       });
   }
 }

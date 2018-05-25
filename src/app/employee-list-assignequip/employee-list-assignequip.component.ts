@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AssignEquipmentService} from '../services/assign-equipment.service';
-import {EmployeeService} from '../services/employee.service';
+import {EmployeeService} from '../services/employeeService/employee-service.service';
 
 @Component({
   selector: 'app-employee-list-assignequip',
