@@ -1,6 +1,4 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {Item} from '../shared/item';
-import {ItemService} from '../services/item.service';
 
 @Component({
   selector: 'app-catalog',
@@ -8,17 +6,10 @@ import {ItemService} from '../services/item.service';
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
-  items: Item[];
-  selectedItem: Item;
 
-  constructor(private itemService: ItemService, @Inject('BaseURL') public BaseURL) {
+  constructor(@Inject('BaseURL') public BaseURL) {
   }
 
   ngOnInit() {
-    this.itemService.getItems().subscribe(items => this.items = items);
-  }
-
-  onSelect(item: Item) {
-    this.selectedItem = item;
   }
 }

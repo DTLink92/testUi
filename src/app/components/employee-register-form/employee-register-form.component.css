@@ -32,12 +32,12 @@
   margin-bottom: 20px;
 }
 
-.left {
+.form-employee-container .left {
   width: 40%;
   float: left;
 }
 
-.right {
+.form-employee-container .right {
   width: 40%;
   float: right;
 }
@@ -94,4 +94,9 @@
   .form-employee-container {
     width: 1350px;
   }
+}
+
+.employee-title {
+  width: 400px;
+  float: left;
 }

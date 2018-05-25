@@ -6,3 +6,14 @@ $background-moredark: #4527A0;
 .employees-icon:hover {
   color: white;
 }
+
+.employees-icon:focus {
+  background-color: #308C88;
+  color: white;
+  border: 2px solid white;
+  box-sizing: border-box;
+}
+
+.jumbotron {
+  width: 100%;
+}

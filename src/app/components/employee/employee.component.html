@@ -30,7 +30,7 @@
       <div class="form-group">
         <label for="birthDate">Fecha de Nacimiento:</label>
         <input [ngModel]="employee.birthday | date:'yyyy-MM-dd'" name="birthdate"
-               disabled="true" type="date" class="form-control" id="birthDate" required>
+               [disabled]="isDisabled()" type="date" class="form-control" id="birthDate" required>
       </div>
       <div class="form-group">
         <label for="phoneNumber">Telf:</label>
@@ -48,6 +48,13 @@
                 [(ngModel)]="employee.civilState" [disabled]="isDisabled()">
           <option *ngFor="let civilState of civilStates" id="civilState"
                   [value]="civilState.value">{{civilState.value}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="genre">*Genero: </label>
+        <select (change)="changeGenre($event.target.value)"
+                [(ngModel)]="employee.genre" [disabled]="isDisabled()">
+          <option *ngFor="let genre of genres" id="genre" [value]="genre.value">{{genre.value}}</option>
         </select>
       </div>
       <div class="form-group experience">
@@ -79,8 +86,9 @@
       </div>
       <div class="form-group">
         <label> Supervisor: </label>
-        <select (change)="supervisorId($event.target.value)" [disabled]="isDisabled()">
-          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}}</option>
+        <select (change)="supervisorId($event.target.value)" [disabled]="isDisabled()"
+                [(ngModel)]="employee.supervisorId" >
+          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}} {{supervisor.lastName}}</option>
         </select>
       </div>
       <div class="form-group">
@@ -92,6 +100,12 @@
         <label for="finishDate">*Fecha de Finalizacion de Contrato:</label>
         <input [disabled]="isDisabled()" [ngModel]="employee.finishDate | date:'yyyy-MM-dd'"
                name="finishDate" type="date" class="form-control" id="finishDate" required>
+      </div>
+      <div class="form-group">
+        <label for="salary">*Salario:</label>
+        <input [disabled]="isDisabled()" type="number" min="0" step="any"
+               [(ngModel)]="employee.salary" name="salary"
+               class="form-control" id="salary" required/>
       </div>
       <div class="form-group experience">
         <label for="conctractDescription">Descripcion:</label>
@@ -108,3 +122,7 @@
     </div>
   </div>
 </div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

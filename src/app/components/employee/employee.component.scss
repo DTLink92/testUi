@@ -81,7 +81,7 @@
   display: none;
 }
 
-label {
+info-employee-container label {
   float: left;
 }
 
@@ -107,6 +107,7 @@ label {
   }
 }
 
+.info-employee-container,
 input:disabled,
 input[disabled]{
   border: none;

@@ -1,0 +1,80 @@
+
+<mat-toolbar>
+  <span>Employees Accidents </span>
+  <span class="spacer"></span>
+  Reload data:
+  <button mat-icon-button (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</mat-toolbar>
+<br>
+<div class="container mat-elevation-z8">
+  <div class="form">
+    <mat-form-field floatPlaceholder="never" color="primary">
+      <input matInput #filter placeholder="Filter Accidents">
+    </mat-form-field>
+  </div>
+  <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+      <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="fullname">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Full name</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.fullname}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="zonaLesion">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Zona de lesion</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.zonaLesion}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="detalleLesion">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Detalle de lesion</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.detalleLesion}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tipoLesion">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Tipo de lesion</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.tipoLesion}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descriptionAccident">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Description Accident</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.descriptionAccident}}</mat-cell>
+    </ng-container>
+    <!-- actions -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="addNew()">
+          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let row; let i=index;">
+        <button mat-icon-button color="primary" (click)="delete(i, row.id, row.detalleLesion, row.fullname)">
+          <mat-icon aria-label="Delete">delete</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="edit(i, row.id, row.zonaLesion, row.detalleLesion, row.tipoLesion)">
+          <mat-icon aria-label="Edit">edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+    No results
+  </div>
+<br>
+  <mat-paginator #paginator
+                 [length]="dataSource.filteredData.length"
+                 [pageIndex]="0"
+                 [pageSize]="10"
+                 [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>
+
+</div>

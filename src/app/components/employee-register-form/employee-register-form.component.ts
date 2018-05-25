@@ -24,13 +24,19 @@ export class EmployeeRegisterFormComponent implements OnInit {
     supervisorId: 0,
     description: '',
     initDate: null,
-    finishDate: null
+    finishDate: null,
+    salary: 0
   };
   civilStates = [
     { value: 'Soltero/a'},
     { value: 'Casado/a'},
     { value: 'Divorciado/a'},
     { value: 'Viudo/a'}
+  ];
+  genres = [
+    { value: 'Masculino'},
+    { value: 'Femenino'},
+    { value: 'Otro'}
   ];
   employee = {
     id: 0,
@@ -48,7 +54,9 @@ export class EmployeeRegisterFormComponent implements OnInit {
     supervisorName: '',
     description: '',
     initDate: null,
-    finishDate: null
+    finishDate: null,
+    genre: '',
+    salary: 0
   };
   allPositions = [];
   allSupervisor: Array<Employee> = [];
@@ -58,6 +66,7 @@ export class EmployeeRegisterFormComponent implements OnInit {
 
   ngOnInit() {
     this.employee.civilState = this.civilStates[0].value;
+    this.employee.genre = this.genres[0].value;
     this.employeeService.getPositions().subscribe(data => {
       this.allPositions = data;
       this.data.positionId = data[0].id;
@@ -81,7 +90,8 @@ export class EmployeeRegisterFormComponent implements OnInit {
             employeeFirstName: '',
             employeeLastName: '',
             positionName: '',
-            employeeCi: 0
+            employeeCi: 0,
+            salary: this.data.salary
           };
           this.contractService.postContract(this.contract).subscribe(response => {
             const element = document.getElementById('router-to-employee-list');
@@ -131,12 +141,13 @@ export class EmployeeRegisterFormComponent implements OnInit {
     if (this.invalidString(this.employee.civilState, 1000, 'Estado civil')) {
       return true;
     }
-    if (this.employee.phoneNumber <= 0) {
-      this.errorMessage = 'El Telefono no puede ser 0 o menor a 0';
+    if (this.invalidNumber(this.employee.phoneNumber, 'Telefono')) {
       return true;
     }
-    if (this.employee.ci <= 0) {
-      this.errorMessage = 'El Ci no puede ser 0 o menor a 0';
+    if (this.invalidNumber(this.employee.ci, 'Ci')) {
+      return true;
+    }
+    if (this.invalidNumber(this.data.salary, 'Salario')) {
       return true;
     }
     if (this.data.positionId <= 0) {
@@ -145,7 +156,13 @@ export class EmployeeRegisterFormComponent implements OnInit {
     }
     return false;
   }
-
+  invalidNumber(currentNumber, input) {
+    if (currentNumber <= 0) {
+      this.errorMessage = 'El '+input+' no puede ser 0 o menor a 0';
+      return true;
+    }
+    return false;
+  }
   invalidString(currentString, maxlength, input) {
     if (!currentString) {
       this.errorMessage = 'El campo ' + input + ' no puede estar vacio';
@@ -158,21 +175,18 @@ export class EmployeeRegisterFormComponent implements OnInit {
     return false;
   }
 
-  positionId(id: any) {
+  positionId(id: number) {
     this.data.positionId = id;
-    const highPositionid = this.getHighPositionId(id);
-    /*this.contractService.getEmployeesByPosition(id).subscribe(response => {
+    let highPositionid = 0;
+    this.allPositions.forEach(position => {
+      if (position.id.toString() === id) {
+        highPositionid = position.higherWorkPosition;
+      }
+    });
+    this.contractService.getEmployeesByPosition(highPositionid).subscribe(response => {
       this.allSupervisor = response;
       if (this.allSupervisor.length > 0) {
         this.data.supervisorId = this.allSupervisor[0].id;
-      }
-    });*/
-  }
-
-  getHighPositionId(id: any) {
-    this.allPositions.forEach(position => {
-      if (position.id === id) {
-        return position.higherWorkPosition;
       }
     });
   }
@@ -183,7 +197,9 @@ export class EmployeeRegisterFormComponent implements OnInit {
   changeCivilState(civilState: any) {
     this.employee.civilState = civilState;
   }
-
+  changeGenre(genre: any) {
+    this.employee.genre = genre;
+  }
   cancel() {
     const element = document.getElementById('router-to-employee-list');
     element.click();

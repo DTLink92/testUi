@@ -35,6 +35,12 @@
         <input [(ngModel)]="employee.dependenciesAmount" name="depAmount" type="number" class="form-control" id="depAmount">
       </div>
       <div class="form-group">
+        <label for="genre">*Genero: </label>
+        <select (change)="changeGenre($event.target.value)">
+          <option *ngFor="let genre of genres" id="genre" [value]="genre.value">{{genre.value}}</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="experience">Experiencia:</label>
         <textarea id="experience" cols="80" rows="10" [(ngModel)]="employee.experience" name="experience"></textarea>
       </div>
@@ -61,7 +67,7 @@
       <div class="form-group">
         <label> Supervisor: </label>
         <select (change)="supervisorId($event.target.value)">
-          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}}</option>
+          <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}} {{supervisor.lastName}}</option>
         </select>
       </div>
       <div class="form-group">
@@ -72,9 +78,15 @@
         <label for="finishDate">*Fecha de Finalizacion de Contrato:</label>
         <input [(ngModel)]="data.finishDate" name="finishDate" type="date" class="form-control" id="finishDate" required>
       </div>
+      <div class="form-group">
+        <label for="salary">*Salario:</label>
+        <input type="number" min="0" step="any"
+               [(ngModel)]="data.salary" name="salary"
+               class="form-control" id="salary" required/>
+      </div>
       <label for="conctractDescription">Descripcion:</label>
       <div class="form-group">
-        <textarea id="conctractDescription" cols="80" rows="10"
+        <textarea id="conctractDescription" cols="80" rows="7"
                   [(ngModel)]="data.description" name="conctractDescription"></textarea>
       </div>
     </div>
@@ -88,3 +100,6 @@
     </div>
   </div>
 </div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
