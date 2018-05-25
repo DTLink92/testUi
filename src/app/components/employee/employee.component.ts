@@ -67,7 +67,9 @@ export class EmployeeComponent implements OnInit {
       .switchMap((params: Params) => this.employeeService.getEmployee(+params['id']))
       .subscribe(employee => {
         this.employee = employee;
-        this.employee.birthday = this.getDate(employee.birthday.toString());
+        if(this.employee.birthday != null ){
+          this.employee.birthday = this.getDate(employee.birthday.toString());
+        }
         this.employee.finishDate = this.getDate(employee.finishDate.toString());
         this.employee.initDate = this.getDate(employee.initDate.toString());
         this.employeeHelper = employee;
