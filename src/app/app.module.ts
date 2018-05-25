@@ -105,7 +105,7 @@ import { AccidentRecordComponent } from './accident-record/accident-record.compo
     AssignEquipmentComponent,
     EmployeeListAssignequipComponent,
     EmployeeListWithequipComponent,
-    ProjectListAssignequipComponent
+    ProjectListAssignequipComponent,
     AccidentRecordComponent
   ],
   imports: [
