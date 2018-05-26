@@ -4,8 +4,8 @@
   </div>
   <span fxFlex class="flex-spacer"></span>
   <div fxFlex align="end">
-    <button mat-button mat-dialog-close>&times;</button>
-  </div>
+  <button mat-button mat-dialog-close>&times;</button>
+</div>
 </mat-toolbar>
 
 <p>{{user | json}}</p>
@@ -22,6 +22,7 @@
           </span>
         </mat-hint>
       </mat-input-container>
+
       <mat-input-container dividerColor="{{password.invalid && !password.pristine ? 'warn' : 'primary'}}">
         <input matInput [(ngModel)]="user.password"
                type="password"
@@ -32,8 +33,10 @@
           </span>
         </mat-hint>
       </mat-input-container>
+
       <mat-checkbox [(ngModel)]="user.remember" name="remember" color="primary">Remember me</mat-checkbox>
     </p>
+
   </mat-dialog-content>
   <mat-dialog-actions>
     <span class="flex-spacer"></span>

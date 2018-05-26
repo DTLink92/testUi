@@ -27,14 +27,16 @@ export class ProjectService {
     let result: Observable<Object>;
     if ( project['id']) {
       result = this.http.put(this.PROJECT_API, project);
-      console.log('entro aqui save service ' + this.PROJECT_API, project);
+      console.log('ACTUALIZA CON PUT' + this.PROJECT_API, project);
     } else {
       result = this.http.post(this.PROJECT_API, project);
-      console.log('entro aqui post save service ' + this.PROJECT_API, project);
+      console.log('CREA CON POST ' + this.PROJECT_API, project);
     }
+    console.log('result de operacion' + result);
+
     return result;
   }
-  remove(id) {
+  remove(id: number) {
     const url = `${this.PROJECT_API}/${id}`;
     console.log('entro aqui remove service ' + url);
     return this.http.delete( url);
