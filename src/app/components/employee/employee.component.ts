@@ -80,7 +80,9 @@ export class EmployeeComponent implements OnInit {
         this.imageData = employee.profileImage;
         this.employeeService.getPositions().subscribe(data => {
           this.allPositions = data;
-          this.positionId(this.employee.positionId.toString());
+          if (this.employee.positionId != null) {
+            this.positionId(this.employee.positionId.toString());
+          }
         });
       });
   }
@@ -180,12 +182,21 @@ export class EmployeeComponent implements OnInit {
   }
   delete() {
     const id = this.employee.id;
-    this.contractService.deleteContract(this.employee.contractId).subscribe(data => {
-      this.employeeService.deleteEmployee(this.employee.id).subscribe(response => {
-        const element = document.getElementById('router-to-employee-list');
-        element.click();
+    if (this.employee.contractId != null) {
+      this.contractService.deleteContract(this.employee.contractId).subscribe(data => {
+        this.employeeService.deleteEmployee(this.employee.id).subscribe(response => {
+          const element = document.getElementById('router-to-employee-list');
+          element.click();
+        });
       });
-    });
+    } else {
+      if (this.employee.id != null) {
+        this.employeeService.deleteEmployee(this.employee.id).subscribe(response => {
+          const element = document.getElementById('router-to-employee-list');
+          element.click();
+        });
+      }
+    }
   }
   isDisabled() {
     return this.disabled;
