@@ -1,0 +1,46 @@
+<mat-toolbar fxLayout="row" mat-dialog-title color="primary">
+  <div fxFlex>
+    Create Project
+  </div>
+  <span fxFlex class="flex-spacer"></span>
+  <div fxFlex align="right">
+    <button mat-button mat-dialog-close>&times;</button>
+  </div>
+</mat-toolbar>
+
+<form novalidate #createProjectForm="ngForm" (ngSubmit)="onSubmit()">
+  <mat-dialog-content>
+    <p>
+      <mat-input-container dividerColor="{{projectname.invalid && !projectname.pristine?'warn':'primary'}}">
+        <input matInput [(ngModel)]="project.name"
+               type="text"
+               placeholder="Projectname" name="projectname" #projectname="ngModel" required>
+        <mat-hint>
+          <span [hidden]="projectname.pristine">
+            <span [hidden]="!projectname.errors?.required">Name is required</span>
+          </span>
+        </mat-hint>
+      </mat-input-container>
+
+      <mat-input-container dividerColor="{{projectgestion.invalid && !projectgestion.pristine ? 'warn' : 'primary'}}">
+        <input matInput [(ngModel)]="project.gestion"
+               type="text"
+               placeholder="Projectgestion" name="projectgestion" #projectgestion="ngModel" required>
+        <mat-hint>
+          <span [hidden]="projectgestion.pristine">
+            <span [hidden]="!projectgestion.errors?.required">gestion is required</span>
+          </span>
+        </mat-hint>
+      </mat-input-container>
+    </p>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white"
+            [disabled]="createProjectForm.form.invalid">Save
+    </button>
+  </mat-dialog-actions>
+
+</form>

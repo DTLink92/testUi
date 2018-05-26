@@ -17,6 +17,9 @@
 
     <div fxFlex>
       <div class="example-container mat-elevation-z8">
+        <div fxFlex align="right">
+          <a mat-button (click)="openCreateForm()"><span class="fa fa-plus-circle fa-lg"></span> Create  new Project </a>
+        </div>
         <h1> LIST OF PROJECTS </h1>
         <mat-table #table [dataSource]="projects">
 
@@ -43,7 +46,7 @@
           <mat-cell *matCellDef="let element">
             <button mat-button  (click)="editMember(element)"><span class="fa fa-edit fa-lg"></span>Edit</button>
             <button mat-button  (click)="detailProject(element)"><span class="fa fa-info fa-lg"></span>Details</button>
-            <button mat-button  (click)="deleteProject(element)"><span class="fa fa-trash  fa-lg"></span>Delete</button>
+            <button mat-button  (click)="deleteProject(element)" routerLink="/projects" ><span class="fa fa-trash  fa-lg"></span>Delete</button>
           </mat-cell>
         </ng-container>
 

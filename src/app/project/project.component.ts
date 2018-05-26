@@ -3,6 +3,9 @@ import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProjectService} from '../services/project.service';
 import {Project} from '../shared/project';
+import {LoginComponent} from '../login/login.component';
+import {MatDialog} from '@angular/material';
+import {CreateProjectComponent} from '../create-project/create-project.component';
 
 @Component({
   selector: 'app-project',
@@ -16,7 +19,7 @@ export class ProjectComponent implements OnInit {
   url: any;
   areas: Array<any>;
   displayedColumns;
-  constructor(private route: ActivatedRoute, private router: Router, private projectService: ProjectService
+  constructor(private route: ActivatedRoute, private router: Router, private projectService: ProjectService, public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -38,6 +41,13 @@ export class ProjectComponent implements OnInit {
 
   deleteProject(row) {
     console.log('BORRAR ESE PROJECT: ' + row.id);
+    this.projectService.remove(row.id);
+    console.log('Se borro project con id : ' + row.id);
+
+  }
+
+  openCreateForm() {
+    this.dialog.open(CreateProjectComponent, {width: '500px', height: '450px'});
 
   }
 }

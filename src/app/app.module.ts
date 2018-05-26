@@ -79,8 +79,8 @@ import {DetailAssignEquipmentService} from './services/detail-assign-equipment.s
 import {AccidentRecordComponent} from './accident-record/accident-record.component';
 import {ProjectComponent} from './project/project.component';
 import {ProjectService} from './services/project.service';
-import {CarListComponent} from './car-list/car-list.component';
-
+import { CarListComponent } from './car-list/car-list.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
 
 @NgModule({
   declarations: [
@@ -114,8 +114,8 @@ import {CarListComponent} from './car-list/car-list.component';
     AccidentRecordComponent,
     ProjectListAssignequipComponent,
     ProjectComponent,
-    CarListComponent
-
+    CarListComponent,
+    CreateProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -144,7 +144,8 @@ import {CarListComponent} from './car-list/car-list.component';
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
-    LoginComponent
+    LoginComponent,
+    CreateProjectComponent
   ],
   bootstrap: [AppComponent]
 })
