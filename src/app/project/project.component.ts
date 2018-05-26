@@ -41,13 +41,19 @@ export class ProjectComponent implements OnInit {
 
   deleteProject(row) {
     console.log('BORRAR ESE PROJECT: ' + row.id);
-    this.projectService.remove(row.id);
+    this.projectService.remove(row.id).subscribe(result => {
+      console.log( 'remover' ); this.redirect(); }, error => console.error( 'error' + error) );
     console.log('Se borro project con id : ' + row.id);
 
   }
 
   openCreateForm() {
     this.dialog.open(CreateProjectComponent, {width: '500px', height: '450px'});
+
+  }
+
+  private redirect() {
+    this.router.navigate(['/projects']);
 
   }
 }
