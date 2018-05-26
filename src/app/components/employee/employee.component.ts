@@ -70,13 +70,19 @@ export class EmployeeComponent implements OnInit {
         if(this.employee.birthday != null ){
           this.employee.birthday = this.getDate(employee.birthday.toString());
         }
-        this.employee.finishDate = this.getDate(employee.finishDate.toString());
-        this.employee.initDate = this.getDate(employee.initDate.toString());
+        if (this.employee.finishDate != null ){
+          this.employee.finishDate = this.getDate(employee.finishDate.toString());
+        }
+        if (this.employee.initDate != null ) {
+          this.employee.initDate = this.getDate(employee.initDate.toString());
+        }
         this.employeeHelper = employee;
         this.imageData = employee.profileImage;
         this.employeeService.getPositions().subscribe(data => {
           this.allPositions = data;
-          this.positionId(this.employee.positionId.toString());
+          if (this.employee.positionId != null) {
+            this.positionId(this.employee.positionId.toString());
+          }
         });
       });
   }
@@ -176,12 +182,21 @@ export class EmployeeComponent implements OnInit {
   }
   delete() {
     const id = this.employee.id;
-    this.contractService.deleteContract(this.employee.contractId).subscribe(data => {
-      this.employeeService.deleteEmployee(this.employee.id).subscribe(response => {
-        const element = document.getElementById('router-to-employee-list');
-        element.click();
+    if (this.employee.contractId != null) {
+      this.contractService.deleteContract(this.employee.contractId).subscribe(data => {
+        this.employeeService.deleteEmployee(this.employee.id).subscribe(response => {
+          const element = document.getElementById('router-to-employee-list');
+          element.click();
+        });
       });
-    });
+    } else {
+      if (this.employee.id != null) {
+        this.employeeService.deleteEmployee(this.employee.id).subscribe(response => {
+          const element = document.getElementById('router-to-employee-list');
+          element.click();
+        });
+      }
+    }
   }
   isDisabled() {
     return this.disabled;
