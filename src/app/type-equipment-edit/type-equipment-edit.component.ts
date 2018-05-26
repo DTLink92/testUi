@@ -26,7 +26,7 @@ export class TypeEquipmentEditComponent implements OnInit, OnDestroy {
         this.typeEquipmentService.get(id).subscribe((typeEquipment: any) => {
           if (typeEquipment) {
             this.typeEquipment = typeEquipment;
-            this.typeEquipment.href = typeEquipment._links.self.href;
+            // this.typeEquipment.id = typeEquipment._links.self.id;
             this.giphyService.get(typeEquipment.name).subscribe(url => typeEquipment.giphyUrl = url);
           } else {
             console.log(`TypeEquipment with id '${id}' not found, returning to list`);
@@ -43,24 +43,13 @@ export class TypeEquipmentEditComponent implements OnInit, OnDestroy {
   gotoList() {
      this.router.navigate(['/type-equipment']);
      }
-  /*
-      gotoList() {
-   if ( this.url.includes('position' )) {
-    this.router.navigate(['/positionList']);
-        } else {
-              this.router.navigate(['/profileList']);
-    }
-  }
-
-  */
-
-  save(form: NgForm) {
+   save(form: NgForm) {
     this.typeEquipmentService.save(form).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }
-  remove(href) {
-    this.typeEquipmentService.remove(href).subscribe(result => {
+  remove(id) {
+    this.typeEquipmentService.remove(id).subscribe(result => {
       this.gotoList();
     }, error => console.error(error));
   }

@@ -20,7 +20,7 @@ export class TypeEquipmentService {
   }
   save(typeEquipment: any): Observable<any> {
     let result: Observable<Object>;
-    console.log('entro aqui')
+    console.log('entro aqui');
     if (typeEquipment ['id'] ) {
       console.log('este es el Id' + typeEquipment ['id'] );
       result = this.http.put(this.TYPE_EQUIPMENT_API, typeEquipment);
@@ -29,7 +29,12 @@ export class TypeEquipmentService {
     }
     return result;
   }
-  remove(id: string) {
+  /* remove(id: string) {
     return this.http.delete(id);
-  }
+  }*/
+  remove(id) {
+     const url = `${this.TYPE_EQUIPMENT_API}/${id}`;
+     console.log('entro aqui remove service ' + url);
+     return this.http.delete( url);
+   }
 }

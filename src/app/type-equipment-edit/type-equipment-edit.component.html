@@ -21,8 +21,8 @@
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit"
               [disabled]="!typeEquipmentForm.form.valid" >Save</button>
-      <button mat-raised-button color="secondary" (click)="remove(typeEquipment.id)"
-              ng-If="typeEquipment.id" type="button" >Delete</button>
+      <button mat-raised-button (click)="remove(typeEquipment.id)" color="secondary"
+              *ngIf="typeEquipment.id" type="button">Delete</button>
       <a mat-button routerLink="/type-equipment">Cancel</a>
     </mat-card-actions>
     <mat-card-footer>
