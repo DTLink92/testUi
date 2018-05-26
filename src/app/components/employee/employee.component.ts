@@ -70,8 +70,12 @@ export class EmployeeComponent implements OnInit {
         if(this.employee.birthday != null ){
           this.employee.birthday = this.getDate(employee.birthday.toString());
         }
-        this.employee.finishDate = this.getDate(employee.finishDate.toString());
-        this.employee.initDate = this.getDate(employee.initDate.toString());
+        if (this.employee.finishDate != null ){
+          this.employee.finishDate = this.getDate(employee.finishDate.toString());
+        }
+        if (this.employee.initDate != null ) {
+          this.employee.initDate = this.getDate(employee.initDate.toString());
+        }
         this.employeeHelper = employee;
         this.imageData = employee.profileImage;
         this.employeeService.getPositions().subscribe(data => {
