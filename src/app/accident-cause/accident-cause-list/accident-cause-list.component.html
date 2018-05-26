@@ -1,0 +1,18 @@
+<div class="">
+  <h2>Accident</h2>
+  <div class="">
+    <select [(ngModel)]="accident_id" class="form-control">
+      <option  *ngFor="let accident of accidents" >{{accident.description_accident}}</option>
+    </select>
+  </div>
+
+  <div class="" *ngFor="let group of groups">
+
+    <h1>{{group.title}}</h1>
+    <ul>
+      <li class="" *ngFor="let cause of group.causes">
+        <input type="checkbox" [(ngModel)]="cause.status"  (change)="actualizar(cause)" > {{cause.description}}
+      </li>
+    </ul>
+  </div>
+</div>
