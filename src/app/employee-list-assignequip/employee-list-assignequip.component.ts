@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AssignEquipmentService} from '../services/assign-equipment.service';
+import {EmployeeService} from '../services/employeeService/employee-service.service';
 
 @Component({
   selector: 'app-employee-list-assignequip',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListAssignequipComponent implements OnInit {
 
-  constructor() { }
+  assignEquips: Array<any>;
+  displayedColumns;
+  constructor(private assignEquipService: AssignEquipmentService, employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.displayedColumns = ['id', 'fullName', 'assignDate', 'description', 'giveEquip'];
+    this.assignEquipService.getAssignEquipments().subscribe(data => {
+      this.assignEquips = data;
+    });
   }
 
 }

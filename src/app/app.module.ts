@@ -79,9 +79,11 @@ import {ProjectListAssignequipComponent} from './project-list-assignequip/projec
 import {AssignEquipmentService} from './services/assign-equipment.service';
 import {PositionEquipmentService} from './services/position-equipment.service';
 import {DetailAssignEquipmentService} from './services/detail-assign-equipment.service';
+
 import {AccidentRecordComponent} from './accident-record/accident-record.component';
 import {ProjectComponent} from './project/project.component';
 import {ProjectService} from './services/project.service';
+
 import { CarListComponent } from './car-list/car-list.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { AccidentCauseGroupComponent } from './accident-cause-group/accident-cause-group.component';
@@ -107,6 +109,9 @@ const appRoutes: Routes = [
 ];
 
 
+import { DetailAssignEquipmentComponent } from './detail-assign-equipment/detail-assign-equipment.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -127,7 +132,6 @@ const appRoutes: Routes = [
     EmployeeRegisterFormComponent,
     EmployeeComponent,
     TypeEquipmentComponent,
-    EmployeeComponent,
     PositionRecruitmentProfileComponent,
     PositionRecruitmentProfileListComponent,
     AssignEquipmentComponent,
@@ -143,7 +147,8 @@ const appRoutes: Routes = [
     AccidentTypeComponent,
     ProjectListAssignequipComponent,
     EquipmentComponent,
-    TypeEquipmentEditComponent
+    TypeEquipmentEditComponent,
+    DetailAssignEquipmentComponent
   ],
   imports: [
     BrowserModule,

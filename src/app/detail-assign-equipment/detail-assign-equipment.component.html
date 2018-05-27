@@ -1,0 +1,62 @@
+<p>
+  detail-assign-equipment works!
+</p>
+
+
+<mat-card>
+  <form #detAssignEqForm="ngForm" (ngSubmit)="save(detAssignEqForm.value)">
+    <mat-card-header>
+      <mat-card-title><h2>{{detAssignEquip.id ? 'Edit' : 'Add'}} Asignación de Equipos de Construcción</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="fieldRow">
+        <input type="hidden" name="id" [(ngModel)]="detAssignEquip.id">
+
+        <mat-selection-list #constrEquipments>
+          <mat-list-option *ngFor="let constEq of conEquipments">
+            {{constEq}}
+          </mat-list-option>
+        </mat-selection-list>
+
+        <p>
+          Options selected: {{constrEquipments.selectedOptions.selected.length}}
+        </p>
+
+      </div>
+
+    </mat-card-content>
+
+    <mat-card-content>
+      <div class="fieldRow">
+        <input type="hidden" name="id" [(ngModel)]="detAssignEquip.id">
+
+        <mat-selection-list #machines>
+          <mat-list-option *ngFor="let machine of machEquipments">
+            {{machine}}
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </mat-card-content>
+
+    <mat-card-content>
+      <div class="fieldRow">
+        <input type="hidden" name="id" [(ngModel)]="detAssignEquip.id">
+
+        <mat-selection-list #securityEquipments>
+          <mat-list-option *ngFor="let secEq of secEquipments">
+            {{secEq}}
+          </mat-list-option>
+        </mat-selection-list>
+
+      </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit"
+              [disabled]="!detAssignEqForm.form.valid">Save</button>
+      <button mat-raised-button (click)="remove(detAssignEquip.id)" color="secondary"
+              *ngIf="detAssignEquip.id" type="button">Delete</button>
+      <a mat-button (click)="gotoList()">Cancel</a>
+    </mat-card-actions>
+  </form>
+</mat-card>

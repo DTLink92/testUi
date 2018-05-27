@@ -22,7 +22,7 @@ import {EmployeeListWithequipComponent} from '../employee-list-withequip/employe
 import {ProjectListAssignequipComponent} from '../project-list-assignequip/project-list-assignequip.component';
 import {ProjectComponent} from '../project/project.component';
 import {EquipmentComponent} from '../equipment/equipment.component';
-
+import {DetailAssignEquipmentComponent} from '../detail-assign-equipment/detail-assign-equipment.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -47,9 +47,10 @@ export const routes: Routes = [
   {path: 'employee/:id', component: EmployeeComponent},
   {path: 'employee-creation-form', component: EmployeeRegisterFormComponent},
   {path: 'type-equipment', component: TypeEquipmentComponent},
-  {path: 'assign-equipment', component: AssignEquipmentComponent},
+  {path: 'assign-equipment-add', component: AssignEquipmentComponent},
   {path: 'employee-list-assignequip', component: EmployeeListAssignequipComponent},
   {path: 'employee-list-withequip', component: EmployeeListWithequipComponent},
+  {path: 'assign-equip-employee/:id', component: DetailAssignEquipmentComponent},
   {path: 'projects', component: ProjectComponent},
   {path: 'project-list-assignequip', component: ProjectListAssignequipComponent},
   {path: 'equipment', component: EquipmentComponent}
