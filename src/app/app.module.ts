@@ -141,6 +141,7 @@ const appRoutes: Routes = [
     AccidentCauseGroupComponent,
     AccidentListComponent,
     AccidentTypeComponent,
+    ProjectListAssignequipComponent,
     EquipmentComponent,
     TypeEquipmentEditComponent
   ],
