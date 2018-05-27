@@ -81,6 +81,9 @@ import {ProjectComponent} from './project/project.component';
 import {ProjectService} from './services/project.service';
 import { CarListComponent } from './car-list/car-list.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
+import { AccidentCauseGroupComponent } from './accident-cause-group/accident-cause-group.component';
+import { AccidentListComponent } from './accident-list/accident-list.component';
+import { AccidentTypeComponent } from './accident-type/accident-type.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +118,10 @@ import { CreateProjectComponent } from './create-project/create-project.componen
     ProjectListAssignequipComponent,
     ProjectComponent,
     CarListComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    AccidentCauseGroupComponent,
+    AccidentListComponent,
+    AccidentTypeComponent
   ],
   imports: [
     BrowserModule,
