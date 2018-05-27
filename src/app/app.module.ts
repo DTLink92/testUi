@@ -135,7 +135,6 @@ const appRoutes: Routes = [
     EmployeeListWithequipComponent,
     ProjectListAssignequipComponent,
     AccidentRecordComponent,
-    ProjectListAssignequipComponent,
     ProjectComponent,
     CarListComponent,
     CreateProjectComponent,
