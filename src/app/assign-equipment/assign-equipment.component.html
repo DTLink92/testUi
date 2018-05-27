@@ -1,7 +1,3 @@
-<p>
-  assign-equipment works!
-</p>
-
 <mat-card>
   <form #assignEqForm="ngForm" (ngSubmit)="save(assignEqForm.value)">
     <mat-card-header>
@@ -11,10 +7,10 @@
       <div class="fieldRow">
         <input type="hidden" name="id" [(ngModel)]="assignEquip.id">
         <mat-form-field>
-          <mat-select placeholder="Employee" [(ngModel)]="assignEquip.idEmployee" name="idEmployee">
+          <mat-select placeholder="Employee" [(ngModel)]="assignEquip.employeeId" name="idEmployee" #idEmployee="ngModel" required>
             <mat-option>None</mat-option>
             <mat-option *ngFor="let employee of employees" [value]="employee.id">
-              {{employee.fullName}}
+              {{employee.firstName}}
             </mat-option>
           </mat-select>
         </mat-form-field>

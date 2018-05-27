@@ -10,10 +10,11 @@ import {EmployeeService} from '../services/employeeService/employee-service.serv
 export class EmployeeListAssignequipComponent implements OnInit {
 
   assignEquips: Array<any>;
-
+  displayedColumns;
   constructor(private assignEquipService: AssignEquipmentService, employeeService: EmployeeService) { }
 
   ngOnInit() {
+    this.displayedColumns = ['id', 'fullName', 'assignDate', 'description', 'giveEquip'];
     this.assignEquipService.getAssignEquipments().subscribe(data => {
       this.assignEquips = data;
     });

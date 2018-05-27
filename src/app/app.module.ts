@@ -109,8 +109,6 @@ const appRoutes: Routes = [
 ];
 
 
-import {CarListComponent} from './car-list/car-list.component';
-
 import { DetailAssignEquipmentComponent } from './detail-assign-equipment/detail-assign-equipment.component';
 
 

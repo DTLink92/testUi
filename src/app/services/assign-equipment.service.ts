@@ -6,7 +6,8 @@ import {AssignEquipment} from '../shared/assignEquipment';
 
 @Injectable()
 export class AssignEquipmentService {
-  public PROFILE_API = baseURL + 'assign_equipment';
+  public ASEQ_API = baseURL + 'assign_equipment';
+  headers: Headers;
 
   constructor(private http: HttpClient) {
   }
@@ -14,11 +15,15 @@ export class AssignEquipmentService {
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT',
+      'Accept': 'q=0.8;application/json;q=0.9'
     })
   };
 
   getAssignEquipments(): Observable<any> {
-    return this.http.get(this.PROFILE_API)
+    return this.http.get(this.ASEQ_API)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -27,33 +32,30 @@ export class AssignEquipmentService {
   }
 
   getAssignEquipment(id: number): Observable<AssignEquipment> {
-    return this.http.get<AssignEquipment>(this.PROFILE_API + '/' + id)
+    return this.http.get<AssignEquipment>(this.ASEQ_API + '/' + id)
       .map(res => {
         return res;
       });
   }
 
   save(assignEq: any): Observable<any> {
+    console.log('ingresa a save');
     let result: Observable<Object>;
+
+    console.log(result);
     if (assignEq['id']) {
-      result = this.http.put(this.PROFILE_API, assignEq);
+      console.log('ID DE ASSIGN: ' + assignEq['id']);
+      result = this.http.put(this.ASEQ_API, assignEq);
     } else {
-      result = this.http.post(this.PROFILE_API, assignEq);
+      result = this.http.post(this.ASEQ_API, assignEq);
     }
+    console.log('TERMINA CONDICIONAL');
+    console.log('Result: ' + result);
     return result;
   }
 
   createAssignEquipment(assignEq: AssignEquipment): Observable<AssignEquipment> {
-    return this.http.post<any>(this.PROFILE_API, assignEq, this.httpOptions)
-      .map((res) => {
-        return res;
-      }).catch(error => {
-        return error;
-      });
-  }
-
-  updateAssignEquipment(assignEq: AssignEquipment): Observable<AssignEquipment> {
-    return this.http.post<any>(this.PROFILE_API + '/' + assignEq.id, assignEq, this.httpOptions)
+    return this.http.post<any>(this.ASEQ_API, assignEq, this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -62,7 +64,7 @@ export class AssignEquipmentService {
   }
 
   remove(id: number) {
-    const url = `${this.PROFILE_API}/${id}`;
+    const url = `${this.ASEQ_API}/${id}`;
     return this.http.delete( url);
   }
 

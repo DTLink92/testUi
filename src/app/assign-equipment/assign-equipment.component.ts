@@ -57,7 +57,7 @@ export class AssignEquipmentComponent implements OnInit, OnDestroy  {
   save(form: NgForm) {
     this.assignEquipmentService.save(form).subscribe(result => {
       this.gotoList();
-    }, error => console.error(error));
+    }, error => console.error('SALIO ERROR OH NO' + error));
   }
 
   remove(id) {
