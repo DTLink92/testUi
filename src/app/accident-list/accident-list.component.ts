@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AccidentService} from '../services/accident-register/accident.service';
 
 @Component({
   selector: 'app-accident-list',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accident-list.component.scss']
 })
 export class AccidentListComponent implements OnInit {
-
-  constructor() { }
+  accidents = [];
+  constructor(private accidentService: AccidentService) { }
 
   ngOnInit() {
+    this.accidentService.getAccidents().subscribe(data => {
+      this.accidents = data;
+    });
   }
 
 }

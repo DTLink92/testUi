@@ -1,3 +1,66 @@
-<p>
-  accident-record works!
-</p>
+<div class="col col-lg-2"></div>
+<div class="col col-lg-8 form-employee-container">
+  <h1>Registrar Accident</h1>
+  <mat-card>
+    <mat-card-header><h1>DATOS PERSONALES DEL ACCIDENTENTADO</h1></mat-card-header>
+    <div class=" create-accident-form">
+      <div class="left">
+        <div class="form-group">
+          <label for="AccidentName">*Titulo Accidente: </label>
+          <input [(ngModel)]="accident.nameAccidentado" name="AccidentName" type="text" class="form-control" id="AccidentName"
+                 required>
+        </div>
+        <div class="form-group">
+          <label for="Date">*fecha del Accidente: </label>
+          <mat-form-field class="example-full-width">
+            <input [(ngModel)]="accident.date_accident" matInput [matDatepicker]="picker"
+                   placeholder="fecha del accidente" id="Date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <label for="hourAccident">*Hora del Accidente:</label>
+          <input [(ngModel)]="accident.hour_accident" name="hora del accidente" type="datetime-local" class="form-control" id="hourAccident" required>
+        </div>
+        <div class="form-group">
+          <label for="gravityAccident">*Gravedad del Accidente:</label>
+          <input [(ngModel)]="accident.gravity_accident" name="ci" type="text" class="form-control" id="gravityAccident" required>
+        </div>
+        <div class="form-group">
+          <label for="descriptionAccident">*Descripcion del Accidente:</label>
+          <input [(ngModel)]="accident.description_accident" name="descripcion del accidente" type="text" class="form-control" id="descriptionAccident" required>
+        </div>
+        <div class="form-group">
+          <label for="placeAccident">*Lugar del Accidente:</label>
+          <input [(ngModel)]="accident.place_accident" name="lugar del accidente" type="text" class="form-control" id="placeAccident" required>
+        </div>
+        <div class="form-group">
+          <label> Area: </label>
+          <select [(ngModel)]="accident.areaId">
+            <option *ngFor="let area of allArea" [value]="area.id">{{area.name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>*Tipo de accidente: </label>
+          <select [(ngModel)]="accident.AccidentTypeId">
+            <option *ngFor="let accidentType of allAccidentType" [value]="accidentType.id">{{accidentType.name_type_accident}}</option>
+          </select>
+        </div>
+        <div class="button-section">
+          <div class="alert alert-danger" role="alert" id="alert" *ngIf="isInvalidForm()">{{errorMessage}}</div>
+          <h6>Los campos con (*) son obligatorios</h6>
+          <button type="button" class="btn btn-default" (click)="cancel()" id="adv-cancel"><span class="glyphicon glyphicon-chevron-left"></span>Cancelar</button>
+          <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()">guardar</button>
+          <div [routerLink]="['/accidents-list']" id="router-to-accident-list">
+          </div>
+        </div>
+      </div>
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+

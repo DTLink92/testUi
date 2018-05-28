@@ -58,6 +58,7 @@ import {ContractService} from './services/contractService/contract-service.servi
 import {PositionService} from './services/position.service';
 import {PositionTypeEvaluatorService} from './services/position-type-evaluator.service';
 import {PositionRecruitmentProfileService} from './services/position-recruitment-profile.service';
+
 import { PositionComponent } from './position/position.component';
 import { PositionTypeEvaluatorComponent } from './position-type-evaluator/position-type-evaluator.component';
 import { PositionTypeEvaluatorListComponent } from './position-type-evaluator-list/position-type-evaluator-list.component';
@@ -65,6 +66,12 @@ import { PositionTypeEvaluatorEditComponent } from './position-type-evaluator-ed
 import { PositionListComponent } from './position-list/position-list.component';
 import { RouterModule, Routes } from '@angular/router';
 import {TypeEquipmentService} from './services/type-equipment.service';
+
+import {AccidentService} from './services/accident-register/accident.service';
+import {AccidentTypeService} from './services/accident-register/accident-type.service';
+import {AccidentCauseService} from './services/accident/accident-cause.service';
+import {AccidentCauseGroupService} from './services/accident-register/accident-cause-group.service';
+
 // Components Imports
 import {EmployeeListComponent} from './components/employees-list/employees-list.component';
 import {EmployeeRegisterFormComponent} from './components/employee-register-form/employee-register-form.component';
@@ -111,7 +118,7 @@ const appRoutes: Routes = [
 
 import { DetailAssignEquipmentComponent } from './detail-assign-equipment/detail-assign-equipment.component';
 import {EmployeeAccidentService} from './services/accident/employee-accident.service';
-import {AccidentCauseService} from './services/accident/accident-cause.service';
+
 import {EmployeeAccidentListComponent} from './employee-accident/employee-accident-list/employee-accident-list.component';
 import {EmployeeAccidentAddComponent} from './employee-accident/employee-accident-add/employee-accident-add.component';
 import {EmployeeAccidentEditComponent} from './employee-accident/employee-accident-edit/employee-accident-edit.component';
@@ -185,11 +192,22 @@ import {EmployeeAccidentDeleteComponent} from './employee-accident/employee-acci
     DetailAssignEquipmentService,
     PositionEquipmentService,
     ProjectService,
+
     TypeEquipmentService,
     GiphyService,
+
     {provide: 'BaseURL', useValue: baseURL},
     EmployeeAccidentService,
-    AccidentCauseService
+    AccidentCauseService,
+
+
+    AccidentService,
+    AccidentTypeService,
+    AccidentCauseService,
+    AccidentTypeService,
+    AccidentCauseGroupService,
+
+    {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
     LoginComponent,

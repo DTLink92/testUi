@@ -1,3 +1,39 @@
-<p>
-  accident-list works!
-</p>
+<div class="col col-lg-1"></div>
+<div class="col col-lg-10">
+  <h1 class="accident-title ">Lista de Accidentes</h1>
+  <mat-card>
+
+    <table class="table table-striped accident-list">
+      <thead>
+      <tr>
+        <th class="accident-list-header">titulo del Accidente</th>
+        <th class="accident-list-header">Fecha del Accidente</th>
+        <th class="accident-list-header">Hora del Accidente</th>
+        <th class="accident-list-header">Lugar del Accidente</th>
+        <th class="accident-list-header">Descripcion del Accidente</th>
+        <th class="accident-list-header">Area de Accidente</th>
+        <th class="accident-list-header">Tipo de Accidente</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="accident-list-item" *ngFor="let accident of accidents" [routerLink]="['/accident', accident.id]">
+        <th class="accident-list-item-column">{{accident.nameAccidentado}}</th>
+        <th class="accident-list-item-column">{{accident.date_accident}}</th>
+        <th class="accident-list-item-column">{{accident.hour_accident}}</th>
+        <th class="accident-list-item-column">{{accident.place_accident}}</th>
+        <th class="accident-list-item-column">{{accident.area.name}}</th>
+        <th class="accident-list-item-column">{{accident.accidentTypeId.name_type_accident}}</th>
+
+      </tr>
+      </tbody>
+    </table>
+  </mat-card>
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+

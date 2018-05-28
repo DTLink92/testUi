@@ -21,8 +21,14 @@ import {EmployeeListAssignequipComponent} from '../employee-list-assignequip/emp
 import {EmployeeListWithequipComponent} from '../employee-list-withequip/employee-list-withequip.component';
 import {ProjectListAssignequipComponent} from '../project-list-assignequip/project-list-assignequip.component';
 import {ProjectComponent} from '../project/project.component';
+
 import {EquipmentComponent} from '../equipment/equipment.component';
 import {DetailAssignEquipmentComponent} from '../detail-assign-equipment/detail-assign-equipment.component';
+
+import {AccidentTypeComponent} from '../accident-type/accident-type.component';
+import {AccidentCauseGroupComponent} from '../accident-cause-group/accident-cause-group.component';
+import {AccidentListComponent} from '../accident-list/accident-list.component';
+import {AccidentRecordComponent} from '../accident-record/accident-record.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -53,5 +59,9 @@ export const routes: Routes = [
   {path: 'assign-equip-employee/:id', component: DetailAssignEquipmentComponent},
   {path: 'projects', component: ProjectComponent},
   {path: 'project-list-assignequip', component: ProjectListAssignequipComponent},
-  {path: 'equipment', component: EquipmentComponent}
+  {path: 'equipment', component: EquipmentComponent},
+  {path: 'accident-type', component: AccidentTypeComponent},
+  {path: 'accident-record', component: AccidentRecordComponent},
+  {path: 'accident-list', component: AccidentListComponent},
+  {path: 'accident-cause-group', component: AccidentCauseGroupComponent},
   ];
