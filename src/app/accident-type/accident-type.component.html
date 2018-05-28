@@ -1,3 +1,60 @@
-<p>
-  accident-type works!
-</p>
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>REGISTRO DE TIPOS DE ACCIDENTES</h3>
+      <hr>
+    </div>
+  </div>
+  <div class="col col-lg-1"></div>
+  <div class="col col-lg-10 employee-list">
+    <h1>tipos de Accidentes</h1>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th class="employee-list-header">Nombre del Tipo de Accidente</th>
+        <th class="employee-list-header">Codigo del Tipo de Accidnete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="accidentType-list-item" *ngFor="let accidentType of accidentTypes"
+          [routerLink]="['/accidentTypes', accidentType.id]">
+        <th class="accidentType-list-item-column">{{accidentType.name_type_accident}}</th>
+        <th class="accidentType-list-item-column">{{accidentType.code_type_accident}}</th>
+      </tr>
+      </tbody>
+    </table>
+    <mat-card-header><h1>TIPOS DE ACCIDENTES</h1></mat-card-header>
+    <tr *ngFor="let accidentType of accidentTypes">
+      <div class="form-group">
+        <label for="nameTypeAccident">*Nombre del tipo de accidente: </label>
+        <input [(ngModel)]="accidentType.name_type_accident" name="nameTypeAccident" type="text" class="form-control"
+               id="nameTypeAccident" required>
+      </div>
+      <div class="form-group">
+        <label for="codeTypeAccident">*Codigo del tipo de accidente: </label>
+        <input [(ngModel)]="accidentType.code_type_accident" name="codeTypeAccident" type="text" class="form-control"
+               id="codeTypeAccident" required>
+      </div>
+      <div class="button-section">
+        <div class="alert alert-danger" role="alert" id="alert" *ngIf="isInvalidForm()">{{errorMessage}}</div>
+        <h6>Los campos con (*) son obligatorios</h6>
+        <button type="button" class="btn btn-default" id="adv-cancel"><span
+          class="glyphicon glyphicon-chevron-left"></span>Cancel
+        </button>
+        <button type="submit" class="btn btn-success" [disabled]="isInvalidForm()">Submit</button>
+
+      </div>
+
+  </div>
+
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
