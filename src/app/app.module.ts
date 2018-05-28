@@ -110,6 +110,12 @@ const appRoutes: Routes = [
 
 
 import { DetailAssignEquipmentComponent } from './detail-assign-equipment/detail-assign-equipment.component';
+import {EmployeeAccidentService} from './services/accident/employee-accident.service';
+import {AccidentCauseService} from './services/accident/accident-cause.service';
+import {EmployeeAccidentListComponent} from './employee-accident/employee-accident-list/employee-accident-list.component';
+import {EmployeeAccidentAddComponent} from './employee-accident/employee-accident-add/employee-accident-add.component';
+import {EmployeeAccidentEditComponent} from './employee-accident/employee-accident-edit/employee-accident-edit.component';
+import {EmployeeAccidentDeleteComponent} from './employee-accident/employee-accident-delete/employee-accident-delete.component';
 
 
 @NgModule({
@@ -148,7 +154,11 @@ import { DetailAssignEquipmentComponent } from './detail-assign-equipment/detail
     ProjectListAssignequipComponent,
     EquipmentComponent,
     TypeEquipmentEditComponent,
-    DetailAssignEquipmentComponent
+    DetailAssignEquipmentComponent,
+    EmployeeAccidentListComponent,
+    EmployeeAccidentAddComponent,
+    EmployeeAccidentEditComponent,
+    EmployeeAccidentDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -177,11 +187,16 @@ import { DetailAssignEquipmentComponent } from './detail-assign-equipment/detail
     ProjectService,
     TypeEquipmentService,
     GiphyService,
-    {provide: 'BaseURL', useValue: baseURL}
+    {provide: 'BaseURL', useValue: baseURL},
+    EmployeeAccidentService,
+    AccidentCauseService
   ],
   entryComponents: [
     LoginComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    EmployeeAccidentAddComponent,
+    EmployeeAccidentEditComponent,
+    EmployeeAccidentDeleteComponent
   ],
   bootstrap: [AppComponent]
 })
