@@ -21,6 +21,7 @@ import {EmployeeListAssignequipComponent} from '../employee-list-assignequip/emp
 import {EmployeeListWithequipComponent} from '../employee-list-withequip/employee-list-withequip.component';
 import {ProjectListAssignequipComponent} from '../project-list-assignequip/project-list-assignequip.component';
 import {ProjectComponent} from '../project/project.component';
+import {EmployeeReportsComponent} from '../components/employee-reports/employee-reports.component';
 
 import {EquipmentComponent} from '../equipment/equipment.component';
 import {DetailAssignEquipmentComponent} from '../detail-assign-equipment/detail-assign-equipment.component';
@@ -64,4 +65,5 @@ export const routes: Routes = [
   {path: 'accident-record', component: AccidentRecordComponent},
   {path: 'accident-list', component: AccidentListComponent},
   {path: 'accident-cause-group', component: AccidentCauseGroupComponent},
+  {path: 'employee-reports', component: EmployeeReportsComponent}
   ];
