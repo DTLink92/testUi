@@ -30,6 +30,7 @@ import {AccidentTypeComponent} from '../accident-type/accident-type.component';
 import {AccidentCauseGroupComponent} from '../accident-cause-group/accident-cause-group.component';
 import {AccidentListComponent} from '../accident-list/accident-list.component';
 import {AccidentRecordComponent} from '../accident-record/accident-record.component';
+import {PositionEmployeeReportComponent} from '../position-employee-report/position-employee-report.component';
 
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -46,6 +47,7 @@ export const routes: Routes = [
   {path: 'profileList', component: PositionRecruitmentProfileListComponent},
   {path: 'positionTypeEvaluator', component: PositionTypeEvaluatorComponent},
   {path: 'positionTypeEvaluatorList', component: PositionTypeEvaluatorListComponent},
+  {path: 'position-report/:id', component: PositionEmployeeReportComponent},
   {path: 'type-evaluator-edit/:id', component: PositionTypeEvaluatorEditComponent},
   {path: 'type-evaluator-add', component: PositionTypeEvaluatorEditComponent},
   {path: 'itemdetail/:id', component: ItemDetailComponent},
