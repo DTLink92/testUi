@@ -6,8 +6,17 @@
     <mat-card-content>
       <div class="fieldRow">
         <input type="hidden" name="id" [(ngModel)]="assignEquip.id">
+        <!--<input type="hidden" name="idSupervisor" [(ngModel)]="assignEquip.idSupervisor" [value]="51">-->
         <mat-form-field>
-          <mat-select placeholder="Employee" [(ngModel)]="assignEquip.employeeId" name="idEmployee" #idEmployee="ngModel" required>
+          <mat-select placeholder="Supervisor" [(ngModel)]="assignEquip.idSupervisor" name="idSupervisor" #idSupervisor="ngModel" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let employee of employees" [value]="employee.id">
+              {{employee.firstName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Employee" [(ngModel)]="assignEquip.idEmployee" name="idEmployee" #idEmployee="ngModel" required>
             <mat-option>None</mat-option>
             <mat-option *ngFor="let employee of employees" [value]="employee.id">
               {{employee.firstName}}
