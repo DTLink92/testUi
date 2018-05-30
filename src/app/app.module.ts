@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {baseURL} from './shared/baseurl';
-
+import { ChartsModule } from 'ng2-charts';
 import {AppComponent} from './app.component';
 import { GiphyService } from './shared/giphy/giphy.service';
 
@@ -124,6 +124,7 @@ import {EmployeeAccidentAddComponent} from './employee-accident/employee-acciden
 import {EmployeeAccidentEditComponent} from './employee-accident/employee-accident-edit/employee-accident-edit.component';
 import {EmployeeAccidentDeleteComponent} from './employee-accident/employee-accident-delete/employee-accident-delete.component';
 
+import { EmployeeReportsComponent } from './components/employee-reports/employee-reports.component';
 
 @NgModule({
   declarations: [
@@ -165,9 +166,11 @@ import {EmployeeAccidentDeleteComponent} from './employee-accident/employee-acci
     EmployeeAccidentListComponent,
     EmployeeAccidentAddComponent,
     EmployeeAccidentEditComponent,
-    EmployeeAccidentDeleteComponent
+    EmployeeAccidentDeleteComponent,
+    EmployeeReportsComponent
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
     MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule,

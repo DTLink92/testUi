@@ -49,4 +49,28 @@ export class ContractService {
         return error;
       });
   }
+  reportEmployeeByPosition(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/position_assign_employees/employeeByPosition')
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
+  reportEmployeeByGenre(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/position_assign_employees/employeeByGenre')
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
+  reportEmployeeBySalary(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/position_assign_employees/employeeBySalary')
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
 }
