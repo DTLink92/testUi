@@ -1,8 +1,9 @@
-export interface Equipment {
- name:  String ;
- brand: String;
- typeEquipmentName: String;
- dateofpurchase: Date;
- image: String;
 
-}
+export interface Equipment {
+  id: number;
+  name: String;
+  brand: String;
+  status: String;
+  description: String;
+ }
+

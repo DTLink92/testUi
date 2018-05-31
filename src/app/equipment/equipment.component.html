@@ -1,4 +1,32 @@
-<p>
-  equipment works!
-</p>
+<p>Equipments</p>
+<div class="col col-lg-1"></div>
+<div class="col col-lg-10">
+  <h1 class="equipment-title">List of Equipments</h1>
+  <button type="button" class="btn btn-default create-equipment"
+          routerLink="/equipment-creation-form">
+    Register new Equipment
+    <span class="glyphicon glyphicon-plus equipment-list-span"></span>
+  </button>
+  <table class="table table-striped equipment-list">
+    <thead>
+    <tr>
+      <th class="equipment-list-header">Name</th>
+      <th class="equipment-list-header">Brand</th>
+      <th class="equipment-list-header">Status</th>
+      <th class="equipment-list-header"></th>
 
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="equipment-list-item" *ngFor="let equipment of equipments" [routerLink]="['/equipment', equipment.id]">
+      <th  class="equipment-list-item-column">{{equipment.name}}</th>
+      <th  class="equipment-list-item-column">{{equipment.brand}}</th>
+      <th  class="equipment-list-item-column">{{equipment.status}}</th>
+      <th  class="equipment-list-item-column"><a>View</a></th>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
