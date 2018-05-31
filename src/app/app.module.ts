@@ -98,6 +98,7 @@ import { AccidentListComponent } from './accident-list/accident-list.component';
 import { AccidentTypeComponent } from './accident-type/accident-type.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { TypeEquipmentEditComponent } from './type-equipment-edit/type-equipment-edit.component';
+import {EquipmentService} from './services/equipment.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/type-equipment', pathMatch: 'full' },
@@ -171,6 +172,7 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
     EmployeeReportsComponent,
     PositionEmployeeReportComponent
   ],
+
   imports: [
     ChartsModule,
     BrowserModule,
@@ -200,7 +202,6 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
 
     TypeEquipmentService,
     GiphyService,
-
     {provide: 'BaseURL', useValue: baseURL},
     EmployeeAccidentService,
     AccidentCauseService,
@@ -211,8 +212,8 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
     AccidentCauseService,
     AccidentTypeService,
     AccidentCauseGroupService,
+    EquipmentService,
 
-    {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
     LoginComponent,

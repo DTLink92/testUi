@@ -32,6 +32,7 @@ import {AccidentListComponent} from '../accident-list/accident-list.component';
 import {AccidentRecordComponent} from '../accident-record/accident-record.component';
 import {PositionEmployeeReportComponent} from '../position-employee-report/position-employee-report.component';
 
+
 export const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'catalog', component: CatalogComponent},
@@ -67,5 +68,9 @@ export const routes: Routes = [
   {path: 'accident-record', component: AccidentRecordComponent},
   {path: 'accident-list', component: AccidentListComponent},
   {path: 'accident-cause-group', component: AccidentCauseGroupComponent},
-  {path: 'employee-reports', component: EmployeeReportsComponent}
-  ];
+  {path: 'employee-reports', component: EmployeeReportsComponent},
+  {path: 'equipment/:id', component: EquipmentComponent},
+  {path: 'type-equipment-view/:id', component: EquipmentComponent},
+
+];
+
