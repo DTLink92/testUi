@@ -31,7 +31,7 @@ export class AssignEquipmentComponent implements OnInit, OnDestroy  {
       this.url = this.route.snapshot.url[0].toString();
       const id = params['id'];
       if (id) {
-        console.log(id);
+        console.log('ESTE ES EL ID: ' + id);
         this.assignEquipmentService.getAssignEquipment(id).subscribe((assignEquip: any) => {
           if (assignEquip) {
             this.assignEquip = assignEquip;

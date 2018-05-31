@@ -58,6 +58,7 @@ export const routes: Routes = [
   {path: 'employee-creation-form', component: EmployeeRegisterFormComponent},
   {path: 'type-equipment', component: TypeEquipmentComponent},
   {path: 'assign-equipment-add', component: AssignEquipmentComponent},
+  {path: 'assign-equipment-edit/:id', component: AssignEquipmentComponent},
   {path: 'employee-list-assignequip', component: EmployeeListAssignequipComponent},
   {path: 'employee-list-withequip', component: EmployeeListWithequipComponent},
   {path: 'assign-equip-employee/:id', component: DetailAssignEquipmentComponent},
