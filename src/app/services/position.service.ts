@@ -44,4 +44,7 @@ export class PositionService {
   getAllAreas(): Observable<any> {
     return this.http.get(this.AREA_API);
   }
+  getContracts(id: number): Observable<any> {
+    return this.http.get(this.POSITION_API + '/PositionReport/' + id );
+  }
 }

@@ -12,7 +12,7 @@
     <mat-list>
       <mat-list-item *ngFor="let typeEquipment of typeEquipments">
         <img mat-list-avatar src="{{typeEquipment.giphyUrl}}" alt="{{typeEquipment.name}}">
-        <h3 mat-line>{{typeEquipment.name}}<a mat-button [routerLink]="['/type-equipment-edit', typeEquipment.id]"> <b>Edit</b></a></h3>
+        <h3 mat-line>{{typeEquipment.name}}<a mat-button [routerLink]="['/type-equipment-edit', typeEquipment.id]"> <b>Edit</b></a><a mat-button [routerLink]="['/equipment', typeEquipment.id]"> <b>View</b></a></h3>
         <p mat-line>"{{ typeEquipment.descriptionTypeEquipment }}"</p>
       </mat-list-item>
     </mat-list>

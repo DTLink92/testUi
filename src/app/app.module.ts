@@ -98,6 +98,7 @@ import { AccidentListComponent } from './accident-list/accident-list.component';
 import { AccidentTypeComponent } from './accident-type/accident-type.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { TypeEquipmentEditComponent } from './type-equipment-edit/type-equipment-edit.component';
+import {EquipmentService} from './services/equipment.service';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/type-equipment', pathMatch: 'full' },
@@ -123,6 +124,7 @@ import {EmployeeAccidentListComponent} from './employee-accident/employee-accide
 import {EmployeeAccidentAddComponent} from './employee-accident/employee-accident-add/employee-accident-add.component';
 import {EmployeeAccidentEditComponent} from './employee-accident/employee-accident-edit/employee-accident-edit.component';
 import {EmployeeAccidentDeleteComponent} from './employee-accident/employee-accident-delete/employee-accident-delete.component';
+import { PositionEmployeeReportComponent } from './position-employee-report/position-employee-report.component';
 
 import { EmployeeReportsComponent } from './components/employee-reports/employee-reports.component';
 
@@ -167,8 +169,10 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
     EmployeeAccidentAddComponent,
     EmployeeAccidentEditComponent,
     EmployeeAccidentDeleteComponent,
-    EmployeeReportsComponent
+    EmployeeReportsComponent,
+    PositionEmployeeReportComponent
   ],
+
   imports: [
     ChartsModule,
     BrowserModule,
@@ -198,7 +202,6 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
 
     TypeEquipmentService,
     GiphyService,
-
     {provide: 'BaseURL', useValue: baseURL},
     EmployeeAccidentService,
     AccidentCauseService,
@@ -209,8 +212,8 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
     AccidentCauseService,
     AccidentTypeService,
     AccidentCauseGroupService,
+    EquipmentService,
 
-    {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
     LoginComponent,

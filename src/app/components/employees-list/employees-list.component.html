@@ -21,6 +21,7 @@
         <th class="employee-list-header">Ci</th>
         <th class="employee-list-header">Cargo</th>
         <th class="employee-list-header">Supervisor</th>
+
       </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
         <th *ngIf="employee.positionName != null" class="employee-list-item-column">{{employee.ci}}</th>
         <th *ngIf="employee.positionName != null" class="employee-list-item-column">{{employee.positionName}}</th>
         <th *ngIf="employee.positionName != null" class="employee-list-item-column">{{employee.supervisorName}}</th>
+
       </tr>
     </tbody>
   </table>
