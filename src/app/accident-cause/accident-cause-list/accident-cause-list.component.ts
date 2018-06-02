@@ -6,7 +6,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {Employeeaccident} from '../../shared/employeeaccident';
 import {AccidentCauseService} from '../../services/accident/accident-cause.service';
 
-@Component({
+@Component ({
   selector: 'app-accident-cause-list',
   templateUrl: './accident-cause-list.component.html',
   styleUrls: ['./accident-cause-list.component.scss']

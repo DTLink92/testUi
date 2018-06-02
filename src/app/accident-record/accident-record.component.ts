@@ -18,7 +18,7 @@ export class AccidentRecordComponent implements OnInit {
     areaId: 0,
     accidentTypeId: 0
   };
-  accident =   {
+  accident =  {
     id: 0,
     nameAccidentado: '',
     date_accident: '',
@@ -28,7 +28,7 @@ export class AccidentRecordComponent implements OnInit {
     description_accident: '',
     AccidentTypeId: '',
     areaId: ''
-  }
+   };
   allArea = [];
   allAccidentType = [];
   allSupervisorAccident:  Array<Accident> = [];
@@ -47,7 +47,7 @@ export class AccidentRecordComponent implements OnInit {
       // this.accidentTypeId(this.data.accidentTypeId);
     });
   }
-  async onSubmit() {
+  async onSubmitAccident() {
     this.accidentService.postAccident(this.accident).subscribe(result => {
       if (result.id) {
         this.accidentService.postAccident(this.accident).subscribe(response => {
@@ -87,7 +87,7 @@ export class AccidentRecordComponent implements OnInit {
       }
     });
   }
-  aresId(id: any) {
+  areaId(id: any) {
     this.data.areaId = id;
     const highAreaid = this.getHighAreaId(id);
   }

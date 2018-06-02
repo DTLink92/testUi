@@ -6,7 +6,7 @@
     <table class="table table-striped accident-list">
       <thead>
       <tr>
-        <th class="accident-list-header">titulo del Accidente</th>
+        <th class="accident-list-header">nombre del Accidentado</th>
         <th class="accident-list-header">Fecha del Accidente</th>
         <th class="accident-list-header">Hora del Accidente</th>
         <th class="accident-list-header">Lugar del Accidente</th>
@@ -16,13 +16,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr class="accident-list-item" *ngFor="let accident of accidents" [routerLink]="['/accident', accident.id]">
-        <th class="accident-list-item-column">{{accident.nameAccidentado}}</th>
-        <th class="accident-list-item-column">{{accident.date_accident}}</th>
-        <th class="accident-list-item-column">{{accident.hour_accident}}</th>
-        <th class="accident-list-item-column">{{accident.place_accident}}</th>
-        <th class="accident-list-item-column">{{accident.area.name}}</th>
-        <th class="accident-list-item-column">{{accident.accidentTypeId.name_type_accident}}</th>
+      <tr class="accident-list-item" *ngFor="let accident of accidents" [routerLink]="['/accidents', accident.id]">
+        <td class="accident-list-item-column">{{accident.nameAccidentado}}</td>
+        <td class="accident-list-item-column">{{accident.date_accident}}</td>
+        <td class="accident-list-item-column">{{accident.hour_accident}}</td>
+        <td class="accident-list-item-column">{{accident.place_accident}}</td>
+        <td class="accident-list-item-column">{{accident.description_accident}}</td>
+        <td class="accident-list-item-column">{{accident.area.name}}</td>
+        <td class="accident-list-item-column">{{accident.type.name_type_accident}}</td>
 
       </tr>
       </tbody>
