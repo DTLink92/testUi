@@ -8,20 +8,20 @@
         <div class="form-group">
           <label for="AccidentName">*nombre del  Accidentado: </label>
           <input [(ngModel)]="accident.nameAccidentado" name="AccidentName" type="text" class="form-control" id="AccidentName"
-                 />
+                 required>
         </div>
         <div class="form-group">
           <label for="Date">*fecha del Accidente: </label>
           <mat-form-field class="example-full-width">
             <input [(ngModel)]="accident.date_accident" matInput [matDatepicker]="picker"
-                   placeholder="fecha del accidente" id="Date" />
+                   placeholder="fecha del accidente" id="Date" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
         </div>
         <div class="form-group">
           <label for="hourAccident">*Hora del Accidente:</label>
-          <input [(ngModel)]="accident.hour_accident" name="hora del accidente" type="datetime-local" class="form-control" id="hourAccident" />
+          <input [(ngModel)]="accident.hour_accident" name="hora del accidente" type="datetime-local" class="form-control" id="hourAccident" required>
         </div>
         <div class="form-group">
           <label for="gravityAccident">*Gravedad del Accidente:</label>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
           <label for="descriptionAccident">*Descripcion del Accidente:</label>
-          <input [(ngModel)]="accident.description_accident" name="descripcion del accidente" type="text" class="form-control" id="descriptionAccident" />
+          <input [(ngModel)]="accident.description_accident" name="descripcion del accidente" type="text" class="form-control" id="descriptionAccident" required>
         </div>
         <div class="form-group">
           <label for="placeAccident">*Lugar del Accidente:</label>
@@ -44,7 +44,6 @@
 
         </div>
         <div class="form-group">
-
 
           <label>*Tipo de accidente: </label>
 
