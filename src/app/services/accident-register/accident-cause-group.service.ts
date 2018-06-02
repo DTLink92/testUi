@@ -19,9 +19,25 @@ export class AccidentCauseGroupService {
   getAll(): Observable<any> {
     return this.http.get(this.ACIDENTCAUSEGROUP_API);
   }
+  getAccidentCausesGroups(): Observable<any> {
+    return this.http.get('http://localhost:8080/accidentCauseGroup' )
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
+  getIdCauses(): Observable<any> {
+    return this.http.get('http://localhost:8080/accidentCauseController')
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
 
   getType(id: number): Observable<any> {
-    return this.http.get(this.ACIDENTCAUSEGROUP_API + '/' + id);
+    return this.http.get(this.ACIDENTCAUSEGROUP_API + '/accidentCauseGroup' + id);
   }
 
   save(accidentCauseGroup: any): Observable<any> {
@@ -32,6 +48,16 @@ export class AccidentCauseGroupService {
       result = this.http.post(this.ACIDENTCAUSEGROUP_API, accidentCauseGroup);
     }
     return result;
+  }
+
+
+  saveCause(cause): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/accidentCauseController', cause, this.httpOption)
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
   }
 
   remove(id) {

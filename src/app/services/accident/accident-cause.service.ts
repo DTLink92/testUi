@@ -61,4 +61,11 @@ export class AccidentCauseService {
       });
   }
 
+  save(accidentCause: any): Observable<any> {
+    console.log(accidentCause);
+    let result: Observable<object>;
+    result = this.httpClient.post('http://localhost:8080/accidentCauseController', accidentCause);
+    return result;
+  }
+
 }

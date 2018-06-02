@@ -26,13 +26,13 @@ export class AccidentService {
       });
   }
 
-  /*getAccident(id: number): Observable<Accident> {
+  getAccident(id: number): Observable<Accident> {
 
     return this.http.get<Accident>('http://localhost:8080/accidents/' + id)
       .map(res => {
         return res;
       });
-  }*/
+  }
   postAccident(accident: any): Observable<any> {
     return this.http.post<any>('http://localhost:8080/accidents', accident)
       .map((res) => {
@@ -42,10 +42,18 @@ export class AccidentService {
       });
   }
   deleteAccident(id: number) {
-    this.http.delete('http://localhost:8080/accident/' + id).subscribe();
+    this.http.delete('http://localhost:8080/accidents/' + id).subscribe();
   }
   updateAccident(accident: any): Observable<any> {
     return this.http.put<any>('http://localhost:8080/accidents', accident)
+      .map((res) => {
+        return <Accident>res;
+      }).catch(error => {
+        return error;
+      });
+  }
+  addAccident(accident: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/accidents', accident)
       .map((res) => {
         return <Accident>res;
       }).catch(error => {

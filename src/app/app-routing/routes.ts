@@ -56,7 +56,6 @@ export const routes: Routes = [
   {path: 'type-evaluator-edit/:id', component: PositionTypeEvaluatorEditComponent},
   {path: 'type-evaluator-add', component: PositionTypeEvaluatorEditComponent},
   {path: 'itemdetail/:id', component: ItemDetailComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'employees-list', component: EmployeeListComponent},
   {path: 'employee/:id', component: EmployeeComponent},
   {path: 'employee-creation-form', component: EmployeeRegisterFormComponent},
@@ -82,6 +81,6 @@ export const routes: Routes = [
   {path: 'employee-reports', component: EmployeeReportsComponent},
   {path: 'equipment/:id', component: EquipmentComponent},
   {path: 'type-equipment-view/:id', component: EquipmentComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
 
 ];
-
