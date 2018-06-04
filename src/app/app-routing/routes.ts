@@ -31,6 +31,10 @@ import {AccidentCauseGroupComponent} from '../accident-cause-group/accident-caus
 import {AccidentListComponent} from '../accident-list/accident-list.component';
 import {AccidentRecordComponent} from '../accident-record/accident-record.component';
 import {PositionEmployeeReportComponent} from '../position-employee-report/position-employee-report.component';
+import {ListPositionEquipmentComponent} from '../list-position-equipment/list-position-equipment.component';
+import {ListDetailPositionequipmentComponent} from '../list-detail-positionequipment/list-detail-positionequipment.component';
+import {AssignPositionEquipmentComponent} from '../assign-position-equipment/assign-position-equipment.component';
+import {AssignEquipmentReportComponent} from '../assign-equipment-report/assign-equipment-report.component';
 
 
 export const routes: Routes = [
@@ -60,8 +64,14 @@ export const routes: Routes = [
   {path: 'assign-equipment-add', component: AssignEquipmentComponent},
   {path: 'assign-equipment-edit/:id', component: AssignEquipmentComponent},
   {path: 'employee-list-assignequip', component: EmployeeListAssignequipComponent},
-  {path: 'employee-list-withequip', component: EmployeeListWithequipComponent},
+  {path: 'view-detail-AssignEquip/:id', component: EmployeeListWithequipComponent},
   {path: 'assign-equip-employee/:id', component: DetailAssignEquipmentComponent},
+  {path: 'assign-equip-employee-edit/:idAss/:idDet', component: DetailAssignEquipmentComponent},
+  {path: 'position-equipment-list', component: ListPositionEquipmentComponent},
+  {path: 'detail-equipment-position/:id', component: ListDetailPositionequipmentComponent},
+  {path: 'assign-equipment-position/:id', component: AssignPositionEquipmentComponent},
+  {path: 'assign-equipment-position-edit/:idPos/:idPeq', component: AssignPositionEquipmentComponent},
+  {path: 'report-assign-equipment', component: AssignEquipmentReportComponent},
   {path: 'projects', component: ProjectComponent},
   {path: 'project-list-assignequip', component: ProjectListAssignequipComponent},
   {path: 'equipment', component: EquipmentComponent},

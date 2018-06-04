@@ -1,51 +1,55 @@
-<mat-card>
-  <form #assignEqForm="ngForm" (ngSubmit)="save(assignEqForm.value)">
-    <mat-card-header>
-      <mat-card-title><h2>{{assignEquip.id ? 'Edit' : 'Add'}} Asignar Equipo al Personal</h2></mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div class="fieldRow">
-        <input type="hidden" name="id" [(ngModel)]="assignEquip.id">
-        <!--<input type="hidden" name="idSupervisor" [(ngModel)]="assignEquip.idSupervisor" [value]="51">-->
-        <mat-form-field>
-          <mat-select placeholder="Supervisor" [(ngModel)]="assignEquip.idSupervisor" name="idSupervisor" #idSupervisor="ngModel" required>
-            <mat-option>None</mat-option>
-            <mat-option *ngFor="let employee of employees" [value]="employee.id">
-              {{employee.firstName}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-select placeholder="Employee" [(ngModel)]="assignEquip.idEmployee" name="idEmployee" #idEmployee="ngModel" required>
-            <mat-option>None</mat-option>
-            <mat-option *ngFor="let employee of employees" [value]="employee.id">
-              {{employee.firstName}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div class="fieldRow">
-        <mat-form-field>
-          <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-      </div>
-      <div class="fieldRow">
-        <mat-form-field>
-          <input matInput placeholder="Description" [(ngModel)]="assignEquip.description"
-                 required name="description" #description>
-        </mat-form-field>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit"
-              [disabled]="!assignEqForm.form.valid">Save</button>
-      <button mat-raised-button (click)="remove(assignEquip.id)" color="secondary"
-              *ngIf="assignEquip.id" type="button">Delete</button>
-      <a mat-button (click)="gotoList()">Cancel</a>
-    </mat-card-actions>
-  </form>
-</mat-card>
+<div class="container" fxLayout="column">
+  <div fxFlex class="precont">
+    <mat-card>
+      <form #assignEqForm="ngForm" (ngSubmit)="save(assignEqForm.value)">
+        <mat-card-header class="t-header">
+          <mat-card-title><h1>{{assignEquip.id ? 'EDIT' : 'ADD'}} PERSONAL TO ASSIGN EQUIPMENT</h1></mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="fieldRow">
+            <input type="hidden" name="id" [(ngModel)]="assignEquip.id">
+            <mat-form-field>
+              <mat-select placeholder="Supervisor" [(ngModel)]="assignEquip.idSupervisor" name="idSupervisor" #idSupervisor="ngModel" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let employee of employees" [value]="employee.id">
+                  {{employee.firstName}}<span> </span>{{employee.lastName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="fieldRow">
+            <mat-form-field>
+              <mat-select placeholder="Employee" [(ngModel)]="assignEquip.idEmployee" name="idEmployee" #idEmployee="ngModel" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let employee of employees" [value]="employee.id">
+                  {{employee.firstName}}<span> </span>{{employee.lastName}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="fieldRow">
+            <mat-form-field>
+              <input matInput type="date" name="dateAssign" [(ngModel)]="assignEquip.dateAssign"
+                     placeholder="yyyy-MM-dd" min="2013-01-01" max="2030-12-31" class="form-control" required>
+            </mat-form-field>
+          </div>
+          <div class="fieldRow">
+            <mat-form-field>
+              <input matInput placeholder="Description" [(ngModel)]="assignEquip.description"
+                     name="description" #description>
+            </mat-form-field>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit"
+                  [disabled]="!assignEqForm.form.valid">Save</button>
+          <button mat-raised-button (click)="gotoList()" color="secondary"
+                  type="button">Cancel</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+</div>
+
 
 
