@@ -136,6 +136,8 @@ import { ListPositionEquipmentComponent } from './list-position-equipment/list-p
 import { ListDetailPositionequipmentComponent } from './list-detail-positionequipment/list-detail-positionequipment.component';
 import { AssignPositionEquipmentComponent } from './assign-position-equipment/assign-position-equipment.component';
 import { AssignEquipmentReportComponent } from './assign-equipment-report/assign-equipment-report.component';
+import { AddAreaComponent } from './add-area/add-area.component';
+
 
 @NgModule({
   declarations: [
@@ -187,7 +189,8 @@ import { AssignEquipmentReportComponent } from './assign-equipment-report/assign
     AddProjectComponent,
     EditProjectComponent,
     AreaListComponent,
-    EditAreaComponent
+    EditAreaComponent,
+    AddAreaComponent
   ],
 
   imports: [

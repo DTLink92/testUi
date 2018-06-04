@@ -29,6 +29,7 @@ import {AddProjectComponent} from '../add-project/add-project.component';
 import {EditProjectComponent} from '../edit-project/edit-project.component';
 import {AreaListComponent} from '../area-list/area-list.component';
 import {EditAreaComponent} from '../edit-area/edit-area.component';
+import {AddAreaComponent} from '../add-area/add-area.component';
 
 import {AccidentTypeComponent} from '../accident-type/accident-type.component';
 import {AccidentCauseGroupComponent} from '../accident-cause-group/accident-cause-group.component';
@@ -89,6 +90,7 @@ export const routes: Routes = [
   {path: 'addProject', component: AddProjectComponent},
   {path: 'edit-project/:id', component: EditProjectComponent},
   {path: 'area-list', component: AreaListComponent},
+  {path: 'area-add', component: AddAreaComponent},
   {path: 'area-edit/:id', component: EditAreaComponent}
   ];
 

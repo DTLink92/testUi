@@ -46,4 +46,8 @@ export class AreaListComponent implements OnInit {
        });
      return this.nomProject;
   }
+  openCreateForm() {
+    // this.dialog.open(CreateProjectComponent, {width: '500px', height: '450px'});
+    this.router.navigate(['/area-add']);
+  }
 }

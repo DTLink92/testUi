@@ -1,6 +1,6 @@
-<p>
-  area-list works! {{ areas | json}}
-</p>
+<!--<p>-->
+  <!--area-list works! {{ areas | json}}-->
+<!--</p>-->
 
 <div class="container"
      fxLayout="column">
@@ -8,6 +8,9 @@
   <div fxFlex class="spinner-container" *ngIf="areas">
     <div fxFlex>
       <div class="example-container mat-elevation-z8">
+        <div fxFlex align="right">
+          <a mat-button (click)="openCreateForm()"><span class="fa fa-plus-circle fa-lg"></span> Create New Area </a>
+        </div>
         <h1> LIST OF AREAS </h1>
         <mat-table #table [dataSource]="areas">
           <!-- id Column -->

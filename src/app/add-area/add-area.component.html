@@ -1,0 +1,52 @@
+<div class="container"
+     fxLayout="column">
+  <mat-card align="center"><h1>CREATE NEW AREA</h1></mat-card>
+  <span fxFlex class="flex-spacer"> <br></span>
+  <mat-card>
+    <form>
+      <mat-form-field>
+        <mat-select placeholder="Project" [(ngModel)]="selected_project_value" [formControl]="projectControl" name="project" required>
+          <mat-option *ngFor="let project of lista_projejcts" [value]="project.id">
+            {{project.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="projectControl.hasError('required')">Please choose an Project</mat-error>
+        <mat-hint>{{projectControl.value?.sound}}</mat-hint>
+      </mat-form-field>
+      <!--<p> Selected value: {{selected_project_value}} </p>-->
+    </form>
+
+    <form novalidate #createareaForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <!-- campo name-->
+      <mat-input-container dividerColor="{{areaname.invalid && !projectname.pristine?'warn':'primary'}}">
+        <input matInput [(ngModel)]="area.name"
+               type="text"
+               placeholder="NAME AREA" name="areaname" #areaname="ngModel" required>
+        <mat-hint>
+          <span [hidden]="areaname.pristine">
+            <span [hidden]="!areaname.errors?.required">Name is required</span>
+          </span>
+        </mat-hint>
+      </mat-input-container>
+
+      <!-- campo Detail-->
+      <mat-input-container dividerColor="{{areadetail.invalid && !areadetail.pristine ? 'warn' : 'primary'}}">
+        <input matInput [(ngModel)]="area.detail"
+               type="text"
+               placeholder="DETAIL" name="areadetail" #areadetail="ngModel" required>
+        <mat-hint>
+          <span [hidden]="areadetail.pristine">
+            <span [hidden]="!areadetail.errors?.required">detail is required</span>
+          </span>
+        </mat-hint>
+      </mat-input-container>
+
+      <span class="flex-spacer"></span>
+      <button mat-button (click)="onCancel()">Cancel</button>
+      <button type="submit" mat-button class="background-primary text-floral-white"
+              [disabled]="createareaForm.form.invalid" >Save
+      </button>
+    </form>
+  </mat-card>
+</div>
