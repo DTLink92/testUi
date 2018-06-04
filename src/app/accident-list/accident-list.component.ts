@@ -13,6 +13,7 @@ export class AccidentListComponent implements OnInit {
   ngOnInit() {
     this.accidentService.getAccidents().subscribe(data => {
       this.accidents = data;
+      console.log('debug >>> ', this.accidents);
     });
   }
 

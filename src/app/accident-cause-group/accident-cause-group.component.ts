@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AccidentCauseGroup} from '../shared/AccidentCauseGroup';
 import {AccidentCauseGroupService} from '../services/accident-register/accident-cause-group.service';
+import {AccidentCauseService} from '../services/accident/accident-cause.service';
 
 @Component({
   selector: 'app-accident-cause-group',
@@ -8,19 +9,37 @@ import {AccidentCauseGroupService} from '../services/accident-register/accident-
   styleUrls: ['./accident-cause-group.component.scss']
 })
 export class AccidentCauseGroupComponent implements OnInit {
-
+  public text_cause;
   errorMessage = '';
-  accidentCauseGroups: AccidentCauseGroup;
+  accidentCauseGroups: AccidentCauseGroup[];
 
-  constructor(private accidentCauseGroupService: AccidentCauseGroupService) {
+  constructor(private accidentCauseGroupService: AccidentCauseGroupService,
+              private causeService: AccidentCauseService) {
+
   }
 
   ngOnInit() {
-    this.accidentCauseGroupService.getAll().subscribe(data => {
+    this.accidentCauseGroupService.getAccidentCausesGroups().subscribe(data => {
       this.accidentCauseGroups = data;
       console.log('mostar grupos de lista de causas de accidentes', this.accidentCauseGroups);
 
     });
+    this.accidentCauseGroupService.getIdCauses().subscribe(data => {
+      // this.accidentCauseGroups = data;
+    });
+  }
+  agregar(group_id, text_cause) {
+    var res = this.accidentCauseGroupService.saveCause({
+      idGroup: group_id,
+      description: text_cause
+    });
+    res.subscribe(
+      data => {
+        console.log(data);
+        window.location.reload();
+
+      });
+    console.log(res);
   }
 
   invalidString(currentString, maxlength, input) {

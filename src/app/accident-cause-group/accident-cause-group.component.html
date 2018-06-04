@@ -1,3 +1,23 @@
-<p>
-  accident-cause-group works!
-</p>
+<div class="col col-lg-1"></div>
+<div class="col col-lg-10">
+  <h1 class="accident-title ">causas del Accidente</h1>
+
+    <div *ngFor="let accidentCauseGroup of accidentCauseGroups">
+      <h2>{{accidentCauseGroup.title}}</h2><br>
+
+      <input type="text"   [(ngModel)]="text_cause" placeholder="Descripcion Causa" >
+        <a class="btn btn-primary" (click)="agregar(accidentCauseGroup.id, text_cause)"><i class="fa fa-plus"></i> Add</a>
+
+      <ul>
+        <li *ngFor="let cause of accidentCauseGroup.causes">{{cause.description}}</li>
+      </ul>
+    </div>
+
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>

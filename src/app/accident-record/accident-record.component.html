@@ -1,12 +1,12 @@
 <div class="col col-lg-2"></div>
 <div class="col col-lg-8 form-employee-container">
-  <h1>Registrar Accident</h1>
+  <h1>registro de accidentes</h1>
   <mat-card>
     <mat-card-header><h1>DATOS PERSONALES DEL ACCIDENTENTADO</h1></mat-card-header>
     <div class=" create-accident-form">
       <div class="left">
         <div class="form-group">
-          <label for="AccidentName">*Titulo Accidente: </label>
+          <label for="AccidentName">*nombre del  Accidentado: </label>
           <input [(ngModel)]="accident.nameAccidentado" name="AccidentName" type="text" class="form-control" id="AccidentName"
                  required>
         </div>
@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
           <label for="gravityAccident">*Gravedad del Accidente:</label>
-          <input [(ngModel)]="accident.gravity_accident" name="ci" type="text" class="form-control" id="gravityAccident" required>
+          <input [(ngModel)]="accident.gravity_accident" name="ci" type="text" class="form-control" id="gravityAccident"required>
         </div>
         <div class="form-group">
           <label for="descriptionAccident">*Descripcion del Accidente:</label>
@@ -37,21 +37,26 @@
         </div>
         <div class="form-group">
           <label> Area: </label>
+
           <select [(ngModel)]="accident.areaId">
             <option *ngFor="let area of allArea" [value]="area.id">{{area.name}}</option>
           </select>
+
         </div>
         <div class="form-group">
+
           <label>*Tipo de accidente: </label>
+
           <select [(ngModel)]="accident.AccidentTypeId">
             <option *ngFor="let accidentType of allAccidentType" [value]="accidentType.id">{{accidentType.name_type_accident}}</option>
           </select>
+
         </div>
         <div class="button-section">
           <div class="alert alert-danger" role="alert" id="alert" *ngIf="isInvalidForm()">{{errorMessage}}</div>
-          <h6>Los campos con (*) son obligatorios</h6>
+          <h6>Los  campos con (*) son obligatorios</h6>
           <button type="button" class="btn btn-default" (click)="cancel()" id="adv-cancel"><span class="glyphicon glyphicon-chevron-left"></span>Cancelar</button>
-          <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()">guardar</button>
+          <button type="submit" class="btn btn-success" (click)="onSubmitAccident()" [disabled]="isInvalidForm()">guardar</button>
           <div [routerLink]="['/accidents-list']" id="router-to-accident-list">
           </div>
         </div>
