@@ -118,6 +118,7 @@ const appRoutes: Routes = [
 
 
 import { DetailAssignEquipmentComponent } from './detail-assign-equipment/detail-assign-equipment.component';
+
 import {EmployeeAccidentService} from './services/accident/employee-accident.service';
 
 import {EmployeeAccidentListComponent} from './employee-accident/employee-accident-list/employee-accident-list.component';
@@ -125,7 +126,11 @@ import {EmployeeAccidentAddComponent} from './employee-accident/employee-acciden
 import {EmployeeAccidentEditComponent} from './employee-accident/employee-accident-edit/employee-accident-edit.component';
 import {EmployeeAccidentDeleteComponent} from './employee-accident/employee-accident-delete/employee-accident-delete.component';
 import { PositionEmployeeReportComponent } from './position-employee-report/position-employee-report.component';
-
+import { AddProjectComponent } from './add-project/add-project.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
+import {AreaService} from './services/area.service';
+import { AreaListComponent } from './area-list/area-list.component';
+import { EditAreaComponent } from './edit-area/edit-area.component';
 import { EmployeeReportsComponent } from './components/employee-reports/employee-reports.component';
 import { ListPositionEquipmentComponent } from './list-position-equipment/list-position-equipment.component';
 import { ListDetailPositionequipmentComponent } from './list-detail-positionequipment/list-detail-positionequipment.component';
@@ -178,7 +183,11 @@ import { AssignEquipmentReportComponent } from './assign-equipment-report/assign
     ListPositionEquipmentComponent,
     ListDetailPositionequipmentComponent,
     AssignPositionEquipmentComponent,
-    AssignEquipmentReportComponent
+    AssignEquipmentReportComponent,
+    AddProjectComponent,
+    EditProjectComponent,
+    AreaListComponent,
+    EditAreaComponent
   ],
 
   imports: [
@@ -207,21 +216,18 @@ import { AssignEquipmentReportComponent } from './assign-equipment-report/assign
     DetailAssignEquipmentService,
     PositionEquipmentService,
     ProjectService,
-
     TypeEquipmentService,
     GiphyService,
     {provide: 'BaseURL', useValue: baseURL},
     EmployeeAccidentService,
     AccidentCauseService,
-
-
     AccidentService,
     AccidentTypeService,
     AccidentCauseService,
     AccidentTypeService,
     AccidentCauseGroupService,
     EquipmentService,
-
+    AreaService
   ],
   entryComponents: [
     LoginComponent,

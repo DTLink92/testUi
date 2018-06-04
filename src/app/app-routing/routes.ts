@@ -25,6 +25,10 @@ import {EmployeeReportsComponent} from '../components/employee-reports/employee-
 
 import {EquipmentComponent} from '../equipment/equipment.component';
 import {DetailAssignEquipmentComponent} from '../detail-assign-equipment/detail-assign-equipment.component';
+import {AddProjectComponent} from '../add-project/add-project.component';
+import {EditProjectComponent} from '../edit-project/edit-project.component';
+import {AreaListComponent} from '../area-list/area-list.component';
+import {EditAreaComponent} from '../edit-area/edit-area.component';
 
 import {AccidentTypeComponent} from '../accident-type/accident-type.component';
 import {AccidentCauseGroupComponent} from '../accident-cause-group/accident-cause-group.component';
@@ -82,5 +86,9 @@ export const routes: Routes = [
   {path: 'equipment/:id', component: EquipmentComponent},
   {path: 'type-equipment-view/:id', component: EquipmentComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'addProject', component: AddProjectComponent},
+  {path: 'edit-project/:id', component: EditProjectComponent},
+  {path: 'area-list', component: AreaListComponent},
+  {path: 'area-edit/:id', component: EditAreaComponent}
+  ];
 
-];

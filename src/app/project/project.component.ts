@@ -3,9 +3,8 @@ import {Subscription} from 'rxjs/Subscription';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ProjectService} from '../services/project.service';
 import {Project} from '../shared/project';
-import {LoginComponent} from '../login/login.component';
 import {MatDialog} from '@angular/material';
-import {CreateProjectComponent} from '../create-project/create-project.component';
+
 
 @Component({
   selector: 'app-project',
@@ -20,10 +19,9 @@ export class ProjectComponent implements OnInit {
   areas: Array<any>;
   displayedColumns;
   constructor(private route: ActivatedRoute, private router: Router, private projectService: ProjectService, public dialog: MatDialog
-  ) { }
+) { }
 
   ngOnInit() {
-    console.log('Objeto JSON projects: ' + this.projectService.getAll());
     this.displayedColumns = ['id', 'gestion', 'name', 'options'];
     this.projectService.getAll().subscribe(data => {this.projects = data; } );
     this.sub = this.route.params.subscribe(param => {
@@ -33,23 +31,16 @@ export class ProjectComponent implements OnInit {
   }
   editMember(row) {
     console.log('INTENTANDO EDITAR ' + row.id);
+    this.router.navigate(['/edit-project/' + row.id]);
   }
 
   detailProject(row) {
     console.log('mostrarDeralle de: ' + row.id);
+    this.router.navigate(['/edit-project/' + row.id]);
   }
-
-  deleteProject(row) {
-    console.log('BORRAR ESE PROJECT: ' + row.id);
-    this.projectService.remove(row.id).subscribe(result => {
-      console.log( 'remover' ); this.redirect(); }, error => console.error( 'error' + error) );
-    console.log('Se borro project con id : ' + row.id);
-
-  }
-
   openCreateForm() {
-    this.dialog.open(CreateProjectComponent, {width: '500px', height: '450px'});
-
+   // this.dialog.open(CreateProjectComponent, {width: '500px', height: '450px'});
+   this.router.navigate(['/addProject']);
   }
 
   private redirect() {

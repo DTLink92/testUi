@@ -1,0 +1,114 @@
+<div class="container"
+     fxLayout="column">
+
+
+  <mat-card align="center"><h1>PROJECT: {{project.name | uppercase}}</h1></mat-card>
+  <span fxFlex class="flex-spacer"> <br></span>
+
+  <mat-card>
+  <form novalidate #createProjectForm="ngForm" (ngSubmit)="saveChanges(createProjectForm.value)">
+
+    <!-----------CAMPO NAME---------->
+    <mat-input-container dividerColor="{{projectname.invalid && !projectname.pristine?'warn':'primary'}}">
+      <input matInput [(ngModel)]="project.name"
+             type="text"
+             placeholder="NAME PROJECT" name="projectname" #projectname="ngModel" required>
+      <mat-hint>
+          <span [hidden]="projectname.pristine">
+            <span [hidden]="!projectname.errors?.required">Name is required</span>
+          </span>
+      </mat-hint>
+    </mat-input-container>
+
+    <!-----------CAMPO GESTION---------->
+    <mat-input-container dividerColor="{{projectgestion.invalid && !projectgestion.pristine ? 'warn' : 'primary'}}">
+      <input matInput [(ngModel)]="project.gestion"
+             type="text"
+             placeholder="GESTION PROJECT" name="projectgestion" #projectgestion="ngModel" required>
+      <mat-hint>
+          <span [hidden]="projectgestion.pristine">
+            <span [hidden]="!projectgestion.errors?.required">gestion is required</span>
+          </span>
+      </mat-hint>
+    </mat-input-container>
+
+    <!-----------CAMPO CREATED ON ---------->
+    <mat-input-container dividerColor="{{projectcreated.invalid && !projectcreated.pristine ? 'warn' : 'primary'}}">
+      <input matInput  [disabled]= true [ngModel]="project.createdOn | date:'yyyy-MM-dd'"
+             type="date" readonly="readonly"
+             placeholder="CREATED DATE" name="createdon" #projectcreated="ngModel" required>
+      <mat-hint>
+          <span>
+            <span> not editable</span>
+          </span>
+      </mat-hint>
+    </mat-input-container>
+
+    <!-----------CAMPO estimated date---------->
+    <mat-input-container dividerColor="{{projectestimateddate.invalid && !projectestimateddate.pristine ? 'warn' : 'primary'}}">
+      <input matInput  [disabled]= false [ngModel]="project.estimatedDate | date:'yyyy-MM-dd'"
+             type="date"
+             placeholder="End DATE ESTIMATED" name="estimateddate" #projectestimateddate="ngModel" >
+      <mat-hint>
+          <span [hidden]="projectestimateddate.pristine">
+            <span [hidden]="!projectestimateddate.errors?.required">gestion is required</span>
+          </span>
+      </mat-hint>
+    </mat-input-container>
+
+    <!-----------CAMPO  deliveryDate---------->
+    <mat-input-container dividerColor="{{projectdeliveryDate.invalid && !projectdeliveryDate.pristine ? 'warn' : 'primary'}}">
+      <input matInput  [disabled]= false [ngModel]="project.deliveryDate | date:'yyyy-MM-dd'"
+             type="date"
+             placeholder="DATE OF DELIVERY" name="deliverydate" #projectdeliveryDate="ngModel" >
+      <mat-hint>
+          <span [hidden]="projectdeliveryDate.pristine">
+            <span [hidden]="!projectdeliveryDate.errors?.required">gestion is required</span>
+          </span>
+      </mat-hint>
+    </mat-input-container>
+
+
+    <!-----------CAMPO economic loss ---------->
+    <mat-input-container dividerColor="{{projecteconomicLoss.invalid && !projecteconomicLoss.pristine?'warn':'primary'}}">
+      <input matInput [disabled]= false [(ngModel)]="project.economicLoss"
+             type="number"
+             placeholder="ECONOMIC LOSS" name="economicloss" #projecteconomicLoss="ngModel" >
+      <mat-hint>
+          <span [hidden]="projecteconomicLoss.pristine">
+            <span [hidden]="!projecteconomicLoss.errors?.required">Name is required</span>
+          </span>
+      </mat-hint>
+    </mat-input-container>
+
+    <!-----------CAMPO inversion---------->
+    <mat-input-container dividerColor="{{projectecinversion.invalid && !projectecinversion.pristine?'warn':'primary'}}">
+      <input matInput [disabled]= false [(ngModel)]="project.inversion"
+             type="number"
+             placeholder="PROJECT INVERSION" name="inversion" #projectecinversion="ngModel" >
+      <mat-hint>
+          <span [hidden]="projectecinversion.pristine">
+            <span [hidden]="!projectecinversion.errors?.required">Name is required</span>
+          </span>
+      </mat-hint>
+    </mat-input-container>
+
+
+
+    <span class="flex-spacer"></span>
+    <button mat-button  (click)="deleteProject()" ><span class="fa fa-trash  fa-lg"></span>Delete</button>
+    <button mat-button (click)="onCancel()"><span class="fa fa-times-circle   fa-lg"></span>Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white"
+            [disabled]="createProjectForm.form.invalid"><span class="fa fa-save  fa-lg"></span> Save
+    </button>
+  </form>
+  </mat-card>
+
+</div>
+
+
+<!--<p>-->
+  <!--edit-project works! {{id}}-->
+<!--</p>-->
+
+<!--<p>{{ project | json}}</p>-->

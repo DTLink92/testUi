@@ -1,9 +1,11 @@
 export interface Project {
   id: number;
+  createdOn: Date;
   gestion: string;
   name: string;
-  estimatedDate: string;
-  deliveryDate: string;
+  estimatedDate: Date;
+  deliveryDate: Date;
   economicLoss: number;
   inversion: number;
 }
+
