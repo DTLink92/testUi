@@ -127,6 +127,10 @@ import {EmployeeAccidentDeleteComponent} from './employee-accident/employee-acci
 import { PositionEmployeeReportComponent } from './position-employee-report/position-employee-report.component';
 
 import { EmployeeReportsComponent } from './components/employee-reports/employee-reports.component';
+import { ListPositionEquipmentComponent } from './list-position-equipment/list-position-equipment.component';
+import { ListDetailPositionequipmentComponent } from './list-detail-positionequipment/list-detail-positionequipment.component';
+import { AssignPositionEquipmentComponent } from './assign-position-equipment/assign-position-equipment.component';
+import { AssignEquipmentReportComponent } from './assign-equipment-report/assign-equipment-report.component';
 
 @NgModule({
   declarations: [
@@ -170,7 +174,11 @@ import { EmployeeReportsComponent } from './components/employee-reports/employee
     EmployeeAccidentEditComponent,
     EmployeeAccidentDeleteComponent,
     EmployeeReportsComponent,
-    PositionEmployeeReportComponent
+    PositionEmployeeReportComponent,
+    ListPositionEquipmentComponent,
+    ListDetailPositionequipmentComponent,
+    AssignPositionEquipmentComponent,
+    AssignEquipmentReportComponent
   ],
 
   imports: [

@@ -43,11 +43,15 @@ export class AssignEquipmentService {
     let result: Observable<Object>;
 
     console.log(result);
+    console.log('ESTE ES EL ID DE ASSIGN' + assignEq['id']);
     if (assignEq['id']) {
       console.log('ID DE ASSIGN: ' + assignEq['id']);
       result = this.http.put(this.ASEQ_API, assignEq);
     } else {
+      console.log('ESTE ES EL ID DE SUPERVISOR: ' + assignEq['idSupervisor'] );
+      console.log('ESTE ES EL ID DE EMPLEADO: ' + assignEq['idEmployee']);
       result = this.http.post(this.ASEQ_API, assignEq);
+
     }
     console.log('TERMINA CONDICIONAL');
     console.log('Result: ' + result);

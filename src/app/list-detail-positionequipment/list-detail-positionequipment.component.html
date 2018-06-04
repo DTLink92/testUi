@@ -1,31 +1,30 @@
 <div class="container" fxLayout="column">
 
-  <div fxFlex class="spinner-container" *ngIf="detailAssignEquips">
+  <div fxFlex class="spinner-container" *ngIf="positionEquipments">
 
     <div fxFlex class="precont">
       <div class="example-container mat-elevation-z8">
 
         <h1> LIST OF EQUIPMENTS ASSIGNED </h1>
 
-        <h2>EMPLOYEE: {{assignEquip.nameEmployee}}<span> </span>{{assignEquip.lastnameEmployee}} </h2>
+        <h2>POSITION: {{position.name}} </h2>
 
-        <mat-table #tableAssignEquip [dataSource]="detailAssignEquips" class="mat-elevation-z8">
+        <mat-table #tableAssignEquip [dataSource]="positionEquipments" class="mat-elevation-z8">
 
           <ng-container matColumnDef="id">
             <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
-            <mat-cell mat-cell *matCellDef="let dae"> {{dae.id}} </mat-cell>
+            <mat-cell mat-cell *matCellDef="let peq"> {{peq.id}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="nameEquipment">
             <mat-header-cell mat-header-cell *matHeaderCellDef> Equipment </mat-header-cell>
-            <mat-cell mat-cell *matCellDef="let dae"> {{dae.nameEquip}} </mat-cell>
+            <mat-cell mat-cell *matCellDef="let peq"> {{peq.nameEquipment}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="editEquipment">
             <mat-header-cell mat-header-cell *matHeaderCellDef> Option </mat-header-cell>
-           <mat-cell mat-cell *matCellDef="let dae"> <a mat-button [routerLink]="['/assign-equip-employee-edit', assignEquip.id, dae.id]"><span class="fa fa-edit"></span>Edit</a> </mat-cell>
+            <mat-cell mat-cell *matCellDef="let peq"> <a mat-button [routerLink]="['/assign-equipment-position-edit', position.id, peq.id]"><span class="fa fa-edit"></span>Edit</a> </mat-cell>
           </ng-container>
-
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -36,7 +35,7 @@
     <br>
   </div>
 
-  <div [hidden]="detailAssignEquips">
+  <div [hidden]="positionEquipments">
     <mat-spinner></mat-spinner>
     <h4>Loading . . . Please Wait</h4>
   </div>
@@ -44,6 +43,6 @@
 </div>
 
 <div class="container cont-buttons">
-  <button mat-raised-button color="primary" [routerLink]="['/assign-equip-employee', assignEquip.id]">ADD</button>
+  <button mat-raised-button color="primary" [routerLink]="['/assign-equipment-position', position.id]">ADD</button>
   <button mat-raised-button (click)="gotoList()" color="secondary">CANCEL</button>
 </div>

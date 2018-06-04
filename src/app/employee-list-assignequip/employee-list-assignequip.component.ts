@@ -14,7 +14,7 @@ export class EmployeeListAssignequipComponent implements OnInit {
   constructor(private assignEquipService: AssignEquipmentService, employeeService: EmployeeService) { }
 
   ngOnInit() {
-    this.displayedColumns = ['id', 'fullName', 'assignDate', 'description', 'giveEquip'];
+    this.displayedColumns = ['id', 'fullNameSup', 'fullNameEmp', 'assignDate', 'description', 'editAssign', 'viewDetail'];
     this.assignEquipService.getAssignEquipments().subscribe(data => {
       this.assignEquips = data;
     });

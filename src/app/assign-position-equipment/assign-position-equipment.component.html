@@ -1,0 +1,45 @@
+<div class="container" fxLayout="column">
+  <div fxFlex class="precont">
+    <mat-card>
+      <form #positionEquipmentForm="ngForm" (ngSubmit)="save(positionEquipmentForm.value)">
+        <mat-card-header>
+          <mat-card-title><h1>{{positionEquipment.id ? 'EDIT' : 'ADD'}} EQUIPMENT TO POSITION</h1></mat-card-title>
+        </mat-card-header>
+
+        <h2>POSITION: {{position.name}}</h2>
+
+        <mat-card-content>
+          <div class="fieldRow">
+            <input type="hidden" name="id" [(ngModel)]="positionEquipment.id">
+
+            <mat-form-field class="hidden">
+              <mat-select placeholder="Position" [(ngModel)]="selectedOption" name="idPosition" #idPosition="ngModel" required>
+                <mat-option [value]="position.id">{{position.id}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Equipment" [(ngModel)]="positionEquipment.idEquipment" name="idEquipment" #idEquipment="ngModel" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let equipment of equipments" [value]="equipment.id">
+                  {{equipment.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        </mat-card-content>
+
+
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit"
+                  [disabled]="!positionEquipmentForm.form.valid">Save</button>
+          <button mat-raised-button (click)="remove(positionEquipment.id)" color="secondary"
+                  *ngIf="positionEquipment.id" type="button">Delete</button>
+          <button mat-raised-button (click)="gotoListViewDetail()" color="secondary">Cancel</button>
+        </mat-card-actions>
+      </form>
+    </mat-card>
+  </div>
+</div>
+

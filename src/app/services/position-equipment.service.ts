@@ -7,7 +7,7 @@ import {PositionEquipment} from '../shared/positionEquipment';
 
 @Injectable()
 export class PositionEquipmentService {
-  public PROFILE_API = baseURL + 'position_equipment';
+  public PEQ_API = baseURL + 'position_equipment';
 
   constructor(private http: HttpClient) {
   }
@@ -18,8 +18,8 @@ export class PositionEquipmentService {
     })
   };
 
-  getPositionEquipments(): Observable<any> {
-    return this.http.get(this.PROFILE_API)
+  getAll(): Observable<any> {
+    return this.http.get(this.PEQ_API)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -27,25 +27,29 @@ export class PositionEquipmentService {
       });
   }
 
-  getPositionEquipment(id: number): Observable<AssignEquipment> {
-    return this.http.get<AssignEquipment>(this.PROFILE_API + '/' + id)
+  get(id: number): Observable<AssignEquipment> {
+    return this.http.get<AssignEquipment>(this.PEQ_API + '/' + id)
       .map(res => {
         return res;
       });
   }
 
+  getByPosition(id): Observable<any> {
+    return this.http.get(this.PEQ_API + '/position/' + id);
+  }
+
   save(positionEquip: any): Observable<any> {
     let result: Observable<Object>;
     if (positionEquip['id']) {
-      result = this.http.put(this.PROFILE_API, positionEquip);
+      result = this.http.put(this.PEQ_API, positionEquip);
     } else {
-      result = this.http.post(this.PROFILE_API, positionEquip);
+      result = this.http.post(this.PEQ_API, positionEquip);
     }
     return result;
   }
 
   createPositionEquipment(positionEquip: PositionEquipment): Observable<PositionEquipment> {
-    return this.http.post<any>(this.PROFILE_API, positionEquip, this.httpOptions)
+    return this.http.post<any>(this.PEQ_API, positionEquip, this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -54,7 +58,7 @@ export class PositionEquipmentService {
   }
 
   updatePositionEquipment(positionEquip: PositionEquipment): Observable<PositionEquipment> {
-    return this.http.post<any>(this.PROFILE_API + '/' + positionEquip.id, positionEquip, this.httpOptions)
+    return this.http.post<any>(this.PEQ_API + '/' + positionEquip.id, positionEquip, this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -62,10 +66,9 @@ export class PositionEquipmentService {
       });
   }
 
-  /*remove(id) {
-    const url = `${this.PROFILE_API}/${id}`;
-    console.log('entro aqui remove service ' + url);
+  remove(id) {
+    const url = `${this.PEQ_API}/${id}`;
     return this.http.delete( url);
-  }*/
+  }
 
 }

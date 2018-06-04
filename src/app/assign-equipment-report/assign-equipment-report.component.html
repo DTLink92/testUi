@@ -1,0 +1,32 @@
+<div class="container" fxLayout="column">
+  <div fxFlex>
+    <div *ngIf="isDataEquipAvailable">
+      <h1>Report: No. Equipments Assigned</h1>
+      <div class="center-chart">
+        <canvas baseChart
+                [datasets]="barChartDataEquip"
+                [labels]="barChartLabelEquip"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="chartColors"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <div *ngIf="isDataEquipDateAvailable">
+      <h1>Report: No. Equipments per Date</h1>
+      <div class="center-chart">
+        <canvas baseChart
+                [datasets]="barChartDataEquipDate"
+                [labels]="barChartLabelEquipDate"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="chartColors"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>

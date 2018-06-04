@@ -7,9 +7,8 @@
   <a mat-button routerLink="/employees-list" class="employees-icon"><span class="glyphicon glyphicon-book"></span> Employees</a>
 
   <a mat-button routerLink="/projects"><span class="fa fa-building"></span> Projects</a>
-  <a mat-button routerLink="/employee-list-assignequip"><span class="fa fa-screwdriver"></span> Assign Equipment</a>
+  <button mat-button [matMenuTriggerFor]="assignEquips"><span class="fa fa-list fa-lg"></span> Assign Equipments</button>
 
-  <a mat-button routerLink="/projects" class="fa fa-building"><span class="glyphicon glyphicon-book"></span> Projects</a>
   <button mat-button [matMenuTriggerFor]="accidentes"><span class="fa fa-list fa-lg"></span> Accidentes</button>
 
   <span class="flex-spacer"></span>
@@ -28,6 +27,10 @@
   <a mat-button routerLink="/accident-type"><span class="fa fa-address-card fa-lg"></span> Tipos de Accidentes</a>
   <a mat-button routerLink="/accident-cause-group"><span class="fa fa-address-card fa-lg"></span> Causas de
     Accidentes</a>
+</mat-menu>
+<mat-menu #assignEquips="matMenu">
+  <a mat-button routerLink="/employee-list-assignequip"><span class="fa fa-address-card fa-lg"></span> Assign Equipments to Employee</a>
+  <a mat-button routerLink="/position-equipment-list"><span class="fa fa-address-card fa-lg"></span> Assign Equipments to Position</a>
 </mat-menu>
 <div class="container jumbotron"
      fxLayout="row"

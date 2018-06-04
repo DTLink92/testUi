@@ -5,7 +5,7 @@
     <div fxFlex>
       <div class="example-container mat-elevation-z8">
 
-        <h1> LIST TO ASSIGN OF EQUIPMENT </h1>
+        <h1> EMPLOYEE LIST TO ASSIGN EQUIPMENTS </h1>
         <mat-table #tableAssignEquip [dataSource]="assignEquips" class="mat-elevation-z8">
 
           <ng-container matColumnDef="id">
@@ -13,8 +13,13 @@
             <mat-cell mat-cell *matCellDef="let assignEquip"> {{assignEquip.id}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="fullName">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Full Name </mat-header-cell>
+          <ng-container matColumnDef="fullNameSup">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Name Supervisor </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let assignEquip"> {{assignEquip.fullNameSupervisor}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="fullNameEmp">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Name Employee </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let assignEquip"> {{assignEquip.fullNameEmployee}} </mat-cell>
           </ng-container>
 
@@ -28,9 +33,14 @@
             <mat-cell mat-cell *matCellDef="let assignEquip"> {{assignEquip.description}} </mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="giveEquip">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Assign Equipment </mat-header-cell>
-            <mat-cell mat-cell *matCellDef="let assignEquip"> <a mat-button [routerLink]="['/assign-equip-employee', assignEquip.id]"><span class="fa fa-wrench"></span>Assign Equipment</a> </mat-cell>
+          <ng-container matColumnDef="editAssign">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Edit </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let assignEquip"> <a mat-button [routerLink]="['/assign-equipment-edit', assignEquip.id]"><span class="fa fa-edit"></span>Edit</a> </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="viewDetail">
+            <mat-header-cell mat-header-cell *matHeaderCellDef> View Detail </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let assignEquip"> <a mat-button [routerLink]="['/view-detail-AssignEquip', assignEquip.id]"><span class="fa fa-eye"></span>View Equipments</a> </mat-cell>
           </ng-container>
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -52,5 +62,6 @@
 <div>
   <button mat-raised-button color="primary" [routerLink]="['/assign-equipment-add']">ADD</button>
 
+  <button mat-raised-button color="primary" [routerLink]="['/report-assign-equipment']">REPORTS</button>
   <br><br>
 </div>
