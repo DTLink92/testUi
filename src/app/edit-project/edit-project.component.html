@@ -109,13 +109,18 @@
                        (closed)="panelOpenState = false">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        Show Areas Asigned for this Project
+        <h1>AREAS OF PROJECT:  {{project.name | uppercase}}</h1>
       </mat-panel-title>
       <mat-panel-description>
-        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        {{panelOpenState ? 'open' : 'closed'}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>List Of Areas Asigned {{areas | json}}</p>
+    <h2>List Of Areas Asigned</h2>
+    <mat-list>
+      <mat-list-item *ngFor="let area of areas">{{area.name}}
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
   </mat-expansion-panel>
 </mat-accordion>
 </mat-card>
