@@ -5,6 +5,8 @@ import {ActivatedRoute, Params, Route, Router} from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import {Project} from '../shared/project';
 import {NgForm} from '@angular/forms';
+import {Area} from '../shared/area';
+
 
 @Component({
   selector: 'app-edit-project',
@@ -14,6 +16,8 @@ import {NgForm} from '@angular/forms';
 export class EditProjectComponent implements OnInit {
   id: number;
   project: Project;
+  areas: Array<Area>;
+  panelOpenState: boolean;
   constructor( private serviceProject: ProjectService,
                private route: ActivatedRoute,
                private router: Router) { }
@@ -22,7 +26,10 @@ export class EditProjectComponent implements OnInit {
    this.route.params.switchMap(( params: Params) => this.id = params['id']).subscribe();
    // console.log('obteniendo project con id: ' + this.id);
    this.serviceProject.getType(this.id).subscribe( project => this.project = project );
+  this.serviceProject.getTypeAreas(this.id).subscribe(value => this.areas = value);
+    this.panelOpenState = false;
   }
+  
 
   saveChanges(form: NgForm) {
     if ( form['estimateddate']) {

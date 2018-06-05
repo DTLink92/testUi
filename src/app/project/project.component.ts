@@ -18,6 +18,7 @@ export class ProjectComponent implements OnInit {
   url: any;
   areas: Array<any>;
   displayedColumns;
+
   constructor(private route: ActivatedRoute, private router: Router, private projectService: ProjectService, public dialog: MatDialog
 ) { }
 
@@ -28,6 +29,7 @@ export class ProjectComponent implements OnInit {
       this.url = this.route.snapshot.url[0].toString();
       const id = param['id'];
       });
+
   }
   editMember(row) {
     console.log('INTENTANDO EDITAR ' + row.id);
