@@ -1,0 +1,65 @@
+<div class="container"
+     fxLayout="column">
+  <mat-card align="center"><h1>Area: {{area.name | uppercase}}</h1></mat-card>
+  <span fxFlex class="flex-spacer"> <br></span>
+
+  <mat-card>
+    <form novalidate #createareaForm="ngForm" (ngSubmit)="saveChanges(createareaForm.value)">
+
+      <!-----------CAMPO NAME---------->
+      <mat-input-container dividerColor="{{areaname.invalid && !areaname.pristine?'warn':'primary'}}">
+        <input matInput [(ngModel)]="area.name"
+               type="text"
+               placeholder="NAME AREA" name="areaname" #areaname="ngModel" required>
+        <mat-hint>
+          <span [hidden]="areaname.pristine">
+            <span [hidden]="!areaname.errors?.required">Name is required</span>
+          </span>
+        </mat-hint>
+      </mat-input-container>
+
+      <!-----------CAMPO CREATED ON ---------->
+      <mat-input-container dividerColor="{{areacreated.invalid && !areacreated.pristine ? 'warn' : 'primary'}}">
+        <input matInput  [disabled]= true [ngModel]="area.createdOn | date:'yyyy-MM-dd'"
+               type="date" readonly="readonly"
+               placeholder="CREATED DATE" name="createdon" #areacreated="ngModel" required>
+        <mat-hint>
+          <span>
+            <span> not editable</span>
+          </span>
+        </mat-hint>
+      </mat-input-container>
+
+      <!-----------CAMPO Detail---------->
+      <mat-input-container dividerColor="{{detail.invalid && !detail.pristine ? 'warn' : 'primary'}}">
+        <input matInput [(ngModel)]="area.detail"
+               type="text"
+               placeholder="DETAILS" name="areadetail" #detail="ngModel" required>
+        <mat-hint>
+          <span [hidden]="detail.pristine">
+            <span [hidden]="!detail.errors?.required">detail is required</span>
+          </span>
+        </mat-hint>
+      </mat-input-container>
+
+      <span class="flex-spacer"></span>
+      <button mat-button  (click)="deleteArea()" ><span class="fa fa-trash  fa-lg"></span>Delete</button>
+      <button mat-button (click)="onCancel()"><span class="fa fa-times-circle   fa-lg"></span>Cancel</button>
+      <button type="submit" mat-button class="background-primary text-floral-white"
+              [disabled]="createareaForm.form.invalid"><span class="fa fa-save  fa-lg"></span> Save
+      </button>
+    </form>
+
+    <form>
+      <mat-form-field>
+      <mat-select placeholder="Project" [(ngModel)]="selected_project_value" name="project">
+        <mat-option *ngFor="let project of lista_projejcts" [value]="project.id">
+          {{project.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <!--<p> Selected value: {{selected_project_value}} </p>-->
+  </form>
+  </mat-card>
+</div>
+

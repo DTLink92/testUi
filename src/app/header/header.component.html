@@ -3,14 +3,11 @@
   <a mat-button routerLink="/home"><span class="fa fa-home fa-lg"></span> Home</a>
   <a mat-button routerLink="/about"><span class="fa fa-info fa-lg"></span> About</a>
   <button mat-button [matMenuTriggerFor]="positions"><span class="fa fa-list fa-lg"></span> Position</button>
- <a mat-button routerLink="/type-equipment"><span class="fa fa-list fa-lg"></span> Type Equipment</a>
+  <button mat-button [matMenuTriggerFor]="projects"><span class="fa fa-list fa-lg"></span> Projects/Areas</button>
+  <a mat-button routerLink="/type-equipment"><span class="fa fa-list fa-lg"></span> Type Equipment</a>
   <a mat-button routerLink="/employees-list" class="employees-icon"><span class="glyphicon glyphicon-book"></span> Employees</a>
-
-  <a mat-button routerLink="/projects"><span class="fa fa-building"></span> Projects</a>
   <button mat-button [matMenuTriggerFor]="assignEquips"><span class="fa fa-list fa-lg"></span> Assign Equipments</button>
-
   <button mat-button [matMenuTriggerFor]="accidentes"><span class="fa fa-list fa-lg"></span> Accidentes</button>
-
   <span class="flex-spacer"></span>
    <span class="flex-spacer"></span>
   <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> Login</a>
@@ -31,6 +28,10 @@
 <mat-menu #assignEquips="matMenu">
   <a mat-button routerLink="/employee-list-assignequip"><span class="fa fa-address-card fa-lg"></span> Assign Equipments to Employee</a>
   <a mat-button routerLink="/position-equipment-list"><span class="fa fa-address-card fa-lg"></span> Assign Equipments to Position</a>
+</mat-menu>
+<mat-menu #projects="matMenu">
+  <button  mat-menu-item  routerLink="/projects"><span class="fa fa-building fa-lg"></span> Projects</button>
+  <button  mat-menu-item  routerLink="/area-list"><span class="fa fa-building fa-lg"></span> Areas</button>
 </mat-menu>
 <div class="container jumbotron"
      fxLayout="row"

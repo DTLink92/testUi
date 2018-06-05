@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Project} from '../shared/project';
-import {LoginComponent} from '../login/login.component';
 import {MatDialogRef} from '@angular/material';
 import {ProjectService} from '../services/project.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -13,7 +12,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class CreateProjectComponent implements OnInit {
 
   public project = {name: '', gestion: ''};
-  constructor(public dialogRef: MatDialogRef<LoginComponent>, public projectService: ProjectService, private route: ActivatedRoute,
+  constructor(public dialogRef: MatDialogRef<CreateProjectComponent>, public projectService: ProjectService, private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
@@ -22,15 +21,16 @@ export class CreateProjectComponent implements OnInit {
   onSubmit() {
     console.log( 'create User con datos:' + this.project.name + '' + this.project.gestion);
     this.projectService.save(this.project).subscribe(result => {
-      this.redirect();
+      this.dialogRef.close();
+      this.router.navigate(['/project']);
     }, error => console.log('Error al crear' + error));
     console.log( 'msg-postAddProject');
-    this.dialogRef.close();
+
 
   }
 
   private redirect() {
-    this.router.navigate(['/home']);
-    this.router.navigate(['/projects']);
+    this.router.navigate(['/project']);
+   // this.router.navigate(['/projects']);
   }
 }

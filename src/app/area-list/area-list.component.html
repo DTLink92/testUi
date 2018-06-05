@@ -1,0 +1,66 @@
+<!--<p>-->
+  <!--area-list works! {{ areas | json}}-->
+<!--</p>-->
+
+<div class="container"
+     fxLayout="column">
+
+  <div fxFlex class="spinner-container" *ngIf="areas">
+    <div fxFlex>
+      <div class="example-container mat-elevation-z8">
+        <div fxFlex align="right">
+          <a mat-button (click)="openCreateForm()"><span class="fa fa-plus-circle fa-lg"></span> Create New Area </a>
+        </div>
+        <h1> LIST OF AREAS </h1>
+        <mat-table #table [dataSource]="areas">
+          <!-- id Column -->
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> Code. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <!-- column  createdOn -->
+          <ng-container matColumnDef="createdOn">
+            <mat-header-cell *matHeaderCellDef> Date of Register </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.createdOn | date:'yyyy-MM-dd'}} </mat-cell>
+          </ng-container>
+
+          <!-- column  detail -->
+          <ng-container matColumnDef="detail">
+            <mat-header-cell *matHeaderCellDef> Detail </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.detail}} </mat-cell>
+          </ng-container>
+
+          <!-- column  project -->
+          <ng-container matColumnDef="project">
+            <mat-header-cell *matHeaderCellDef> project </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{ getProjectsNames(element.id_project)}} </mat-cell>
+          </ng-container>
+
+          <!-- Options  Column -->
+          <ng-container matColumnDef="options">
+            <mat-header-cell *matHeaderCellDef> Options </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+              <button mat-button  (click)="editArea(element)"><span class="fa fa-edit fa-lg"></span>Edit</button>
+              <button mat-button  (click)="detailArea(element)"><span class="fa fa-info fa-lg"></span>Details</button>
+            </mat-cell>
+          </ng-container>
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+  </div>
+  <div [hidden]="areas">
+    <mat-spinner></mat-spinner>
+    <h4>Loading . . . Please Wait</h4>
+  </div>
+</div>
+

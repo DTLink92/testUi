@@ -46,9 +46,8 @@
           <mat-cell *matCellDef="let element">
             <button mat-button  (click)="editMember(element)"><span class="fa fa-edit fa-lg"></span>Edit</button>
             <button mat-button  (click)="detailProject(element)"><span class="fa fa-info fa-lg"></span>Details</button>
-            <button mat-button  (click)="deleteProject(element)" routerLink="/projects" ><span class="fa fa-trash  fa-lg"></span>Delete</button>
           </mat-cell>
-        </ng-container>
+          </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -62,6 +61,5 @@
     <mat-spinner></mat-spinner>
     <h4>Loading . . . Please Wait</h4>
   </div>
-
 </div>
 
