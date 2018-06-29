@@ -42,6 +42,8 @@ import {AssignPositionEquipmentComponent} from '../assign-position-equipment/ass
 import {AssignEquipmentReportComponent} from '../assign-equipment-report/assign-equipment-report.component';
 import {DwaccidentReport1Component} from '../dwaccident-report1/dwaccident-report1.component';
 import {DwaccidentReport2Component} from '../dwaccident-report2/dwaccident-report2.component';
+import {AuditComponent} from '../audit/audit.component';
+
 
 
 export const routes: Routes = [
@@ -94,8 +96,8 @@ export const routes: Routes = [
   {path: 'area-list', component: AreaListComponent},
   {path: 'area-add', component: AddAreaComponent},
   {path: 'area-edit/:id', component: EditAreaComponent},
-  /*Reportes Accident*/
   {path: 'accident-report1', component: DwaccidentReport1Component},
-  {path: 'accident-report2', component: DwaccidentReport2Component}
+  {path: 'accident-report2', component: DwaccidentReport2Component},
+  {path: 'audit-changes', component: AuditComponent}
   ];
 
