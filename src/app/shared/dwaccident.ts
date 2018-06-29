@@ -11,4 +11,5 @@ export interface DWAccident {
   gravity: string;
   description: string;
   type: string;
+  equipment_id: number;
 }
