@@ -77,6 +77,23 @@ export class AccidentListComponent implements OnInit  {
     });
   }
 
+  edit(i: number, id: number, zonaLesion: string, detalleLesion: string, tipoLesion: string) {
+/*    this.id = id;
+    this.index = i;
+    console.log(this.index);
+    const dialogRef = this.dialog.open(AccidentEditComponent, {
+      data: {id: id, zonaLesion: zonaLesion, detalleLesion: detalleLesion, tipoLesion: tipoLesion}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 1) {
+        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.id === this.id);
+        this.exampleDatabase.dataChange.value[foundIndex] = this.dataService.getDialogData();
+        this.refreshTable();
+      }
+    }); */
+  }
+
   public loadData() {
     this.exampleDatabase = new AccidentService(this.httpClient);
     this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort);

@@ -144,6 +144,7 @@ import { DwaccidentReport2Component } from './dwaccident-report2/dwaccident-repo
 import { AuditComponent } from './audit/audit.component';
 import {AuditService} from './services/audit.service';
 import {AccidentAddComponentComponent} from './accident-add-component/accident-add-component.component';
+import { AccidentEditComponentComponent } from './accident-edit-component/accident-edit-component.component';
 
 
 @NgModule({
@@ -201,7 +202,8 @@ import {AccidentAddComponentComponent} from './accident-add-component/accident-a
     DwaccidentReport1Component,
     DwaccidentReport2Component,
     AuditComponent,
-    AccidentAddComponentComponent
+    AccidentAddComponentComponent,
+    AccidentEditComponentComponent
   ],
 
   imports: [
@@ -250,7 +252,8 @@ import {AccidentAddComponentComponent} from './accident-add-component/accident-a
     EmployeeAccidentAddComponent,
     EmployeeAccidentEditComponent,
     EmployeeAccidentDeleteComponent,
-    AccidentAddComponentComponent
+    AccidentAddComponentComponent,
+    AccidentEditComponentComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -66,6 +66,9 @@
 
         <mat-cell *matCellDef="let row; let i=index;">
           <a class="mat-icon-button mat-primary" href="/accidente/{{row.id}}"><i class="fa fa-eye"></i> Ver</a>
+          <button mat-icon-button color="primary" (click)="edit(i, row.id)">
+            <mat-icon aria-label="Edit">edit</mat-icon> Editar
+          </button>
         </mat-cell>
 
       </ng-container>
