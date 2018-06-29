@@ -141,6 +141,8 @@ import { AssignEquipmentReportComponent } from './assign-equipment-report/assign
 import { AddAreaComponent } from './add-area/add-area.component';
 import { DwaccidentReport1Component } from './dwaccident-report1/dwaccident-report1.component';
 import { DwaccidentReport2Component } from './dwaccident-report2/dwaccident-report2.component';
+import { AuditComponent } from './audit/audit.component';
+import {AuditService} from './services/audit.service';
 
 
 @NgModule({
@@ -196,7 +198,8 @@ import { DwaccidentReport2Component } from './dwaccident-report2/dwaccident-repo
     EditAreaComponent,
     AddAreaComponent,
     DwaccidentReport1Component,
-    DwaccidentReport2Component
+    DwaccidentReport2Component,
+    AuditComponent
   ],
 
   imports: [
@@ -236,7 +239,8 @@ import { DwaccidentReport2Component } from './dwaccident-report2/dwaccident-repo
     AccidentTypeService,
     AccidentCauseGroupService,
     EquipmentService,
-    AreaService
+    AreaService,
+    AuditService
   ],
   entryComponents: [
     LoginComponent,
