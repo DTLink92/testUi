@@ -70,4 +70,12 @@ export class AccidentService {
         console.log (error.name + ' ' + error.message);
       });
   }
+
+  delete (id: number): void {
+    this.httpClient.delete(this.API_URL + '/' + id, this.httpOptions)
+      .subscribe((ok) => {
+        console.log(ok);
+      });
+
+  }
 }
