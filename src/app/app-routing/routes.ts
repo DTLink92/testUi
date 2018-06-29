@@ -97,7 +97,7 @@ export const routes: Routes = [
   {path: 'area-add', component: AddAreaComponent},
   {path: 'area-edit/:id', component: EditAreaComponent},
   {path: 'accident-report1', component: DwaccidentReport1Component},
-  {path: 'accident-report2', component: DwaccidentReport2Component},
+  {path: 'accident-report2/:id', component: DwaccidentReport2Component},
   {path: 'audit-changes', component: AuditComponent}
   ];
 

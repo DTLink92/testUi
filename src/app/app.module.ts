@@ -240,7 +240,8 @@ import {AuditService} from './services/audit.service';
     AccidentCauseGroupService,
     EquipmentService,
     AreaService,
-    AuditService
+    AuditService,
+    DwaccidentService
   ],
   entryComponents: [
     LoginComponent,

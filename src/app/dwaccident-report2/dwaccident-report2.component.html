@@ -1,3 +1,52 @@
-<p>
-  dwaccident-report2 works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title><h2> Accident Report </h2></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-select placeholder="Brand" [(ngModel)]="equipment_id" name="positionSelectId" >
+        <mat-option *ngFor="let equipment of dwequiptments" [value]="equipment.equipment_id" (click)="loadData(equipment.equipment_id)">
+          {{equipment.equipmentbrand}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card>
+  <mat-card-header><mat-card-title><h2>Positions</h2></mat-card-title></mat-card-header>
+  <mat-card-content>
+    <mat-list class="myTable">
+      <mat-list-item class="tableHeader">
+        <div class="numberList"> <h3>area id</h3> </div>
+        <div class="descriptionList"> <h3>area name</h3></div>
+        <div class="descriptionList"><h3>position name</h3></div>
+        <div class="descriptionList"><h3>equipment name</h3></div>
+        <div class="descriptionList"><h3>employee name</h3></div>
+        <div class="descriptionList"><h3>name accidentado</h3></div>
+        <div class="descriptionList"><h3>date</h3></div>
+        <div class="descriptionList"><h3>place</h3></div>
+        <div class="descriptionList"><h3>gravity</h3></div>
+        <div class="descriptionList"><h3>description</h3></div>
+        <div class="descriptionList"><h3>type</h3></div>
+      </mat-list-item>
+      <mat-list-item *ngFor="let acc of dwaccidents" class="myTableRow">
+        <div class="numberList" ><h3 mat-line >{{acc.area_id}}</h3></div>
+        <div class="descriptionList"> <p>{{acc.areaname}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.positionname}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.equipmentname}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.equipmentbrand}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.employeeName}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.name_Accidentado}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.date}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.place}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.gravity}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.description}}</p>  </div>
+        <div class="descriptionList"> <p>{{acc.type}}</p>  </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  <button mat-raised-button color="primary" [routerLink]="['/position-add']">Add</button>
+</mat-card>
