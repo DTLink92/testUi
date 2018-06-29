@@ -244,7 +244,8 @@ import { AccidentEditComponentComponent } from './accident-edit-component/accide
     AccidentCauseGroupService,
     EquipmentService,
     AreaService,
-    AuditService
+    AuditService,
+    DwaccidentService
   ],
   entryComponents: [
     LoginComponent,
