@@ -72,6 +72,8 @@ import {AccidentTypeService} from './services/accident-register/accident-type.se
 import {AccidentCauseService} from './services/accident/accident-cause.service';
 import {AccidentCauseGroupService} from './services/accident-register/accident-cause-group.service';
 
+import {DwaccidentService} from './services/dwaccident.service';
+
 // Components Imports
 import {EmployeeListComponent} from './components/employees-list/employees-list.component';
 import {EmployeeRegisterFormComponent} from './components/employee-register-form/employee-register-form.component';
@@ -137,6 +139,8 @@ import { ListDetailPositionequipmentComponent } from './list-detail-positionequi
 import { AssignPositionEquipmentComponent } from './assign-position-equipment/assign-position-equipment.component';
 import { AssignEquipmentReportComponent } from './assign-equipment-report/assign-equipment-report.component';
 import { AddAreaComponent } from './add-area/add-area.component';
+import { DwaccidentReport1Component } from './dwaccident-report1/dwaccident-report1.component';
+import { DwaccidentReport2Component } from './dwaccident-report2/dwaccident-report2.component';
 
 
 @NgModule({
@@ -190,7 +194,9 @@ import { AddAreaComponent } from './add-area/add-area.component';
     EditProjectComponent,
     AreaListComponent,
     EditAreaComponent,
-    AddAreaComponent
+    AddAreaComponent,
+    DwaccidentReport1Component,
+    DwaccidentReport2Component
   ],
 
   imports: [

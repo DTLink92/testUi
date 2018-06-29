@@ -40,6 +40,8 @@ import {ListPositionEquipmentComponent} from '../list-position-equipment/list-po
 import {ListDetailPositionequipmentComponent} from '../list-detail-positionequipment/list-detail-positionequipment.component';
 import {AssignPositionEquipmentComponent} from '../assign-position-equipment/assign-position-equipment.component';
 import {AssignEquipmentReportComponent} from '../assign-equipment-report/assign-equipment-report.component';
+import {DwaccidentReport1Component} from '../dwaccident-report1/dwaccident-report1.component';
+import {DwaccidentReport2Component} from '../dwaccident-report2/dwaccident-report2.component';
 
 
 export const routes: Routes = [
@@ -91,6 +93,9 @@ export const routes: Routes = [
   {path: 'edit-project/:id', component: EditProjectComponent},
   {path: 'area-list', component: AreaListComponent},
   {path: 'area-add', component: AddAreaComponent},
-  {path: 'area-edit/:id', component: EditAreaComponent}
+  {path: 'area-edit/:id', component: EditAreaComponent},
+  /*Reportes Accident*/
+  {path: 'accident-report1', component: DwaccidentReport1Component},
+  {path: 'accident-report2', component: DwaccidentReport2Component}
   ];
 
