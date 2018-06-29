@@ -67,7 +67,10 @@
         <mat-cell *matCellDef="let row; let i=index;">
           <a class="mat-icon-button mat-primary" href="/accidente/{{row.id}}"><i class="fa fa-eye"></i> Ver</a>
           <button mat-icon-button color="primary" (click)="edit(i, row )">
-            <mat-icon aria-label="Edit">edit</mat-icon> Editar
+            <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" (click)="delete(i, row)">
+            <mat-icon aria-label="Delete">delete</mat-icon>
           </button>
         </mat-cell>
 

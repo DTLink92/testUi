@@ -12,6 +12,7 @@ import {Employeeaccident} from '../shared/employeeaccident';
 import {EmployeeAccidentAddComponent} from '../employee-accident/employee-accident-add/employee-accident-add.component';
 import {AccidentAddComponentComponent} from '../accident-add-component/accident-add-component.component';
 import {AccidentEditComponentComponent} from '../accident-edit-component/accident-edit-component.component';
+import {AccidentDeleteComponentComponent} from '../accident-delete-component/accident-delete-component.component';
 
 
 @Component({
@@ -89,6 +90,22 @@ export class AccidentListComponent implements OnInit  {
       if (result === 1) {
         const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.id === this.id);
         this.exampleDatabase.dataChange.value[foundIndex] = this.dataService.getDialogData();
+        this.refreshTable();
+      }
+    });
+  }
+
+  delete(i: number, row: any) {
+    this.index = i;
+    this.id = row.id;
+     const dialogRef = this.dialog.open(AccidentDeleteComponentComponent, {
+      data: row
+     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 1) {
+        const foundIndex = this.exampleDatabase.dataChange.value.findIndex(x => x.id === this.id);
+        this.exampleDatabase.dataChange.value.splice(foundIndex, 1);
         this.refreshTable();
       }
     });
