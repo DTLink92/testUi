@@ -8,6 +8,7 @@
   <a mat-button routerLink="/employees-list" class="employees-icon"><span class="glyphicon glyphicon-book"></span> Employees</a>
   <button mat-button [matMenuTriggerFor]="assignEquips"><span class="fa fa-list fa-lg"></span> Assign Equipments</button>
   <button mat-button [matMenuTriggerFor]="accidentes"><span class="fa fa-list fa-lg"></span> Accidentes</button>
+  <button mat-button [matMenuTriggerFor]="reports"><span class="fa fa-list fa-lg"></span> Reports</button>
   <span class="flex-spacer"></span>
    <span class="flex-spacer"></span>
   <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> Login</a>
@@ -33,6 +34,12 @@
   <button  mat-menu-item  routerLink="/projects"><span class="fa fa-building fa-lg"></span> Projects</button>
   <button  mat-menu-item  routerLink="/area-list"><span class="fa fa-building fa-lg"></span> Areas</button>
 </mat-menu>
+
+<mat-menu #reports="matMenu">
+  <button  mat-menu-item  routerLink="accident-report1"><span class="fa fa-address-card fa-lg"></span> Report 1</button>
+  <button  mat-menu-item  routerLink="accident-report2"><span class="fa fa-address-card fa-lg"></span> Report 2</button>
+</mat-menu>
+
 <div class="container jumbotron"
      fxLayout="row"
      fxLayout.sm="column"
