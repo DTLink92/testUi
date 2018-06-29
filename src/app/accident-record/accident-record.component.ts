@@ -35,49 +35,26 @@ export class AccidentRecordComponent implements OnInit {
   constructor(private accidentService: AccidentService ) { }
 
   ngOnInit() {
-    this.accidentService.getIdArea().subscribe(data => {
+    // this.accidentService.getIdArea().subscribe(data => {
       // this.accident.genere = this.generes[0].value;
-      this.allArea = data;
+    //  this.allArea = data;
       // this.data.areaId = data[0].id;
       // this.ariaId(this.data.areaId);
-    });
-    this.accidentService.getAccidetTypeId().subscribe( data => {
-      this.allAccidentType =  data;
+    // });
+    // this.accidentService.getAccidetTypeId().subscribe( data => {
+      // this.allAccidentType =  data;
       // this.data.accidentTypeId = data[0].id;
       // this.accidentTypeId(this.data.accidentTypeId);
-    });
+    // });
   }
   async onSubmitAccident() {
-    this.accidentService.postAccident(this.accident).subscribe(result => {
-      if (result.id) {
-        this.accidentService.postAccident(this.accident).subscribe(response => {
-          const element = document.getElementById('reouter-to-accident-list');
-          element.click();
-        });
-      }
-    } );
+
   }
   isInvalidForm() {
-    if (this.invalidString(this.accident.nameAccidentado, 100, 'nombre del accidentado')) {
-      return true;
-    }
-    if (this.invalidString(this.accident.description_accident, 100, 'descripcion del accidente')) {
-      return true;
-    }
-    if (this.invalidString(this.accident.gravity_accident, 1000, 'gravedad del accidente')) {
-      return true;
-    }
+
     return false;
   }
   invalidString(currentString, maxlength, input) {
-    if (!currentString) {
-      this.errorMessage = 'el campo' + input + ' no puede estar vacio';
-      return true;
-    }
-    if (currentString.length > maxlength) {
-      this.errorMessage = 'El ' + input + ' no puede exceder de 50 caracteres';
-      return true;
-    }
     return false;
   }
   getHighAreaId(id: any) {

@@ -1,40 +1,97 @@
-<div class="col col-lg-1"></div>
-<div class="col col-lg-10">
-  <h1 class="accident-title ">Lista de Accidentes</h1>
-  <mat-card>
+<div style="width: 95%; margin:0 auto">
+  <div class="" style="text-align: center; margin: 2em">
+    <div class="cardTotal">
+      <h3>{{dataSource.filteredData.length}}</h3>
+      <span>Accidentes<br>&nbsp;</span>
+    </div>
+    <div class="cardTotal" style="background: brown">
+      <h3>{{total_employee_accident}}</h3>
+      <span>Total Empleados Accidentados</span>
+    </div>
+    <div class="cardTotal" style="background: #007bb6">
+      <h3>{{total_causas}}</h3>
+      <span>Total Causas Probables</span>
+    </div>
+  </div>
 
-    <table class="table table-striped accident-list">
-      <thead>
-      <tr>
-        <th class="accident-list-header">nombre del Accidentado</th>
-        <th class="accident-list-header">Fecha del Accidente</th>
-        <th class="accident-list-header">Hora del Accidente</th>
-        <th class="accident-list-header">Lugar del Accidente</th>
-        <th class="accident-list-header">Descripcion del Accidente</th>
-        <th class="accident-list-header">Area de Accidente</th>
-        <th class="accident-list-header">Tipo de Accidente</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr class="accident-list-item" *ngFor="let accident of accidents" [routerLink]="['/accidents', accident.id]">
-        <td class="accident-list-item-column">{{accident.nameAccidentado}}</td>
-        <td class="accident-list-item-column">{{accident.date_accident}}</td>
-        <td class="accident-list-item-column">{{accident.hour_accident}}</td>
-        <td class="accident-list-item-column">{{accident.place_accident}}</td>
-        <td class="accident-list-item-column">{{accident.description_accident}}</td>
-        <td class="accident-list-item-column">{{accident.area.name}}</td>
-        <td class="accident-list-item-column">{{accident.type.name_type_accident}}</td>
 
-      </tr>
-      </tbody>
-    </table>
-  </mat-card>
 
+  <mat-toolbar>
+    <span>Accidentes </span>
+    <button  (click)="addNew()">
+      <i class="fa fa-plus"></i> AGREGAR ACCIDENTE
+    </button>
+    <span class="spacer"></span>
+
+    <button mat-icon-button (click)="refreshTable()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </mat-toolbar>
+  <br>
+  <div class="container mat-elevation-z8">
+    <div class="form">
+      <mat-form-field floatPlaceholder="never" color="primary">
+        <input matInput #filter placeholder="buscar">
+      </mat-form-field>
+    </div>
+    <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+        <mat-cell *matCellDef="let row" >{{row.id}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="place_accident">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.place_accident}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.type.name_type_accident}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="area">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Detalle de lesion</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.area.name}}</mat-cell>
+      </ng-container>
+
+
+      <!-- actions -->
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button color="primary" (click)="addNew()">
+            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+          </button>
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let row; let i=index;">
+          <a class="mat-icon-button mat-primary" href="/accidente/{{row.id}}"><i class="fa fa-eye"></i> Ver</a>
+        </mat-cell>
+
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+      No results
+    </div>
+    <br>
+    <mat-paginator #paginator
+                   [length]="dataSource.filteredData.length"
+                   [pageIndex]="0"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+
+  </div>
+
+  <br>
+  <div>
+    <h2>Grafica de Las Causas mas frecuentes en los accidentes</h2>
+    app-pie-chart - app-pie-chart
+  </div>
+  <br>
 </div>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
 

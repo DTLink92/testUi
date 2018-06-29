@@ -49,6 +49,43 @@ export class AccidentCauseService {
       });
   }
 
+  getCauses(idAccident): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/accidents_cause/accident/' + idAccident, this.httpOptions)
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
+  getCausesGraph(): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/accidents_cause/causes', this.httpOptions)
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
+
+  addCause(idCause, idAccident): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/accidents_cause/addaccidentcause/' + idAccident + '/' + idCause, this.httpOptions)
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
+
+  deleteCause(idCause, idAccident): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/accidents_cause/deleteaccidentcause/' + idAccident + '/' + idCause, this.httpOptions)
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
+
+
+
   update(cause, id_accident): void {
     cause.idCause = cause.id;
     cause.idAccident = id_accident;
@@ -59,13 +96,6 @@ export class AccidentCauseService {
       (error: HttpErrorResponse) => {
         console.log (error.name + ' ' + error.message);
       });
-  }
-
-  save(accidentCause: any): Observable<any> {
-    console.log(accidentCause);
-    let result: Observable<object>;
-    result = this.httpClient.post('http://localhost:8080/accidentCauseController', accidentCause);
-    return result;
   }
 
 }
