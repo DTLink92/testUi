@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Subscription} from 'rxjs/Subscription';
-import {PositionReport} from '../shared/PositionReport';
-import {ActivatedRoute, Router} from '@angular/router';
-import {PositionService} from '../services/position.service';
+import {DwaccidentService} from '../services/dwaccident.service';
 import {DWAccident} from '../shared/dwaccident';
 
 @Component({
@@ -13,48 +10,11 @@ import {DWAccident} from '../shared/dwaccident';
 export class DwaccidentReport1Component implements OnInit {
 
   dwaccidents: Array<DWAccident>;
-  positionSelectedId: any = {};
-  sub: Subscription;
-  dwaccident: any = {};
-  higherPosition: any = {};
-  employees: Array<PositionReport>;
-  redirectString: string;
-  total: number;
-  constructor(private dwaccidentservice: PositionService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private dwaccidentservice: DwaccidentService) { }
 
   ngOnInit() {
     this.dwaccidentservice.getAll().subscribe(data => {
       this.dwaccidents = data;
     });
-    this.sub = this.route.params.subscribe(params => {
-      const id = params['id'];
-      if (id) {
-        this.positionSelectedId = id;
-        /*this.dwaccidentservice.getType(id).subscribe(position => {
-          this.dwaccident = position;
-          for (const high of this.dwaccidents) {
-            if ( high.id === position.higherWorkPosition) {
-              this.higherPosition = high;
-              break;
-            }
-          }
-        });
-        this.dwaccidentservice.getContracts(id).subscribe(result => {
-          this.employees = result;
-          this.total = 0;
-          for ( const empl of this.employees ) {
-            this.total = this.total + 1 ;
-          }
-        });*/
-      }
-    });
   }
-  gotoList(id) {
-    this.redirectString = '/position-report/' + id;
-    this.router.navigate([this.redirectString]);
-  }
-  loadData(id) {
-    this.gotoList(id);
-  }
-
 }
