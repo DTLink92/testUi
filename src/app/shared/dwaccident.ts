@@ -1,4 +1,4 @@
-export interface Dwaccident {
+export interface DWAccident {
   area_id: number;
   areaname: string;
   positionname: string;
