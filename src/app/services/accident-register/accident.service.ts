@@ -62,4 +62,12 @@ export class AccidentService {
       });
   }
 
+  update (datos: any): void {
+    this.httpClient.put<Accident[]>(this.API_URL, datos, this.httpOptions).subscribe(data => {
+        this.dialogData = data;
+      },
+      (error: HttpErrorResponse) => {
+        console.log (error.name + ' ' + error.message);
+      });
+  }
 }

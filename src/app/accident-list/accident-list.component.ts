@@ -11,6 +11,7 @@ import {AccidentCauseService} from '../services/accident/accident-cause.service'
 import {Employeeaccident} from '../shared/employeeaccident';
 import {EmployeeAccidentAddComponent} from '../employee-accident/employee-accident-add/employee-accident-add.component';
 import {AccidentAddComponentComponent} from '../accident-add-component/accident-add-component.component';
+import {AccidentEditComponentComponent} from '../accident-edit-component/accident-edit-component.component';
 
 
 @Component({
@@ -77,12 +78,11 @@ export class AccidentListComponent implements OnInit  {
     });
   }
 
-  edit(i: number, id: number, zonaLesion: string, detalleLesion: string, tipoLesion: string) {
-/*    this.id = id;
+  edit(i: number, row: any ) {
+    this.id = row.id;
     this.index = i;
-    console.log(this.index);
-    const dialogRef = this.dialog.open(AccidentEditComponent, {
-      data: {id: id, zonaLesion: zonaLesion, detalleLesion: detalleLesion, tipoLesion: tipoLesion}
+    const dialogRef = this.dialog.open(AccidentEditComponentComponent, {
+      data: row
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -91,7 +91,7 @@ export class AccidentListComponent implements OnInit  {
         this.exampleDatabase.dataChange.value[foundIndex] = this.dataService.getDialogData();
         this.refreshTable();
       }
-    }); */
+    });
   }
 
   public loadData() {
