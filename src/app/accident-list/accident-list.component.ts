@@ -10,6 +10,7 @@ import {EmployeeAccidentService} from '../services/accident/employee-accident.se
 import {AccidentCauseService} from '../services/accident/accident-cause.service';
 import {Employeeaccident} from '../shared/employeeaccident';
 import {EmployeeAccidentAddComponent} from '../employee-accident/employee-accident-add/employee-accident-add.component';
+import {AccidentAddComponentComponent} from '../accident-add-component/accident-add-component.component';
 
 
 @Component({
@@ -62,9 +63,9 @@ export class AccidentListComponent implements OnInit  {
     }
   }
 
-  addNew(employeeAccident: Employeeaccident) {
-    const dialogRef = this.dialog.open(EmployeeAccidentAddComponent, {
-      data: {employeeaccident: employeeAccident }
+  addNew(accident: Accident) {
+    const dialogRef = this.dialog.open(AccidentAddComponentComponent, {
+      data: {accident: accident }
     });
 
     dialogRef.afterClosed().subscribe(result => {

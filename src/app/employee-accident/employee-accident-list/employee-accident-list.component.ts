@@ -15,6 +15,8 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import {EmployeeAccidentDeleteComponent} from '../employee-accident-delete/employee-accident-delete.component';
 import {EmployeeAccidentEditComponent} from '../employee-accident-edit/employee-accident-edit.component';
+import {Accident} from '../../shared/Accident';
+import {AccidentAddComponentComponent} from '../../accident-add-component/accident-add-component.component';
 
 
 
@@ -61,9 +63,9 @@ export class EmployeeAccidentListComponent implements OnInit {
     });
   }
 
-  addNew(employeeAccident: Employeeaccident) {
-    const dialogRef = this.dialog.open(EmployeeAccidentAddComponent, {
-      data: {employeeaccident: employeeAccident }
+  addNew(accident: Accident) {
+    const dialogRef = this.dialog.open(AccidentAddComponentComponent, {
+      data: {accident: accident }
     });
 
     dialogRef.afterClosed().subscribe(result => {

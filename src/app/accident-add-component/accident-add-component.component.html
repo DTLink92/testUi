@@ -1,0 +1,73 @@
+<div class="container">
+  <h3 mat-dialog-title>Agregar Accidente</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+
+
+    <div class="form">
+      <mat-form-field color="primary">
+        <textarea matInput #input class="form-control" placeholder="Titulo Accidente" [(ngModel)]="data.nameAccidentado" name="nameAccidentado" required ></textarea>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputstate class="form-control" placeholder="place_accident" [(ngModel)]="data.place_accident" name="place_accident" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputstate class="form-control" placeholder="gravity_accident" [(ngModel)]="data.gravity_accident" name="gravity_accident" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputstate class="form-control" placeholder="description_accident" [(ngModel)]="data.description_accident" name="description_accident" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputstate class="form-control" placeholder="date_accident" [(ngModel)]="data.date_accident" name="date_accident" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputstate class="form-control" placeholder="hour_accident" [(ngModel)]="data.hour_accident" name="hour_accident" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="form">
+      <mat-form-field>
+        <mat-select placeholder="Seleccionar  Tipo de Accidente" [(ngModel)]="data.accidentTypeId" name="accidentTypeId">
+          <mat-option *ngFor="let tipo of accidentTypes" [value]="tipo.id">
+            {{tipo.name_type_accident}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <mat-select placeholder="Seleccionar Area" [(ngModel)]="data.areaId" name="areaId">
+          <mat-option *ngFor="let area of areas" [value]="area.id">
+            {{area.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="confirmAdd()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>
