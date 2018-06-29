@@ -26,12 +26,11 @@
     </thead>
     <tbody>
       <tr class="employee-list-item" *ngFor="let employee of employees" [routerLink]="['/employee', employee.id]">
-        <th *ngIf="employee.positionName != null" class="employee-list-item-column">{{employee.firstName}}</th>
-        <th *ngIf="employee.positionName != null" class="employee-list-item-column">{{employee.lastName}}</th>
-        <th *ngIf="employee.positionName != null" class="employee-list-item-column">{{employee.ci}}</th>
-        <th *ngIf="employee.positionName != null" class="employee-list-item-column">{{employee.positionName}}</th>
-        <th *ngIf="employee.positionName != null" class="employee-list-item-column">{{employee.supervisorName}}</th>
-
+        <th  class="employee-list-item-column">{{employee.firstName}}</th>
+        <th  class="employee-list-item-column">{{employee.lastName}}</th>
+        <th  class="employee-list-item-column">{{employee.ci}}</th>
+        <th  class="employee-list-item-column">{{employee.positionName}}</th>
+        <th  class="employee-list-item-column">{{employee.supervisorName}}</th>
       </tr>
     </tbody>
   </table>
