@@ -20,4 +20,5 @@ export interface EmployeeDetail {
   contractId: number;
   genre: string;
   salary: number;
+  projectId: number;
 }

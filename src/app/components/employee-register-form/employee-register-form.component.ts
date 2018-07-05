@@ -22,6 +22,7 @@ export class EmployeeRegisterFormComponent implements OnInit {
   data = {
     positionId: 0,
     supervisorId: 0,
+    projectId: 0,
     description: '',
     initDate: null,
     finishDate: null,
@@ -60,6 +61,7 @@ export class EmployeeRegisterFormComponent implements OnInit {
   };
   allPositions = [];
   allSupervisor: Array<Employee> = [];
+  allProjects = [];
 
   constructor(private employeeService: EmployeeService,
               private contractService: ContractService) { }
@@ -71,6 +73,10 @@ export class EmployeeRegisterFormComponent implements OnInit {
       this.allPositions = data;
       this.data.positionId = data[0].id;
       this.positionId(this.data.positionId);
+    });
+    this.employeeService.getProjects().subscribe(data => {
+      this.allProjects = data;
+      this.data.projectId = data[0].id;
     });
   }
 
@@ -91,7 +97,8 @@ export class EmployeeRegisterFormComponent implements OnInit {
             employeeLastName: '',
             positionName: '',
             employeeCi: 0,
-            salary: this.data.salary
+            salary: this.data.salary,
+            projectId: this.data.projectId
           };
           this.contractService.postContract(this.contract).subscribe(response => {
             const element = document.getElementById('router-to-employee-list');
@@ -194,6 +201,11 @@ export class EmployeeRegisterFormComponent implements OnInit {
   supervisorId(id: any) {
     this.data.supervisorId = id;
   }
+
+  projectId(id: any) {
+    this.data.projectId = id;
+  }
+
   changeCivilState(civilState: any) {
     this.employee.civilState = civilState;
   }

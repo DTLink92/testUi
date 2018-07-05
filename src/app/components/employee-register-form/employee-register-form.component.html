@@ -71,6 +71,12 @@
         </select>
       </div>
       <div class="form-group">
+        <label> Proyecto: </label>
+        <select (change)="projectId($event.target.value)">
+          <option *ngFor="let project of allProjects" [value]="project.id">{{project.name}}</option>
+        </select>
+      </div>
+      <div class="form-group">
         <label for="initDate">*Fecha de Inicio de Contrato:</label>
         <input [(ngModel)]="data.initDate" name="initDate" type="date" class="form-control" id="initDate" required>
       </div>
@@ -94,7 +100,7 @@
       <div class="alert alert-danger" role="alert" id="alert" *ngIf="isInvalidForm()">{{errorMessage}}</div>
       <h6>Los campos con (*) son obligatorios</h6>
       <button type="button" class="btn btn-default" (click)="cancel()" id="adv-cancel"><span class="glyphicon glyphicon-chevron-left"></span>Cancel</button>
-      <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()">Submit</button>
+      <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()">Crear</button>
       <div [routerLink]="['/employees-list']" id="router-to-employee-list">
       </div>
     </div>

@@ -8,4 +8,5 @@ export interface Employee {
   description: string;
   initDate: Date;
   finishDate: Date;
+  projectName: string;
 }

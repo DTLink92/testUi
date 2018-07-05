@@ -11,4 +11,5 @@ export interface Contract {
   employeeCi: number;
   positionName: string;
   salary: number;
+  projectId: number;
 }
