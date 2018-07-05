@@ -39,7 +39,8 @@ export class EmployeeComponent implements OnInit {
     supervisorId: 0,
     contractId: 0,
     salary: 0,
-    genre: ''
+    genre: '',
+    projectId: 0
   };
   genres = [
     { value: 'Masculino'},
@@ -58,6 +59,7 @@ export class EmployeeComponent implements OnInit {
   disabled = true;
   firstLoad = true;
   allPositions = [];
+  allProjects = [];
   allSupervisor: Array<Employee> = [];
   constructor(private employeeService: EmployeeService,
               private route: ActivatedRoute,
@@ -83,6 +85,9 @@ export class EmployeeComponent implements OnInit {
           if (this.employee.positionId != null) {
             this.positionId(this.employee.positionId.toString());
           }
+        });
+        this.employeeService.getProjects().subscribe(data => {
+          this.allProjects = data;
         });
       });
   }
@@ -218,7 +223,8 @@ export class EmployeeComponent implements OnInit {
         employeeLastName: '',
         employeeCi: 0,
         positionName: '',
-        salary: 0
+        salary: 0,
+        projectId: this.employee.projectId
       };
       this.contractService.updateContract(contract).subscribe(response => {
         location.reload();

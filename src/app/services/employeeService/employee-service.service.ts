@@ -62,4 +62,12 @@ export class EmployeeService {
         return error;
       });
   }
+  getProjects(): Observable<any> {
+    return this.http.get('http://localhost:8080/projects')
+      .map((res) => {
+        return res;
+      }).catch(error => {
+        return error;
+      });
+  }
 }

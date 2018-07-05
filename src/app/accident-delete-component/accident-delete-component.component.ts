@@ -22,8 +22,4 @@ export class AccidentDeleteComponentComponent implements OnInit {
   confirmDelete(): void {
     this.dataService.delete(this.data.id);
   }
-
-
-  ngOnInit() {
-  }
 }
