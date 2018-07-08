@@ -25,7 +25,7 @@
       <div class="form-group">
         <label for="ci">Ci:</label>
         <input [(ngModel)]="employee.ci" name="ci" type="number"
-               disabled="true" class="form-control" id="ci" required>
+               [disabled]="isDisabled()" class="form-control" id="ci" required>
       </div>
       <div class="form-group">
         <label for="birthDate">Fecha de Nacimiento:</label>
