@@ -221,9 +221,9 @@ export class EmployeeComponent implements OnInit {
         supervisorId: this.employee.supervisorId,
         employeeFirstName: '',
         employeeLastName: '',
-        employeeCi: 0,
+        employeeCi: this.employee.ci,
         positionName: '',
-        salary: 0,
+        salary: this.employee.salary,
         projectId: this.employee.projectId
       };
       this.contractService.updateContract(contract).subscribe(response => {
