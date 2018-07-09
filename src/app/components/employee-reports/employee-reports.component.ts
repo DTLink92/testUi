@@ -32,7 +32,10 @@ export class EmployeeReportsComponent implements OnInit {
 
   chartColors: any[] = [
     {
-      backgroundColor: ['#1600FF', '#FF1021', '#40FF23', '#FFBF0B', '#E615FF']
+      backgroundColor: ['#1600FF', '#FF1021', '#40FF23', '#FFBF0B', '#E615FF',
+        '#160AFA', '#FF103A', '#40EF24', '#FFEF0C', '#E515CF',
+        '#160BFB', '#FF104F', '#40DF25', '#FFFF0D', '#E415AF',
+        '#160CFC', '#FF105B', '#40CF26', '#FFGF0E', '#E315BF']
     }];
 
   public doughnutChartLabels = [];
