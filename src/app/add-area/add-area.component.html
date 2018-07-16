@@ -3,18 +3,18 @@
   <mat-card align="center"><h1>CREATE NEW AREA</h1></mat-card>
   <span fxFlex class="flex-spacer"> <br></span>
   <mat-card>
-    <form>
-      <mat-form-field>
-        <mat-select placeholder="Project" [(ngModel)]="selected_project_value" [formControl]="projectControl" name="project" required>
-          <mat-option *ngFor="let project of lista_projejcts" [value]="project.id">
-            {{project.name}}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="projectControl.hasError('required')">Please choose an Project</mat-error>
-        <mat-hint>{{projectControl.value?.sound}}</mat-hint>
-      </mat-form-field>
-      <!--<p> Selected value: {{selected_project_value}} </p>-->
-    </form>
+    <!--<form>-->
+      <!--<mat-form-field>-->
+        <!--<mat-select placeholder="Project" [(ngModel)]="selected_project_value" [formControl]="projectControl" name="project" required>-->
+          <!--<mat-option *ngFor="let project of lista_projejcts" [value]="project.id">-->
+            <!--{{project.name}}-->
+          <!--</mat-option>-->
+        <!--</mat-select>-->
+        <!--<mat-error *ngIf="projectControl.hasError('required')">Please choose an Project</mat-error>-->
+        <!--<mat-hint>{{projectControl.value?.sound}}</mat-hint>-->
+      <!--</mat-form-field>-->
+      <!--&lt;!&ndash;<p> Selected value: {{selected_project_value}} </p>&ndash;&gt;-->
+    <!--</form>-->
 
     <form novalidate #createareaForm="ngForm" (ngSubmit)="onSubmit()">
 
