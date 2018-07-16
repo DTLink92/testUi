@@ -26,8 +26,8 @@
       </div>
       <div class="form-group">
         <label for="civilState">*Estado civil: </label>
-        <select (change)="changeCivilState($event.target.value)">
-          <option *ngFor="let civilState of civilStates" id="civilState" [value]="civilState.value">{{civilState.value}}</option>
+        <select (change)="changeCivilState($event.target.value)" id="civilState">
+          <option *ngFor="let civilState of civilStates" [value]="civilState.value">{{civilState.value}}</option>
         </select>
       </div>
       <div class="form-group">
@@ -36,8 +36,8 @@
       </div>
       <div class="form-group">
         <label for="genre">*Genero: </label>
-        <select (change)="changeGenre($event.target.value)">
-          <option *ngFor="let genre of genres" id="genre" [value]="genre.value">{{genre.value}}</option>
+        <select (change)="changeGenre($event.target.value)" id="genre">
+          <option *ngFor="let genre of genres" [value]="genre.value">{{genre.value}}</option>
         </select>
       </div>
       <div class="form-group">
@@ -60,19 +60,19 @@
     <div class="create-employee-form contract">
       <div class="form-group">
         <label>(*)Cargo del empleado: </label>
-        <select (change)="positionId($event.target.value)">
+        <select (change)="positionId($event.target.value)" id="positionSelector">
           <option *ngFor="let position of allPositions" [value]="position.id">{{position.name}}</option>
         </select>
       </div>
       <div class="form-group">
         <label> Supervisor: </label>
-        <select (change)="supervisorId($event.target.value)">
+        <select (change)="supervisorId($event.target.value)" id="supervisorSelector">
           <option *ngFor="let supervisor of allSupervisor" [value]="supervisor.id">{{supervisor.firstName}} {{supervisor.lastName}}</option>
         </select>
       </div>
       <div class="form-group">
         <label> Proyecto: </label>
-        <select (change)="projectId($event.target.value)">
+        <select (change)="projectId($event.target.value)" id="projectSelector">
           <option *ngFor="let project of allProjects" [value]="project.id">{{project.name}}</option>
         </select>
       </div>
@@ -100,7 +100,7 @@
       <div class="alert alert-danger" role="alert" id="alert" *ngIf="isInvalidForm()">{{errorMessage}}</div>
       <h6>Los campos con (*) son obligatorios</h6>
       <button type="button" class="btn btn-default" (click)="cancel()" id="adv-cancel"><span class="glyphicon glyphicon-chevron-left"></span>Cancel</button>
-      <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()">Crear</button>
+      <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()" id="btn-create">Crear</button>
       <div [routerLink]="['/employees-list']" id="router-to-employee-list">
       </div>
     </div>
