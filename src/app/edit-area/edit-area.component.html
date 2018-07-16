@@ -49,17 +49,6 @@
               [disabled]="createareaForm.form.invalid"><span class="fa fa-save  fa-lg"></span> Save
       </button>
     </form>
-
-    <form>
-      <mat-form-field>
-      <mat-select placeholder="Project" [(ngModel)]="selected_project_value" name="project">
-        <mat-option *ngFor="let project of lista_projejcts" [value]="project.id">
-          {{project.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <!--<p> Selected value: {{selected_project_value}} </p>-->
-  </form>
   </mat-card>
 </div>
 
