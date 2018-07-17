@@ -58,6 +58,7 @@ export class EmployeeComponent implements OnInit {
   ];
   disabled = true;
   firstLoad = true;
+  date2 = "01-01-2005";
   allPositions = [];
   allProjects = [];
   allSupervisor: Array<Employee> = [];
@@ -70,7 +71,7 @@ export class EmployeeComponent implements OnInit {
       .subscribe(employee => {
         this.employee = employee;
         if(this.employee.birthday != null ){
-          this.employee.birthday = this.getDate(employee.birthday.toString());
+          this.employee.birthday = this.getDate(employee.birthDate.toString());
         }
         if (this.employee.finishDate != null ){
           this.employee.finishDate = this.getDate(employee.finishDate.toString());
