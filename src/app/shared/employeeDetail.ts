@@ -21,4 +21,5 @@ export interface EmployeeDetail {
   genre: string;
   salary: number;
   projectId: number;
+  birthDate: Date;
 }

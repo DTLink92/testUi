@@ -18,7 +18,7 @@
       </div>
       <div class="form-group">
         <label for="birthDate">*Fecha de Nacimiento:</label>
-        <input [(ngModel)]="employee.birthday" name="birthdate" type="date" class="form-control" id="birthDate" required>
+        <input [(ngModel)]="employee.birthday" name="birthdate" type="date" class="form-control" id="birthDate" ng-model-options="{timezone: 'UTC'}" required>
       </div>
       <div class="form-group">
         <label for="phoneNumber">*Telf:</label>
