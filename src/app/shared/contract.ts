@@ -12,4 +12,6 @@ export interface Contract {
   positionName: string;
   salary: number;
   projectId: number;
+  stringInitDate: string;
+  stringFinishDate: string;
 }

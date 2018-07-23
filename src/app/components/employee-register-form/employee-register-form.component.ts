@@ -98,7 +98,9 @@ export class EmployeeRegisterFormComponent implements OnInit {
             positionName: '',
             employeeCi: 0,
             salary: this.data.salary,
-            projectId: this.data.projectId
+            projectId: this.data.projectId,
+            stringInitDate: this.data.initDate,
+            stringFinishDate: this.data.finishDate
           };
           this.contractService.postContract(this.contract).subscribe(response => {
             const element = document.getElementById('router-to-employee-list');
