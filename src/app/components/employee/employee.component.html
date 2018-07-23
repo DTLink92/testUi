@@ -30,6 +30,7 @@
       <div class="form-group">
         <label for="birthDate">Fecha de Nacimiento:</label>
         <input [ngModel]="employee.birthday | date:'yyyy-MM-dd'" name="birthdate"
+               (change)="ChangeBirthDate($event.target.value)"
                [disabled]="isDisabled()" type="date" class="form-control" id="birthDate" required>
       </div>
       <div class="form-group">
@@ -101,11 +102,13 @@
       <div class="form-group">
         <label for="initDate">*Fecha de Inicio de Contrato:</label>
         <input [disabled]="isDisabled()" [ngModel]="employee.initDate | date:'yyyy-MM-dd'"
+               (change)="ChangeInitDate($event.target.value)"
                name="initDate" type="date" class="form-control" id="initDate" required>
       </div>
       <div class="form-group">
         <label for="finishDate">*Fecha de Finalizacion de Contrato:</label>
         <input [disabled]="isDisabled()" [ngModel]="employee.finishDate | date:'yyyy-MM-dd'"
+               (change)="ChangeFinishDate($event.target.value)"
                name="finishDate" type="date" class="form-control" id="finishDate" required>
       </div>
       <div class="form-group">
@@ -123,13 +126,14 @@
       <div class="alert alert-danger" role="alert" id="alert" *ngIf="isInvalidForm()">{{errorMessage}}</div>
       <h6>Los campos con (*) son obligatorios</h6>
       <button type="button" class="btn btn-default" (click)="cancel()" id="adv-cancel"><span class="glyphicon glyphicon-chevron-left"></span>Cancel</button>
-      <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()">Guardar</button>
+      <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="isInvalidForm()" id="btn-create">Guardar</button>
       <div [routerLink]="['/employees-list']" id="router-to-employee-list">
       </div>
     </div>
   </div>
+  <a mat-button routerLink="/employees-list" id="toEmployeeList"></a>
 </div>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../../webresources/jquery-1.12.0.min.js"></script>
+<script src="../../../webresources/js/bootstrap.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

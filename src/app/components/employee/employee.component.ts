@@ -225,10 +225,13 @@ export class EmployeeComponent implements OnInit {
         employeeCi: this.employee.ci,
         positionName: '',
         salary: this.employee.salary,
-        projectId: this.employee.projectId
+        projectId: this.employee.projectId,
+        stringInitDate: this.employee.initDate,
+        stringFinishDate: this.employee.finishDate
       };
       this.contractService.updateContract(contract).subscribe(response => {
-        location.reload();
+        let helperElement = document.getElementById("toEmployeeList");
+        helperElement.click();
       });
     });
   }
@@ -250,6 +253,15 @@ export class EmployeeComponent implements OnInit {
         }
       }
     });
+  }
+  ChangeBirthDate(birthDate: any) {
+    this.employee.birthday = birthDate;
+  }
+  ChangeInitDate(initDate: any) {
+    this.employee.initDate = initDate;
+  }
+  ChangeFinishDate(finishDate: any) {
+    this.employee.finishDate = finishDate;
   }
 }
 
