@@ -5,7 +5,7 @@
     <div fxFlex class="precont">
       <div class="example-container mat-elevation-z8">
 
-        <h1> POSITION LIST TO ASSIGN EQUIPMENTS </h1>
+        <h1> LISTA DE CARGOS PARA ASIGNACIÓN DE EQUIPOS </h1>
         <mat-table #tableAssignEquip [dataSource]="positions" class="mat-elevation-z8">
 
           <ng-container matColumnDef="id">
@@ -14,12 +14,12 @@
           </ng-container>
 
           <ng-container matColumnDef="namePosition">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Name Position </mat-header-cell>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Nombre de Cargo </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let position"> {{position.name}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="viewDetail">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> View Detail </mat-header-cell>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Ver Detalles </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let position"> <a mat-button [routerLink]="['/detail-equipment-position', position.id]"><span class="fa fa-eye"></span>View Equipments</a> </mat-cell>
           </ng-container>
 

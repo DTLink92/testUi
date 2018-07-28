@@ -30,13 +30,13 @@ export class EmployeeListWithequipComponent implements OnInit {
       this.url = this.route.snapshot.url[0].toString();
       const id = params['id'];
       if (id) {
-        console.log('ESTE ES EL ID de Assign: ' + id);
+        /*console.log('ESTE ES EL ID de Assign: ' + id);*/
         this.assignEquipmentService.getAssignEquipment(id).subscribe((assignEquip: any) => {
           if (assignEquip) {
-            console.log('Se esta asignando data assign a assignEquip');
+            /*console.log('Se esta asignando data assign a assignEquip');*/
             this.assignEquip = assignEquip;
           } else {
-            console.log(`No encuentra asignacionEquipo por ID`);
+            /*console.log(`No encuentra asignacionEquipo por ID`);*/
             this.gotoList();
           }
         });

@@ -3,7 +3,7 @@
     <mat-card>
       <form #positionEquipmentForm="ngForm" (ngSubmit)="save(positionEquipmentForm.value)">
         <mat-card-header>
-          <mat-card-title><h1>{{positionEquipment.id ? 'EDIT' : 'ADD'}} EQUIPMENT TO POSITION</h1></mat-card-title>
+          <mat-card-title><h1>{{positionEquipment.id ? 'EDITAR' : 'AÑADIR'}} EQUIPO A UN CARGO</h1></mat-card-title>
         </mat-card-header>
 
         <h2>POSITION: {{position.name}}</h2>
@@ -33,10 +33,10 @@
 
         <mat-card-actions>
           <button mat-raised-button color="primary" type="submit"
-                  [disabled]="!positionEquipmentForm.form.valid">Save</button>
+                  [disabled]="!positionEquipmentForm.form.valid">Guardar</button>
           <button mat-raised-button (click)="remove(positionEquipment.id)" color="secondary"
-                  *ngIf="positionEquipment.id" type="button">Delete</button>
-          <button mat-raised-button (click)="gotoListViewDetail()" color="secondary">Cancel</button>
+                  *ngIf="positionEquipment.id" type="button">Eliminar</button>
+          <button mat-raised-button (click)="gotoListViewDetail()" color="secondary">Cancelar</button>
         </mat-card-actions>
       </form>
     </mat-card>

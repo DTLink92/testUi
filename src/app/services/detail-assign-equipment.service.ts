@@ -61,14 +61,14 @@ export class DetailAssignEquipmentService {
   }
 
   save(detailAssignEquip: any): Observable<any> {
-    console.log('Entra a save detailassign')
+    /*console.log('Entra a save detailassign');*/
     let result: Observable<Object>;
     if (detailAssignEquip['id']) {
-      console.log('Entra a actualizar');
+      /*console.log('Entra a actualizar');*/
       result = this.http.put(this.DAE_API, detailAssignEquip);
     } else {
-      console.log('Entra a post detailAssignEquip');
-      console.log('ESTE ES EL ID DE ASSIGN: ' + detailAssignEquip['idAssignEquip']);
+      /*console.log('Entra a post detailAssignEquip');
+      console.log('ESTE ES EL ID DE ASSIGN: ' + detailAssignEquip['idAssignEquip']);*/
       result = this.http.post(this.DAE_API, detailAssignEquip);
     }
     return result;

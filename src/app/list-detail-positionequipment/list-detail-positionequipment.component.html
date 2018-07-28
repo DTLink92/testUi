@@ -5,7 +5,7 @@
     <div fxFlex class="precont">
       <div class="example-container mat-elevation-z8">
 
-        <h1> LIST OF EQUIPMENTS ASSIGNED </h1>
+        <h1> LISTA DE EQUIPOS ASIGNADOS </h1>
 
         <h2>POSITION: {{position.name}} </h2>
 
@@ -17,13 +17,13 @@
           </ng-container>
 
           <ng-container matColumnDef="nameEquipment">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Equipment </mat-header-cell>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Equipo </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let peq"> {{peq.nameEquipment}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="editEquipment">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Option </mat-header-cell>
-            <mat-cell mat-cell *matCellDef="let peq"> <a mat-button [routerLink]="['/assign-equipment-position-edit', position.id, peq.id]"><span class="fa fa-edit"></span>Edit</a> </mat-cell>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Opción </mat-header-cell>
+            <mat-cell mat-cell *matCellDef="let peq"> <a mat-button [routerLink]="['/assign-equipment-position-edit', position.id, peq.id]"><span class="fa fa-edit"></span>Editar</a> </mat-cell>
           </ng-container>
 
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -43,6 +43,6 @@
 </div>
 
 <div class="container cont-buttons">
-  <button mat-raised-button color="primary" [routerLink]="['/assign-equipment-position', position.id]">ADD</button>
-  <button mat-raised-button (click)="gotoList()" color="secondary">CANCEL</button>
+  <button mat-raised-button color="primary" [routerLink]="['/assign-equipment-position', position.id]">AÑADIR</button>
+  <button mat-raised-button (click)="gotoList()" color="secondary">CANCELAR</button>
 </div>
