@@ -4,10 +4,10 @@
       <form #detAssignEqForm="ngForm" (ngSubmit)="save(detAssignEqForm.value)">
 
         <mat-card-header class="t-header">
-          <mat-card-title><h1>{{detAssignEquip.id ? 'EDIT' : 'ADD'}} EQUIPMENTS TO EMPLOYEE</h1></mat-card-title>
+          <mat-card-title><h1>{{detAssignEquip.id ? 'EDITAR' : 'AÑADIR'}} EQUIPOS A EMPLEADO</h1></mat-card-title>
         </mat-card-header>
 
-        <h2>EMPLOYEE: {{assignEquip.nameEmployee}}<span> </span>{{assignEquip.lastnameEmployee}} </h2>
+        <h2>EMPLEADO: {{assignEquip.nameEmployee}}<span> </span>{{assignEquip.lastnameEmployee}} </h2>
 
         <mat-card-content>
           <div class="fieldRow">
@@ -21,7 +21,7 @@
 
             <mat-form-field>
               <mat-select placeholder="Equipment" [(ngModel)]="detAssignEquip.idEquipment" name="idEquipment" #idEquipment="ngModel" required>
-                <mat-option>None</mat-option>
+                <mat-option>Ninguno</mat-option>
                 <mat-option *ngFor="let equipment of equipments" [value]="equipment.id">
                   {{equipment.name}}
                 </mat-option>
@@ -50,10 +50,10 @@
 
         <mat-card-actions>
           <button mat-raised-button color="primary" type="submit"
-                  [disabled]="!detAssignEqForm.form.valid">Save</button>
+                  [disabled]="!detAssignEqForm.form.valid">Guardar</button>
           <button mat-raised-button (click)="remove(detAssignEquip.id)" color="secondary"
-                  *ngIf="detAssignEquip.id" type="button">Delete</button>
-          <button mat-raised-button (click)="gotoListViewDetail()" color="secondary">Cancel</button>
+                  *ngIf="detAssignEquip.id" type="button">Eliminar</button>
+          <button mat-raised-button (click)="gotoListViewDetail()" color="secondary">Cancelar</button>
 
         </mat-card-actions>
       </form>

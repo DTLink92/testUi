@@ -6,7 +6,7 @@
   <button mat-button [matMenuTriggerFor]="projects"><span class="fa fa-list fa-lg"></span> Projects/Areas</button>
   <a mat-button routerLink="/type-equipment"><span class="fa fa-list fa-lg"></span> Type Equipment</a>
   <a mat-button routerLink="/employees-list" class="employees-icon"><span class="glyphicon glyphicon-book"></span> Empleados</a>
-  <button mat-button [matMenuTriggerFor]="assignEquips"><span class="fa fa-list fa-lg"></span> Assign Equipments</button>
+  <button mat-button [matMenuTriggerFor]="assignEquips"><span class="fa fa-list fa-lg"></span> Asignar Equipos</button>
   <button mat-button [matMenuTriggerFor]="accidentes"><span class="fa fa-list fa-lg"></span> Accidentes</button>
   <button mat-button [matMenuTriggerFor]="reports"><span class="fa fa-list fa-lg"></span> Reports</button>
   <a mat-button routerLink="/audit-changes"><span class="fa fa-eye fa-lg"></span> Audit</a>
@@ -28,8 +28,8 @@
     Accidentes</a>
 </mat-menu>
 <mat-menu #assignEquips="matMenu">
-  <a mat-button routerLink="/employee-list-assignequip"><span class="fa fa-address-card fa-lg"></span> Assign Equipments to Employee</a>
-  <a mat-button routerLink="/position-equipment-list"><span class="fa fa-address-card fa-lg"></span> Assign Equipments to Position</a>
+  <a mat-button routerLink="/employee-list-assignequip"><span class="fa fa-address-card fa-lg"></span> Asignar equipo a Empleado</a>
+  <a mat-button routerLink="/position-equipment-list"><span class="fa fa-address-card fa-lg"></span> Asignar equipo a Cargo</a>
 </mat-menu>
 <mat-menu #projects="matMenu">
   <button  mat-menu-item  routerLink="/projects"><span class="fa fa-building fa-lg"></span> Projects</button>
