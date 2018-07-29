@@ -7,10 +7,10 @@
     <mat-card-content>
       <div class="fieldRow">
         <mat-form-field>
-          <input type="hidden" [(ngModel)]="position.id"  name="id" />
+          <input type="hidden" [(ngModel)]="position.id"  name="id" id="id"/>
 
           <input matInput placeholder="Code" [(ngModel)]="position.code"
-               required name="code" #code="ngModel" />
+               required name="code" #code="ngModel" id="code"/>
           <div *ngIf="position.id == null || code.invalid">
             <div *ngIf="code.invalid || code.pristine" class="alert alert-danger">
               <small>Code is required !</small>
@@ -20,8 +20,8 @@
       </div>
       <div class="fieldRow">
         <mat-form-field>
-          <input matInput placeholder="name" [(ngModel)]="position.name"
-               required name="name" #name="ngModel" />
+          <input id="name" matInput placeholder="name" [(ngModel)]="position.name"
+               required name="name" #name="ngModel"/>
           <div *ngIf="position.id == null || name.invalid">
             <div *ngIf="name.invalid || name.pristine" class="alert alert-danger">
               <small>Name is required !</small>
@@ -29,12 +29,18 @@
           </div>
           </mat-form-field>
         <mat-form-field>
+          <!--<label>(*)Higher Position: </label>
+          <select (change)="position.higherWorkPosition($event.target.value)" id="higherWorkPosition" name="higherWorkPosition">
+            <option *ngFor="let position of positions" [value]="position.name">{{position.name}}</option>
+          </select>-->
+
           <mat-select placeholder="Higher Position" [(ngModel)]="position.higherWorkPosition" name="higherWorkPosition"
-                      required #higherWorkPosition = ngModel>
+                      required #higherWorkPosition = ngModel id="higherWorkPosition">
             <mat-option *ngFor="let high of positions" [value]="high.id">
               {{high.name}}
             </mat-option>
           </mat-select>
+
           <div *ngIf="position.id == null || higherWorkPosition.invalid">
             <div *ngIf="higherWorkPosition.invalid || higherWorkPosition.pristine" class="alert alert-danger">
               <small>Higher Work Position is required !</small>
@@ -44,7 +50,7 @@
       </div>
       <div class="fieldRow">
         <mat-form-field>
-          <mat-select placeholder="Area" [(ngModel)]="position.area" name="area" #area="ngModel">
+          <mat-select placeholder="Area" [(ngModel)]="position.area" name="area" #area="ngModel" id="area">
             <mat-option *ngFor="let area of areas" [value]="area.id">
               {{area.name}}
             </mat-option>
@@ -57,7 +63,7 @@
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Process" [(ngModel)]="position.process"
-               required name="process" #process="ngModel">
+               required name="process" #process="ngModel" id="process">
           <div *ngIf="position.id == null || process.invalid">
             <div *ngIf="process.invalid || process.pristine" class="alert alert-danger">
               <small>Process is required !</small>
@@ -67,7 +73,7 @@
       </div>
       <div class="fieldRowPurpose">
         <mat-form-field class="mat-form-field-Purpose">
-          <textarea matInput placeholder="Purpose" [(ngModel)]="position.purpose"
+          <textarea id="purpose" matInput placeholder="Purpose" [(ngModel)]="position.purpose"
                   required name="purpose" #purpose="ngModel">{{position.purpose}}</textarea>
           <div *ngIf="position.id == null || purpose.invalid">
             <div *ngIf="purpose.invalid || purpose.pristine" class="alert alert-danger">
@@ -78,10 +84,10 @@
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit"
+      <button id="btn-save" mat-raised-button color="primary" type="submit"
               [disabled]="!positionForm.form.valid">Save</button>
 
-      <button mat-raised-button (click)="remove(position.id)" color="secondary"
+      <button id="btn-delete" mat-raised-button (click)="remove(position.id)" color="secondary"
               type="button" [disabled]="isParent">Delete</button>
 
       <a mat-button routerLink="/positionList">Cancel</a>
