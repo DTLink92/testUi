@@ -20,7 +20,7 @@
             </mat-form-field>
 
             <mat-form-field>
-              <mat-select placeholder="Equipment" [(ngModel)]="detAssignEquip.idEquipment" name="idEquipment" #idEquipment="ngModel" required>
+              <mat-select placeholder="Equipment" [(ngModel)]="detAssignEquip.idEquipment" name="idEquipment" #idEquipment="ngModel" id="selectEquip" required>
                 <mat-option>Ninguno</mat-option>
                 <mat-option *ngFor="let equipment of equipments" [value]="equipment.id">
                   {{equipment.name}}
@@ -50,10 +50,10 @@
 
         <mat-card-actions>
           <button mat-raised-button color="primary" type="submit"
-                  [disabled]="!detAssignEqForm.form.valid">Guardar</button>
+                  [disabled]="!detAssignEqForm.form.valid" id="btnGuardar">Guardar</button>
           <button mat-raised-button (click)="remove(detAssignEquip.id)" color="secondary"
-                  *ngIf="detAssignEquip.id" type="button">Eliminar</button>
-          <button mat-raised-button (click)="gotoListViewDetail()" color="secondary">Cancelar</button>
+                  *ngIf="detAssignEquip.id" type="button" id="btnEliminar">Eliminar</button>
+          <button mat-raised-button (click)="gotoListViewDetail()" color="secondary" id="btnCancelar">Cancelar</button>
 
         </mat-card-actions>
       </form>

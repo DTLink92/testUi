@@ -20,7 +20,7 @@
           <div class="fieldRow">
             <input type="hidden" name="id" [(ngModel)]="assignEquip.id">
             <mat-form-field>
-              <mat-select placeholder="Employee" [(ngModel)]="assignEquip.idEmployee" name="idEmployee" #idEmployee="ngModel" required>
+              <mat-select placeholder="Employee" [(ngModel)]="assignEquip.idEmployee" name="idEmployee" #idEmployee="ngModel" id="selectEmployee" required>
                 <mat-option>None</mat-option>
                 <mat-option *ngFor="let employee of employees" [value]="employee.id">
                   {{employee.firstName}}<span> </span>{{employee.lastName}}
@@ -28,26 +28,32 @@
               </mat-select>
             </mat-form-field>
           </div>
-          <div class="fieldRow">
-            <mat-form-field>
+          <div class="fieldRow" id="fieldDate1">
+            <!--<mat-form-field>
               <input matInput type="date" name="dateAssign" [(ngModel)]="assignEquip.dateAssign"
                      placeholder="yyyy-MM-dd" min="2013-01-01" max="2030-12-31" class="form-control" required>
+            </mat-form-field>-->
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker" name="dateAssign" [(ngModel)]="assignEquip.dateAssign"
+                     placeholder="yyyy-MM-dd" min="2013-01-01" max="2030-12-31" class="form-control" required>
+              <mat-datepicker-toggle matSuffix [for]="picker" id="datePicker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>
           <div class="fieldRow">
             <mat-form-field>
               <input matInput placeholder="Description" [(ngModel)]="assignEquip.description"
-                     name="description" #description>
+                     name="description" id="inputDescription" #description>
             </mat-form-field>
           </div>
         </mat-card-content>
         <mat-card-actions>
           <button mat-raised-button color="primary" type="submit"
-                  [disabled]="!assignEqForm.form.valid">Guardar</button>
+                  [disabled]="!assignEqForm.form.valid" id="btnSave">Guardar</button>
           <button mat-raised-button (click)="remove(assignEquip.id)" color="secondary"
-                  *ngIf="assignEquip.id" type="button">Eliminar</button>
+                  *ngIf="assignEquip.id" type="button" id="btnDelete">Eliminar</button>
           <button mat-raised-button (click)="gotoList()" color="secondary"
-                  type="button">Cancelar</button>
+                  type="button" id="btnReturn">Cancelar</button>
         </mat-card-actions>
       </form>
     </mat-card>

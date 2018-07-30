@@ -5,11 +5,11 @@
     <div fxFlex class="precont">
       <div class="example-container mat-elevation-z8">
 
-        <h1> LIST OF EQUIPMENTS ASSIGNED </h1>
+        <h1> LISTA DE EQUIPOS ASIGNADOS </h1>
 
         <h2>EMPLOYEE: {{assignEquip.nameEmployee}}<span> </span>{{assignEquip.lastnameEmployee}} </h2>
 
-        <mat-table #tableAssignEquip [dataSource]="detailAssignEquips" class="mat-elevation-z8">
+        <mat-table #tableAssignEquip [dataSource]="detailAssignEquips" class="mat-elevation-z8" id="listEquip">
 
           <ng-container matColumnDef="id">
             <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
@@ -17,12 +17,12 @@
           </ng-container>
 
           <ng-container matColumnDef="nameEquipment">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Equipment </mat-header-cell>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Equipo </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let dae"> {{dae.nameEquip}} </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="editEquipment">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Option </mat-header-cell>
+            <mat-header-cell mat-header-cell *matHeaderCellDef> Opción </mat-header-cell>
            <mat-cell mat-cell *matCellDef="let dae"> <a mat-button [routerLink]="['/assign-equip-employee-edit', assignEquip.id, dae.id]"><span class="fa fa-edit"></span>Edit</a> </mat-cell>
           </ng-container>
 
@@ -44,6 +44,6 @@
 </div>
 
 <div class="container cont-buttons">
-  <button mat-raised-button color="primary" [routerLink]="['/assign-equip-employee', assignEquip.id]">ADD</button>
-  <button mat-raised-button (click)="gotoList()" color="secondary">CANCEL</button>
+  <button mat-raised-button color="primary" [routerLink]="['/assign-equip-employee', assignEquip.id]" id="addEquip">AÑADIR</button>
+  <button mat-raised-button (click)="gotoList()" color="secondary" id="returnList">CANCELAR</button>
 </div>
