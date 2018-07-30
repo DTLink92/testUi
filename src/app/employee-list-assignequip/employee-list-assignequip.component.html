@@ -6,7 +6,7 @@
       <div class="example-container mat-elevation-z8">
 
         <h1> LISTA DE EMPLEADOS PARA ASIGNACIÓN DE EQUIPOS </h1>
-        <mat-table #tableAssignEquip [dataSource]="assignEquips" class="mat-elevation-z8">
+        <mat-table #tableAssignEquip [dataSource]="assignEquips" class="mat-elevation-z8" id="listAssign">
 
           <ng-container matColumnDef="id">
             <mat-header-cell mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
@@ -29,12 +29,12 @@
           </ng-container>
 
           <ng-container matColumnDef="editAssign">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Editar </mat-header-cell>
+            <mat-header-cell mat-header-cell *matHeaderCellDef id="columnEdit"> Editar </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let assignEquip"> <a mat-button [routerLink]="['/assign-equipment-edit', assignEquip.id]"><span class="fa fa-edit"></span>Editar</a> </mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="viewDetail">
-            <mat-header-cell mat-header-cell *matHeaderCellDef> Ver Detalle </mat-header-cell>
+            <mat-header-cell mat-header-cell *matHeaderCellDef id="columnDetail"> Ver Detalle </mat-header-cell>
             <mat-cell mat-cell *matCellDef="let assignEquip"> <a mat-button [routerLink]="['/view-detail-AssignEquip', assignEquip.id]"><span class="fa fa-eye"></span>Ver Equipos</a> </mat-cell>
           </ng-container>
 
