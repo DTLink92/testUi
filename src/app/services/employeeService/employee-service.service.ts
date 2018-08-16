@@ -17,7 +17,7 @@ export class EmployeeService {
   }
 
   getEmployees(): Observable<any> {
-    return this.http.get('http://localhost:8080/employees')
+    return this.http.get('http://192.168.36.130:1999/employees')
       .map((res) => {
         return res;
       }).catch(error => {
@@ -26,13 +26,13 @@ export class EmployeeService {
   }
 
   getEmployee(id: number): Observable<EmployeeDetail> {
-    return this.http.get<EmployeeDetail>('http://localhost:8080/employees/' + id)
+    return this.http.get<EmployeeDetail>('http://192.168.36.130:1999/employees/' + id)
       .map(res => {
         return res;
       });
   }
   postEmployee(employee: any): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/employees', employee)
+    return this.http.post<any>('http://192.168.36.130:1999/employees', employee)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -40,14 +40,14 @@ export class EmployeeService {
       });
   }
   deleteEmployee(id: number) {
-    return this.http.delete('http://localhost:8080/employees/' + id).map((res) => {
+    return this.http.delete('http://192.168.36.130:1999/employees/' + id).map((res) => {
       return res;
     }).catch(error => {
       return error;
     });
   }
   updateEmployee(employee: any): Observable<any> {
-    return this.http.put<any>('http://localhost:8080/employees', employee)
+    return this.http.put<any>('http://192.168.36.130:1999/employees', employee)
       .map((res) => {
         return <EmployeeDetail>res;
       }).catch(error => {
@@ -55,7 +55,7 @@ export class EmployeeService {
       });
   }
   getPositions(): Observable<any> {
-    return this.http.get('http://localhost:8080/positions')
+    return this.http.get('http://192.168.36.130:1999/positions')
       .map((res) => {
         return res;
       }).catch(error => {
@@ -63,7 +63,7 @@ export class EmployeeService {
       });
   }
   getProjects(): Observable<any> {
-    return this.http.get('http://localhost:8080/projects')
+    return this.http.get('http://192.168.36.130:1999/projects')
       .map((res) => {
         return res;
       }).catch(error => {

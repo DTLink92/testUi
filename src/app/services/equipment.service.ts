@@ -10,7 +10,7 @@ import {EmployeeDetail} from '../shared/employeeDetail';
 
 @Injectable()
 export class EquipmentService {
-  public API = '//localhost:8080';
+  public API = '//192.168.36.130:1999';
   public EQUIPMENT_API = this.API + '/equipments';
 
   constructor(private http: HttpClient) {

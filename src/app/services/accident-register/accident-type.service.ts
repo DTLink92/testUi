@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class AccidentTypeService {
-  public API = '//localhost:8080';
+  public API = '//192.168.36.130:1999';
   public ACIDENTTYPE_API = this.API + '/accidentTypes';
 
   constructor(private http: HttpClient) { }

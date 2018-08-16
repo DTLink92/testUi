@@ -4,7 +4,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class AccidentCauseGroupService {
-  public API = '//localhost:8080';
+  public API = '//192.168.36.130:1999';
   public ACIDENTCAUSEGROUP_API = this.API = '/accidentCauseGroup';
 
   constructor(private http: HttpClient) {
@@ -20,7 +20,7 @@ export class AccidentCauseGroupService {
     return this.http.get(this.ACIDENTCAUSEGROUP_API);
   }
   getAccidentCausesGroups(): Observable<any> {
-    return this.http.get('http://localhost:8080/accidentCauseGroup' )
+    return this.http.get('http://192.168.36.130:1999/accidentCauseGroup' )
       .map((res) => {
         return res;
       }).catch(error => {
@@ -28,7 +28,7 @@ export class AccidentCauseGroupService {
       });
   }
   getIdCauses(): Observable<any> {
-    return this.http.get('http://localhost:8080/accidentCauseController')
+    return this.http.get('http://192.168.36.130:1999/accidentCauseController')
       .map((res) => {
         return res;
       }).catch(error => {
@@ -52,7 +52,7 @@ export class AccidentCauseGroupService {
 
 
   saveCause(cause): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/accidentCauseController', cause, this.httpOption)
+    return this.http.post<any>('http://192.168.36.130:1999/accidentCauseController', cause, this.httpOption)
       .map((res) => {
         return res;
       }).catch(error => {

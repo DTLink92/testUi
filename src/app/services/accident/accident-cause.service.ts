@@ -12,7 +12,7 @@ export class AccidentCauseService {
 
   dataChange: BehaviorSubject<Groupcause[]> = new BehaviorSubject<Groupcause[]>([]);
 
-  private readonly API_URL = 'http://localhost:8080/accidentCauseGroup';
+  private readonly API_URL = 'http://192.168.36.130:1999/accidentCauseGroup';
   dialogData: any;
 
   constructor (public httpClient: HttpClient) {}
@@ -41,7 +41,7 @@ export class AccidentCauseService {
   }
 
   getGroups(): Observable<any> {
-    return this.httpClient.get('http://localhost:8080/accidentCauseGroup')
+    return this.httpClient.get('http://192.168.36.130:1999/accidentCauseGroup')
       .map((res) => {
         return res;
       }).catch(error => {
@@ -50,7 +50,7 @@ export class AccidentCauseService {
   }
 
   getCauses(idAccident): Observable<any> {
-    return this.httpClient.get('http://localhost:8080/accidents_cause/accident/' + idAccident, this.httpOptions)
+    return this.httpClient.get('http://192.168.36.130:1999/accidents_cause/accident/' + idAccident, this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -58,7 +58,7 @@ export class AccidentCauseService {
       });
   }
   getCausesGraph(): Observable<any> {
-    return this.httpClient.get('http://localhost:8080/accidents_cause/causes', this.httpOptions)
+    return this.httpClient.get('http://192.168.36.130:1999/accidents_cause/causes', this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -67,7 +67,7 @@ export class AccidentCauseService {
   }
 
   addCause(idCause, idAccident): Observable<any> {
-    return this.httpClient.get('http://localhost:8080/accidents_cause/addaccidentcause/' + idAccident + '/' + idCause, this.httpOptions)
+    return this.httpClient.get('http://192.168.36.130:1999/accidents_cause/addaccidentcause/' + idAccident + '/' + idCause, this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -76,7 +76,7 @@ export class AccidentCauseService {
   }
 
   deleteCause(idCause, idAccident): Observable<any> {
-    return this.httpClient.get('http://localhost:8080/accidents_cause/deleteaccidentcause/' + idAccident + '/' + idCause, this.httpOptions)
+    return this.httpClient.get('http://192.168.36.130:1999/accidents_cause/deleteaccidentcause/' + idAccident + '/' + idCause, this.httpOptions)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -90,7 +90,7 @@ export class AccidentCauseService {
     cause.idCause = cause.id;
     cause.idAccident = id_accident;
 
-    this.httpClient.put<any>('http://localhost:8080/accidents_cause', cause, this.httpOptions).subscribe(data => {
+    this.httpClient.put<any>('http://192.168.36.130:1999/accidents_cause', cause, this.httpOptions).subscribe(data => {
         // this.dialogData = data;
       },
       (error: HttpErrorResponse) => {

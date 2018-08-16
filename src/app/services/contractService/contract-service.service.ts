@@ -16,7 +16,7 @@ export class ContractService {
   constructor(private http: HttpClient) { }
 
   postContract(contract: Contract): Observable<any> {
-    return this.http.post<any>('http://localhost:8080/position_assign_employees', contract, this.httpOptions)
+    return this.http.post<any>('http://192.168.36.130:1999/position_assign_employees', contract, this.httpOptions)
       .map((res) => {
         return <Contract>res;
       }).catch(error => {
@@ -25,7 +25,7 @@ export class ContractService {
   }
 
   updateContract(contract: Contract): Observable<any> {
-    return this.http.put<any>('http://localhost:8080/position_assign_employees', contract)
+    return this.http.put<any>('http://192.168.36.130:1999/position_assign_employees', contract)
       .map((res) => {
         return <Contract>res;
       }).catch(error => {
@@ -33,7 +33,7 @@ export class ContractService {
       });
   }
   getEmployeesByPosition(id: number): Observable<any> {
-    const url = 'http://localhost:8080/position_assign_employees/position=' + id;
+    const url = 'http://192.168.36.130:1999/position_assign_employees/position=' + id;
     return this.http.get(url)
       .map((res) => {
         return res;
@@ -42,7 +42,7 @@ export class ContractService {
       });
   }
   deleteContract(id: number): Observable<any> {
-    return this.http.delete<any>('http://localhost:8080/position_assign_employees/' + id)
+    return this.http.delete<any>('http://192.168.36.130:1999/position_assign_employees/' + id)
       .map((res) => {
         return res;
       }).catch(error => {
@@ -50,7 +50,7 @@ export class ContractService {
       });
   }
   reportEmployeeByPosition(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/position_assign_employees/employeeByPosition')
+    return this.http.get<any>('http://192.168.36.130:1999/position_assign_employees/employeeByPosition')
       .map((res) => {
         return res;
       }).catch(error => {
@@ -58,7 +58,7 @@ export class ContractService {
       });
   }
   reportEmployeeByGenre(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/position_assign_employees/employeeByGenre')
+    return this.http.get<any>('http://192.168.36.130:1999/position_assign_employees/employeeByGenre')
       .map((res) => {
         return res;
       }).catch(error => {
@@ -66,7 +66,7 @@ export class ContractService {
       });
   }
   reportEmployeeBySalary(): Observable<any> {
-    return this.http.get<any>('http://localhost:8080/position_assign_employees/employeeBySalary')
+    return this.http.get<any>('http://192.168.36.130:1999/position_assign_employees/employeeBySalary')
       .map((res) => {
         return res;
       }).catch(error => {

@@ -10,7 +10,7 @@ export class AccidentService {
   dataChange: BehaviorSubject<Accident[]> = new BehaviorSubject<Accident[]>([]);
 
 
-  private readonly API_URL = 'http://localhost:8080/accidents';
+  private readonly API_URL = 'http://192.168.36.130:1999/accidents';
   dialogData: any;
 
   constructor (public httpClient: HttpClient) {}
@@ -38,7 +38,7 @@ export class AccidentService {
       });
   }
   getAccidents(): Observable<any> {
-    return this.httpClient.get('http://localhost:8080/accidents')
+    return this.httpClient.get('http://192.168.36.130:1999/accidents')
       .map((res) => {
         return res;
       }).catch(error => {

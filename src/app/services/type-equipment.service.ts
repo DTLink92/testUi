@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class TypeEquipmentService {
-  public API = '//localhost:8080';
+  public API = '//192.168.36.130:1999';
   public TYPE_EQUIPMENT_API = this.API + '/type_equipments';
 
   constructor(private http: HttpClient) {

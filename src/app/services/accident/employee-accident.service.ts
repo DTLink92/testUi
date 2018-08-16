@@ -12,8 +12,8 @@ export class EmployeeAccidentService {
   dataChangeEmployee: BehaviorSubject<Employee[]> = new BehaviorSubject<Employee[]>([]);
 
 
-  private readonly API_URL = 'http://localhost:8080/employee_accidents';
-  private readonly API_URL_EMPLOYEE = 'http://localhost:8080/employees';
+  private readonly API_URL = 'http://192.168.36.130:1999/employee_accidents';
+  private readonly API_URL_EMPLOYEE = 'http://192.168.36.130:1999/employees';
   accident: any;
   dialogData: any;
 
@@ -75,7 +75,7 @@ export class EmployeeAccidentService {
   }
 
   getAccidents(): Observable<any> {
-    return this.httpClient.get('http://localhost:8080/accidents')
+    return this.httpClient.get('http://192.168.36.130:1999/accidents')
       .map((res) => {
         return res;
       }).catch(error => {
